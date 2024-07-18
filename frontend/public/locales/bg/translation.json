@@ -1,0 +1,18 @@
+{
+    "welcome": "Добре дошли в платформата Fantastic Four",
+    "subtitle": "училищно приложение за домашни работи",
+    "signIn": "Вход",
+    "email": "Имейл",
+    "password": "Парола",
+    "forgotPassword": "Забравена парола?",
+    "signInButton": "Вход",
+    "passwordRequirements": {
+      "minLength": "Поне 8 символа",
+      "uppercase": "Поне една главна буква",
+      "lowercase": "Поне една малка буква",
+      "number": "Поне една цифра",
+      "specialChar": "Поне един специален символ"
+    },
+    "invalidEmailPassword": "Невалиден имейл или парола"
+  }
+  

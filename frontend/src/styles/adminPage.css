@@ -1,0 +1,49 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Скриване на вертикалния скрол */
+}
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  /* background-color: #e6acac !important; */
+
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 20px;
+  overflow-x: hidden;
+
+  .sidebar {
+    flex: 0.2;
+    border-right: 1px solid #27374d;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .content {
+    flex: 1;
+    overflow-x: hidden;
+  }
+}
+.dashboard--content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  flex: 1;
+  height: calc(100vh - 4rem);
+  margin-top: 2rem;
+  margin-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+.dashboard-red {
+  background-color: #e6acac;
+}

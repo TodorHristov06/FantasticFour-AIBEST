@@ -1,0 +1,17 @@
+{
+  "welcome": "Welcome to Fantastic Four platform",
+  "subtitle": "a school app for homeworks",
+  "signIn": "Sign in",
+  "email": "Email",
+  "password": "Password",
+  "forgotPassword": "Forgot your password?",
+  "signInButton": "Sign In",
+  "passwordRequirements": {
+    "minLength": "At least 8 characters",
+    "uppercase": "At least one uppercase letter",
+    "lowercase": "At least one lowercase letter",
+    "number": "At least one number",
+    "specialChar": "At least one special character"
+  },
+  "invalidEmailPassword": "Invalid email or password"
+}
