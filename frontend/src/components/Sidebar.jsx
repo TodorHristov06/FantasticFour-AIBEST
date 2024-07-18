@@ -36,16 +36,8 @@ const Sidebar = ({ role }) => {
                     Report
                 </a>
                 <a href="#" className="item">
-                    <BiMessage className="icon"/>
-                    Message
-                </a>
-                <a href="#" className="item">
                     <BiStats className="icon"/>
                     Grades
-                </a>
-                <a href="#" className="item">
-                    <BiHelpCircle className="icon"/>
-                    Help
                 </a>
                 {role === 'teacher' && (
                     <>
