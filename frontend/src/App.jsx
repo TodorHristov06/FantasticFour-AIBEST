@@ -9,6 +9,7 @@ import ManageUsersPage from './pages/ManageUsersPage';
 import { AuthProvider, useAuth } from './components/AuthContext';
 import MonitorActivityPage from './pages/MonitorActivityPage';
 import AssignClassesPage from './pages/AssignClassesPage';
+import PrintReportPage from './pages/PrintReportPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/manage-users" element={<ManageUsersPage />} />
           <Route path="/monitor-activity"  element={<MonitorActivityPage/>} />
           <Route path="/assign-classes"  element={<AssignClassesPage/>} />
+          <Route path="/print-report"  element={<PrintReportPage/>} />
         </Routes>
       </AuthProvider>
     </Router>
