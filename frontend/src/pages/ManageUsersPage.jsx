@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useTable, useSortBy, useFilters, useGlobalFilter } from 'react-table';
 import Sidebar from '../components/Sidebar';
+import Modal from '../components/Modal';
 import '../styles/manageUsersPage.css';
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
@@ -22,6 +23,8 @@ const ManageUsersPage = () => {
   const userRole = 'admin';
 
   const [filterRole, setFilterRole] = useState('All');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const data = useMemo(
     () => [
@@ -42,7 +45,7 @@ const ManageUsersPage = () => {
         Header: 'Actions',
         Cell: ({ row }) => (
           <div>
-            <button className="edit-button">Edit</button>
+            <button className="edit-button" onClick={() => handleEdit(row.original)}>Edit</button>
             <button className="delete-button">Delete</button>
           </div>
         ),
@@ -65,6 +68,28 @@ const ManageUsersPage = () => {
     state,
     setGlobalFilter,
   } = useTable({ columns, data: filteredData }, useFilters, useGlobalFilter, useSortBy);
+
+  const handleEdit = (user) => {
+    setCurrentUser({ ...user }); // Използвай текущия потребител за редактиране
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setCurrentUser(null);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentUser(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    // Запази промените тук. Например, изпрати данните на сървъра.
+    console.log('Saved user:', currentUser);
+    handleCloseModal();
+  };
 
   return (
     <div className="dashboard dashboard-red">
@@ -120,6 +145,35 @@ const ManageUsersPage = () => {
             </tbody>
           </table>
         </div>
+        {isModalOpen && (
+          <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+            <div className="modal-header">Edit User</div>
+            <form className="modal-form" onSubmit={handleSave}>
+              <div>
+                <label>ID:</label>
+                <input type="text" name="id" value={currentUser?.id} readOnly />
+              </div>
+              <div>
+                <label>Name:</label>
+                <input type="text" name="name" value={currentUser?.name} onChange={handleChange} />
+              </div>
+              <div>
+                <label>Email:</label>
+                <input type="text" name="email" value={currentUser?.email} onChange={handleChange} />
+              </div>
+              <div>
+                <label>Role:</label>
+                <select name="role" value={currentUser?.role} onChange={handleChange}>
+                  <option value="Student">Student</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+              <button type="submit">Save</button>
+              <button type="button" className="cancel" onClick={handleCloseModal}>Cancel</button>
+            </form>
+          </Modal>
+        )}
       </div>
     </div>
   );
