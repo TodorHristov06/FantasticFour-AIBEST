@@ -81,10 +81,6 @@ const Sidebar = ({ role }) => {
                             <BiListUl className="icon"/>
                             Print Report
                         </Link>
-                        <Link to="/delete-users" className="item">
-                            <BiTrash className="icon"/>
-                            Delete Users
-                        </Link>
                     </>
                 )}
             </div>

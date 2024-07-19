@@ -90,8 +90,7 @@ a {
 .admin-view-only .item:nth-child(5), /* Manage Users */
 .admin-view-only .item:nth-child(6), /* Monitor Activity */
 .admin-view-only .item:nth-child(7), /* Assign Classes */
-.admin-view-only .item:nth-child(8),  /* Print Report */
-.admin-view-only .item:nth-child(9) /* Delete Users */  {
+.admin-view-only .item:nth-child(8) /* Print Report */ {
     pointer-events: auto;
     opacity: 1;
 }
