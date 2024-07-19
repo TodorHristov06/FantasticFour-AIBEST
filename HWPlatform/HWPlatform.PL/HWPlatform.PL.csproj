@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HWPlatform.BLL\HWPlatform.BLL.csproj" />
     <ProjectReference Include="..\HWPlatform.DAL\HWPlatform.DAL.csproj" />
   </ItemGroup>
 
