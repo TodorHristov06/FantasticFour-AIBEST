@@ -6,15 +6,6 @@ body {
   overflow: hidden; /* Скриване на вертикалния скрол */
 }
 
-.dashboard {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding-inline: 20px;
-  overflow-x: hidden;
-}
-
 .sidebar {
   flex: 0.2;
   border-right: 1px solid #27374d;
@@ -22,25 +13,6 @@ body {
   border-bottom-right-radius: 10px;
   height: 100%;
   overflow-x: hidden;
-}
-
-.dashboard--content {
-  flex: 1;
-  background: #fff;
-  border-radius: 20px;
-  padding: 2rem;
-  display: flex;
-  gap: 1.5rem;
-  flex-direction: column;
-  height: calc(100vh - 4rem);
-  margin-top: 2rem;
-  margin-right: 1.5rem;
-  box-sizing: border-box;
-  overflow-y: auto;
-}
-
-.dashboard-red {
-  background-color: #e6acac;
 }
 
 .manage-users {

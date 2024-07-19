@@ -47,17 +47,3 @@ body {
 .dashboard-red {
   background-color: #e6acac;
 }
-.admin-content {
-  display: flex;
-  gap: 1.5rem;
-  flex-direction: row;
-  width: 100%;
-}
-
-.profile {
-  flex: 0.3;
-}
-
-.monitor-activity {
-  flex: 0.7;
-}
