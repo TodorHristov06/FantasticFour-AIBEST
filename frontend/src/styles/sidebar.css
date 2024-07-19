@@ -82,17 +82,16 @@ a {
 .admin-view-only .item:nth-child(2), /* Assignment */
 .admin-view-only .item:nth-child(3), /* Report */
 .admin-view-only .item:nth-child(4), /* Grades */
-.admin-view-only .item:nth-child(5),
-.admin-view-only .item:nth-child(11) {
+.admin-view-only .item:nth-child(10) {
     display: none; 
 }
 
 .admin-view-only .item:nth-child(1), /* Dashboard */
-.admin-view-only .item:nth-child(6), /* Manage Users */
-.admin-view-only .item:nth-child(7), /* Monitor Activity */
-.admin-view-only .item:nth-child(8), /* Assign Classes */
-.admin-view-only .item:nth-child(9),  /* Print Report */
-.admin-view-only .item:nth-child(10) /* Delete Users */  {
+.admin-view-only .item:nth-child(5), /* Manage Users */
+.admin-view-only .item:nth-child(6), /* Monitor Activity */
+.admin-view-only .item:nth-child(7), /* Assign Classes */
+.admin-view-only .item:nth-child(8),  /* Print Report */
+.admin-view-only .item:nth-child(9) /* Delete Users */  {
     pointer-events: auto;
     opacity: 1;
 }

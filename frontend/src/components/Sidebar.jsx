@@ -5,7 +5,6 @@ import {
     BiSolidReport,
     BiStats,
     BiTask,
-    BiHelpCircle,
     BiUser,
     BiListUl,
     BiEdit,
