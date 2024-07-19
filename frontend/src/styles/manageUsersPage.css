@@ -4,23 +4,26 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Скриване на вертикалния скрол */
+  font-family: 'Arial', sans-serif;
+  color: #333;
 }
 
 .dashboard {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100vw;
   height: 100vh;
-  padding-inline: 20px;
+  padding: 0 1.25rem; /* Прилагане на padding с rem единици */
   overflow-x: hidden;
 
   .sidebar {
     flex: 0.2;
     border-right: 1px solid #27374d;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: 0.625rem; /* Радиус на ъглите */
+    border-bottom-right-radius: 0.625rem;
     height: 100%;
     overflow-x: hidden;
+    background-color: #f5f5f5; /* Лек фон за страничната лента */
   }
 
   .content {
@@ -31,17 +34,18 @@ body {
 
 .dashboard--content {
   background: #fff;
-  border-radius: 20px;
+  border-radius: 1.25rem; /* Радиус на ъглите */
   padding: 2rem;
   display: flex;
   gap: 1.5rem;
   flex-direction: column;
   flex: 1;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 4rem); /* Премахване на излишния размер */
   margin-top: 2rem;
   margin-right: 1.5rem;
   box-sizing: border-box;
   overflow-y: auto;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); /* Лека сянка */
 }
 
 .dashboard-red {
@@ -54,16 +58,25 @@ body {
 
 .manage-users h2 {
   margin-bottom: 1rem;
+  font-size: 1.5rem; /* По-голям размер на шрифта */
+  color: #526d82; /* Цветът на заглавието */
 }
 
 .add-user-button {
   background-color: #27374d;
-  color: white;
-  padding: 10px 20px;
+  color: #fff;
+  padding: 0.75rem 1.25rem; /* Прилагане на padding с rem единици */
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem; /* Радиус на ъглите */
   cursor: pointer;
   margin-bottom: 1rem;
+  font-size: 1rem; /* Размер на шрифта */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Плавни преходи */
+}
+
+.add-user-button:hover {
+  background-color: #1a2a38; /* По-тъмен нюанс при hover */
+  transform: scale(1.02); /* Лек ефект на уголемяване */
 }
 
 .users-table {
@@ -74,25 +87,41 @@ body {
 .users-table th,
 .users-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 0.75rem;
+  text-align: left;
 }
 
 .users-table th {
   background-color: #27374d;
-  color: white;
+  color: #fff;
+  font-size: 1.125rem; /* Размер на шрифта на заглавките */
 }
 
 .edit-button,
 .delete-button {
   background-color: #27374d;
-  color: white;
-  padding: 5px 10px;
+  color: #fff;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 3px;
+  border-radius: 0.1875rem; /* Радиус на ъглите */
   cursor: pointer;
-  margin-right: 5px;
+  font-size: 0.875rem; /* Размер на шрифта */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Плавни преходи */
+  margin-right: 0.5rem; /* Разстояние между бутоните */
+}
+
+.edit-button {
+  background-color: #27374d;
+}
+
+.edit-button:hover {
+  background-color: #1a2a38; /* По-тъмен нюанс при hover */
 }
 
 .delete-button {
   background-color: #d9534f;
+}
+
+.delete-button:hover {
+  background-color: #c9302c; /* По-тъмен нюанс при hover */
 }
