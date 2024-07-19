@@ -23,8 +23,15 @@ const ManageUsersPage = () => {
   const userRole = 'admin';
 
   const [filterRole, setFilterRole] = useState('All');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [newUser, setNewUser] = useState({
+    id: '',
+    name: '',
+    email: '',
+    role: 'Student'
+  });
 
   const data = useMemo(
     () => [
@@ -70,13 +77,33 @@ const ManageUsersPage = () => {
   } = useTable({ columns, data: filteredData }, useFilters, useGlobalFilter, useSortBy);
 
   const handleEdit = (user) => {
-    setCurrentUser({ ...user }); // Използвай текущия потребител за редактиране
-    setIsModalOpen(true);
+    setCurrentUser({ ...user });
+    setIsEditModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleAdd = () => {
+    setNewUser({
+      id: '',
+      name: '',
+      email: '',
+      role: 'Student'
+    });
+    setIsAddModalOpen(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
     setCurrentUser(null);
+  };
+
+  const handleCloseAddModal = () => {
+    setIsAddModalOpen(false);
+    setNewUser({
+      id: '',
+      name: '',
+      email: '',
+      role: 'Student'
+    });
   };
 
   const handleChange = (e) => {
@@ -88,7 +115,19 @@ const ManageUsersPage = () => {
     e.preventDefault();
     // Запази промените тук. Например, изпрати данните на сървъра.
     console.log('Saved user:', currentUser);
-    handleCloseModal();
+    handleCloseEditModal();
+  };
+
+  const handleAddChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleAddSave = (e) => {
+    e.preventDefault();
+    // Запази новия потребител тук. Например, изпрати данните на сървъра.
+    console.log('Added user:', newUser);
+    handleCloseAddModal();
   };
 
   return (
@@ -97,7 +136,7 @@ const ManageUsersPage = () => {
       <div className="dashboard--content">
         <div className="manage-users">
           <h2>Manage Users</h2>
-          <button className="add-user-button">Add User</button>
+          <button className="add-user-button" onClick={handleAdd}>Add User</button>
           <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
           <div className="global-filter">
             <label>
@@ -145,8 +184,8 @@ const ManageUsersPage = () => {
             </tbody>
           </table>
         </div>
-        {isModalOpen && (
-          <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {isEditModalOpen && (
+          <Modal isOpen={isEditModalOpen} onClose={handleCloseEditModal}>
             <div className="modal-header">Edit User</div>
             <form className="modal-form" onSubmit={handleSave}>
               <div>
@@ -170,7 +209,36 @@ const ManageUsersPage = () => {
                 </select>
               </div>
               <button type="submit">Save</button>
-              <button type="button" className="cancel" onClick={handleCloseModal}>Cancel</button>
+              <button type="button" className="cancel" onClick={handleCloseEditModal}>Cancel</button>
+            </form>
+          </Modal>
+        )}
+        {isAddModalOpen && (
+          <Modal isOpen={isAddModalOpen} onClose={handleCloseAddModal}>
+            <div className="modal-header">Add User</div>
+            <form className="modal-form" onSubmit={handleAddSave}>
+              <div>
+                <label>ID:</label>
+                <input type="text" name="id" value={newUser.id} onChange={handleAddChange} />
+              </div>
+              <div>
+                <label>Name:</label>
+                <input type="text" name="name" value={newUser.name} onChange={handleAddChange} />
+              </div>
+              <div>
+                <label>Email:</label>
+                <input type="text" name="email" value={newUser.email} onChange={handleAddChange} />
+              </div>
+              <div>
+                <label>Role:</label>
+                <select name="role" value={newUser.role} onChange={handleAddChange}>
+                  <option value="Student">Student</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+              <button type="submit">Add</button>
+              <button type="button" className="cancel" onClick={handleCloseAddModal}>Cancel</button>
             </form>
           </Modal>
         )}
