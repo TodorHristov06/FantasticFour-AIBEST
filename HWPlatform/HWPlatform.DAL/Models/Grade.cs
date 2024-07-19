@@ -16,8 +16,8 @@ public class Grade
     public string Feedback { get; set; } = string.Empty;
 
     // FK property to HomeworkSubmission
-    public int SubmissionId { get; set; }
+    public int AssignmentStudentId { get; set; }
 
     [Required]
-    public HomeworkSubmission Submission { get; set; } = null!;
+    public AssignmentStudent AssignmentStudent { get; set; } = null!;
 }

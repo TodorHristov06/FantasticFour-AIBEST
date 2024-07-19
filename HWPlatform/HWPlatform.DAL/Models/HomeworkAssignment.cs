@@ -34,5 +34,5 @@ public class HomeworkAssignment
     public Subject Subject { get; set; } = null!;
 
     // Collection navigation to HomeworkSubmission
-    public ICollection<HomeworkSubmission> Submissions { get; } = new List<HomeworkSubmission>();
+    public ICollection<AssignmentStudent> AssignedStudents { get; } = new List<AssignmentStudent>();
 }

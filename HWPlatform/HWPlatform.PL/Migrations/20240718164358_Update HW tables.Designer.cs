@@ -4,6 +4,7 @@ using HWPlatform.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HWPlatform.PL.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20240718164358_Update HW tables")]
+    partial class UpdateHWtables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,14 +54,9 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("AssignmentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AssignmentId");
-
-                    b.HasIndex("StudentId");
 
                     b.ToTable("AssignmentStudents");
                 });
@@ -90,9 +88,6 @@ namespace HWPlatform.PL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AssignmentStudentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Feedback")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -100,9 +95,12 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("Percentage")
                         .HasColumnType("int");
 
+                    b.Property<int>("SubmissionId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AssignmentStudentId")
+                    b.HasIndex("SubmissionId")
                         .IsUnique();
 
                     b.ToTable("Grades");
@@ -164,6 +162,9 @@ namespace HWPlatform.PL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("SubmissionDate")
                         .HasColumnType("datetime2");
 
@@ -172,6 +173,8 @@ namespace HWPlatform.PL.Migrations
                     b.HasIndex("AssignmentStudentId")
                         .IsUnique()
                         .HasFilter("[AssignmentStudentId] IS NOT NULL");
+
+                    b.HasIndex("StudentId");
 
                     b.ToTable("HomeworkSubmissions");
                 });
@@ -316,24 +319,16 @@ namespace HWPlatform.PL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("HWPlatform.DAL.Models.StudentDetails", "Student")
-                        .WithMany("AssignedHomeworks")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Assignment");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Grade", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.AssignmentStudent", "AssignmentStudent")
+                    b.HasOne("HWPlatform.DAL.Models.HomeworkSubmission", "Submission")
                         .WithOne("Grade")
-                        .HasForeignKey("HWPlatform.DAL.Models.Grade", "AssignmentStudentId");
+                        .HasForeignKey("HWPlatform.DAL.Models.Grade", "SubmissionId");
 
-                    b.Navigation("AssignmentStudent");
+                    b.Navigation("Submission");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.HomeworkAssignment", b =>
@@ -361,7 +356,15 @@ namespace HWPlatform.PL.Migrations
                         .WithOne("Submission")
                         .HasForeignKey("HWPlatform.DAL.Models.HomeworkSubmission", "AssignmentStudentId");
 
+                    b.HasOne("HWPlatform.DAL.Models.StudentDetails", "Student")
+                        .WithMany("HomeworkSubmissions")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("AssignedStudent");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.StudentDetails", b =>
@@ -414,8 +417,6 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.AssignmentStudent", b =>
                 {
-                    b.Navigation("Grade");
-
                     b.Navigation("Submission");
                 });
 
@@ -429,9 +430,14 @@ namespace HWPlatform.PL.Migrations
                     b.Navigation("AssignedStudents");
                 });
 
+            modelBuilder.Entity("HWPlatform.DAL.Models.HomeworkSubmission", b =>
+                {
+                    b.Navigation("Grade");
+                });
+
             modelBuilder.Entity("HWPlatform.DAL.Models.StudentDetails", b =>
                 {
-                    b.Navigation("AssignedHomeworks");
+                    b.Navigation("HomeworkSubmissions");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Subject", b =>
