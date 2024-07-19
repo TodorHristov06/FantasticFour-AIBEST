@@ -1,32 +1,39 @@
-import React from 'react'
-import "../styles/teacherList.css"
-import ProfilePicture from '../assets/ProfilePicture.jpg'
+import React from 'react';
+import "../styles/teacherList.css";
+import ProfilePicture from '../assets/ProfilePicture.jpg';
+
+// Добавете уникален идентификатор на всеки обект
 const teachers = [
     {
+        id: 1,  // Уникален идентификатор
         image: ProfilePicture,
         name: "Stanimir Stoleotv",
         duration: '2 hours lesson',
         cost: '1',
     },
     {
+        id: 2,  // Уникален идентификатор
         image: ProfilePicture,
         name: "Georgi Dimitrov",
-        duration: '1 hours lesson',
+        duration: '1 hour lesson',
         cost: '2',
     },
     {
+        id: 3,  // Уникален идентификатор
         image: ProfilePicture,
         name: "Petar Petrov",
         duration: '3 hours lesson',
         cost: '1',
     },
     {
+        id: 4,  // Уникален идентификатор
         image: ProfilePicture,
         name: "Sheytanova",
         duration: '4 hours lesson',
         cost: '3',
     },
 ];
+
 const TeacherList = () => {
   return (
     <div className="teacher--list">
@@ -39,7 +46,7 @@ const TeacherList = () => {
         </div>
         <div className="list--container"> 
             {teachers.map((teacher) => (
-                <div className="list">
+                <div key={teacher.id} className="list"> {/* Уникален key пропс */}
                     <div className="teacher--detail">
                         <img src={teacher.image} alt={teacher.name} />
                         <h2>{teacher.name}</h2>
@@ -54,4 +61,4 @@ const TeacherList = () => {
   );
 }
 
-export default TeacherList
+export default TeacherList;
