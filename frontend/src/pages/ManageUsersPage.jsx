@@ -89,16 +89,18 @@ const ManageUsersPage = () => {
             <thead>
               {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
-                  {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps(column.getSortByToggleProps())} key={column.id}>
-                      {column.render('Header')}
-                      {column.isSorted
-                        ? column.isSortedDesc
-                          ? ' 🔽'
-                          : ' 🔼'
-                        : ''}
-                    </th>
-                  ))}
+                  {headerGroup.headers.map(column => {
+                    const sortClass = column.isSorted ? (column.isSortedDesc ? 'desc' : 'asc') : '';
+                    return (
+                      <th 
+                        {...column.getHeaderProps(column.getSortByToggleProps())} 
+                        key={column.id} 
+                        className={sortClass}
+                      >
+                        {column.render('Header')}
+                      </th>
+                    );
+                  })}
                 </tr>
               ))}
             </thead>
