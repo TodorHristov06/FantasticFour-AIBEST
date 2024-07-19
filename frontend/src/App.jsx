@@ -8,6 +8,7 @@ import StudentPage from './pages/StudentPage';
 import ManageUsersPage from './pages/ManageUsersPage';
 import { AuthProvider, useAuth } from './components/AuthContext';
 import MonitorActivityPage from './pages/MonitorActivityPage';
+import AssignClassesPage from './pages/AssignClassesPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/student" element={<StudentPage />} />
           <Route path="/manage-users" element={<ManageUsersPage />} />
           <Route path="/monitor-activity"  element={<MonitorActivityPage/>} />
+          <Route path="/assign-classes"  element={<AssignClassesPage/>} />
         </Routes>
       </AuthProvider>
     </Router>
