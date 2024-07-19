@@ -15,9 +15,6 @@ public class Subject
     // Collection navigation to HomeworkAssignment
     public ICollection<HomeworkAssignment> Assignments { get; } = new List<HomeworkAssignment>();
 
-    // FK property to Teachers
-    public int TeacherId { get; set; }
-
-    [Required]
-    public Teacher Teacher { get; set; } = null!;
+    // Collection navigation to Teachers
+    public ICollection<Teacher> Teachers { get; } = new List<Teacher>();
 }

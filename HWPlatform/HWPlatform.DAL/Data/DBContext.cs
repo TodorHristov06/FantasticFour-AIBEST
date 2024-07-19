@@ -67,9 +67,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<Teacher>()
             .HasMany(t => t.Subjects)
-            .WithOne(s => s.Teacher)
-            .HasForeignKey(s => s.TeacherId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .WithMany(s => s.Teachers);
 
         // Create relationship between the Teachers and HomeworkAssignments tables
         modelBuilder
