@@ -12,7 +12,7 @@ import {
     BiEdit,
     BiTrash
 } from 'react-icons/bi';
-import { Link } from 'react-router-dom'; // Импортиране на Link компонента от react-router-dom
+import { Link } from 'react-router-dom';
 import '../styles/sidebar.css';
 
 const Sidebar = ({ role }) => {

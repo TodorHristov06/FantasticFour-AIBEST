@@ -1,29 +1,98 @@
-.dashboard--content {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    justify-content: flex-start;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Скриване на вертикалния скрол */
+}
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 20px;
+  overflow-x: hidden;
+
+  .sidebar {
+    flex: 0.2;
+    border-right: 1px solid #27374d;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .content {
     flex: 1;
-    height: calc(100vh - 4rem);
-    margin-top: 2rem;
-    margin-right: 1.5rem;
-    box-sizing: border-box;
+    overflow-x: hidden;
   }
-  
-  .dashboard-red {
-    background-color: #e6acac;
-  }
-  
-  h1 {
-    font-size: 2rem;
-    color: #27374d;
-  }
-  
-  p {
-    font-size: 1.2rem;
-    color: #27374d;
-  }
-  
+}
+
+.dashboard--content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  flex: 1;
+  height: calc(100vh - 4rem);
+  margin-top: 2rem;
+  margin-right: 1.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.dashboard-red {
+  background-color: #e6acac;
+}
+
+.manage-users {
+  width: 100%;
+}
+
+.manage-users h2 {
+  margin-bottom: 1rem;
+}
+
+.add-user-button {
+  background-color: #27374d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.users-table th {
+  background-color: #27374d;
+  color: white;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #27374d;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.delete-button {
+  background-color: #d9534f;
+}
