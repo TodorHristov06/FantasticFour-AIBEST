@@ -16,6 +16,19 @@ import { Link } from 'react-router-dom';
 import '../styles/sidebar.css';
 
 const Sidebar = ({ role }) => {
+    const getDashboardLink = () => {
+        switch (role) {
+            case 'admin':
+                return '/admin';
+            case 'teacher':
+                return '/teacher';
+            case 'student':
+                return '/student';
+            default:
+                return '/';
+        }
+    };
+
     return (
         <div className={`menu ${role === 'student' ? 'student-view-only' : role === 'teacher' ? 'teacher-view-only' : role === 'admin' ? 'admin-view-only' : ''}`}>
             <div className="logo">
@@ -24,7 +37,7 @@ const Sidebar = ({ role }) => {
             </div>
 
             <div className="menu--list">
-                <Link to="/" className="item">
+                <Link to={getDashboardLink()} className="item">
                     <BiHome className="icon"/>
                     Dashboard
                 </Link>
@@ -82,7 +95,7 @@ const Sidebar = ({ role }) => {
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Sidebar;
