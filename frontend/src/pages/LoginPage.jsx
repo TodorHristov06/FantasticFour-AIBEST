@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import * as Components from "../components/loginComponents";
 import "../localization/i18n.js"; // Актуализиран път към i18n.js
 import LanguageSelector from "../components/LanguageSelector";
+import { useAuth } from "../components/AuthContext";
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -42,14 +46,35 @@ const Login = ({ onLogin }) => {
       setShowValidation(false);
     }
 
+    let role = null;
+
     if (email === "admin@example.com" && password === "Password1$") {
-      onLogin({ isAuthenticated: true, role: "admin" });
+      role = "admin";
     } else if (email === "teacher@example.com" && password === "Password2$") {
-      onLogin({ isAuthenticated: true, role: "teacher" });
+      role = "teacher";
     } else if (email === "student@example.com" && password === "Password3$") {
-      onLogin({ isAuthenticated: true, role: "student" });
+      role = "student";
     } else {
       setEmailError(t("invalidEmailPassword"));
+      return;
+    }
+
+    login({ isAuthenticated: true, role });
+
+    // Навигация след успешен логин
+    switch (role) {
+      case "admin":
+        navigate("/admin");
+        break;
+      case "teacher":
+        navigate("/teacher");
+        break;
+      case "student":
+        navigate("/student");
+        break;
+      default:
+        navigate("/");
+        break;
     }
   };
 
@@ -75,6 +100,7 @@ const Login = ({ onLogin }) => {
               placeholder={t("email")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              id="email"
             />
             {emailError && <Components.Error>{emailError}</Components.Error>}
             <Components.Input
@@ -82,6 +108,7 @@ const Login = ({ onLogin }) => {
               placeholder={t("password")}
               value={password}
               onChange={handlePasswordChange}
+              id="password"
             />
             {showValidation && (
               <Components.ValidationTracker>
