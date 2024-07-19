@@ -79,20 +79,20 @@ a {
     opacity: 0.6;
 }
 
-.admin-view-only .item:nth-child(7), /* Assignment */
-.admin-view-only .item:nth-child(8), /* Report */
-.admin-view-only .item:nth-child(9), /* Message */
-.admin-view-only .item:nth-child(10), /* Grades */
-.admin-view-only .item:nth-child(11) /* Help */ {
-    display: 1;
+.admin-view-only .item:nth-child(2), /* Assignment */
+.admin-view-only .item:nth-child(3), /* Report */
+.admin-view-only .item:nth-child(4), /* Grades */
+.admin-view-only .item:nth-child(5),
+.admin-view-only .item:nth-child(11) {
+    display: none; 
 }
 
 .admin-view-only .item:nth-child(1), /* Dashboard */
-.admin-view-only .item:nth-child(2), /* Manage Users */
-.admin-view-only .item:nth-child(3), /* Monitor Activity */
-.admin-view-only .item:nth-child(4), /* Assign Classes */
-.admin-view-only .item:nth-child(5), /* Delete Users */
-.admin-view-only .item:nth-child(6)  /* Print Report */ {
+.admin-view-only .item:nth-child(6), /* Manage Users */
+.admin-view-only .item:nth-child(7), /* Monitor Activity */
+.admin-view-only .item:nth-child(8), /* Assign Classes */
+.admin-view-only .item:nth-child(9),  /* Print Report */
+.admin-view-only .item:nth-child(10) /* Delete Users */  {
     pointer-events: auto;
     opacity: 1;
 }

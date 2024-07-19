@@ -2,7 +2,6 @@ import React from "react";
 import {
     BiHome,
     BiBookAlt,
-    BiMessage,
     BiSolidReport,
     BiStats,
     BiTask,
@@ -48,10 +47,6 @@ const Sidebar = ({ role }) => {
                 <Link to="/report" className="item">
                     <BiSolidReport className="icon"/>
                     Report
-                </Link>
-                <Link to="/message" className="item">
-                    <BiMessage className="icon"/>
-                    Message
                 </Link>
                 <Link to="/grades" className="item">
                     <BiStats className="icon"/>
