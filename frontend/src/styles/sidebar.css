@@ -84,7 +84,7 @@ a {
 .admin-view-only .item:nth-child(9), /* Message */
 .admin-view-only .item:nth-child(10), /* Grades */
 .admin-view-only .item:nth-child(11) /* Help */ {
-    display: none;
+    display: 1;
 }
 
 .admin-view-only .item:nth-child(1), /* Dashboard */

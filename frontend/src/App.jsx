@@ -1,40 +1,28 @@
 import React from "react";
-import { AuthProvider, useAuth } from "./components/AuthContext";
+import { AuthProvider } from "./components/AuthContext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage";
 import Login from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import TeacherPage from "./pages/TeacherPage";
 import StudentPage from "./pages/StudentPage";
+import ManageUsersPage from "./pages/ManageUsersPage"; // Импортиране на ManageUsersPage
 
 function App() {
-  const { auth, login } = useAuth();
-
-  const renderPage = () => {
-    if (!auth.isAuthenticated) {
-      return <Login onLogin={login} />;
-    }
-
-    switch (auth.role) {
-      case "admin":
-        return <AdminPage />;
-      case "teacher":
-        return <TeacherPage />;
-      case "student":
-        return <StudentPage />;
-      default:
-        return <WelcomePage />;
-    }
-  };
-
-  return renderPage();
-  // return <StudentPage/>
-  // return <AdminPage/>
-  // return <TeacherPage/>
-  // return WelcomePage();
+  return (
+    <Router>
+      <AuthProvider>
+        <Routes> 
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/teacher" element={<TeacherPage />} />
+          <Route path="/student" element={<StudentPage />} />
+          <Route path="/manage-users" element={<ManageUsersPage />} /> {/* Нов маршрут за ManageUsersPage */}
+        </Routes>
+      </AuthProvider>
+    </Router>
+  );
 }
 
-export default () => (
-  <AuthProvider>
-    <App />
-  </AuthProvider>
-);
+export default App;

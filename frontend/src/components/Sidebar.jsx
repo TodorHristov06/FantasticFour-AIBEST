@@ -12,6 +12,7 @@ import {
     BiEdit,
     BiTrash
 } from 'react-icons/bi';
+import { Link } from 'react-router-dom'; // Импортиране на Link компонента от react-router-dom
 import '../styles/sidebar.css';
 
 const Sidebar = ({ role }) => {
@@ -23,56 +24,60 @@ const Sidebar = ({ role }) => {
             </div>
 
             <div className="menu--list">
-                <a href="#" className="item">
+                <Link to="/" className="item">
                     <BiHome className="icon"/>
                     Dashboard
-                </a>
-                <a href="#" className="item">
+                </Link>
+                <Link to="/assignment" className="item">
                     <BiTask className="icon"/>
                     Assignment
-                </a>
-                <a href="#" className="item">
+                </Link>
+                <Link to="/report" className="item">
                     <BiSolidReport className="icon"/>
                     Report
-                </a>
-                <a href="#" className="item">
+                </Link>
+                <Link to="/message" className="item">
+                    <BiMessage className="icon"/>
+                    Message
+                </Link>
+                <Link to="/grades" className="item">
                     <BiStats className="icon"/>
                     Grades
-                </a>
+                </Link>
                 {role === 'teacher' && (
                     <>
-                        <a href="#" className="item">
+                        <Link to="/students" className="item">
                             <BiUser className="icon"/>
                             Students
-                        </a>
-                        <a href="#" className="item">
+                        </Link>
+                        <Link to="/print-report" className="item">
                             <BiListUl className="icon"/>
                             Print Report
-                        </a>
+                        </Link>
                     </>
                 )}
                 {role === 'admin' && (
                     <>
-                        <a href="#" className="item">
+                        <Link to="/manage-users" className="item">
                             <BiUser className="icon"/>
                             Manage Users
-                        </a>
-                        <a href="#" className="item">
+                        </Link>
+                        <Link to="/monitor-activity" className="item">
                             <BiEdit className="icon"/>
                             Monitor Activity
-                        </a>
-                        <a href="#" className="item">
+                        </Link>
+                        <Link to="/assign-classes" className="item">
                             <BiListUl className="icon"/>
                             Assign Classes
-                        </a>
-                        <a href="#" className="item">
+                        </Link>
+                        <Link to="/print-report" className="item">
                             <BiListUl className="icon"/>
                             Print Report
-                        </a>
-                        <a href="#" className="item">
+                        </Link>
+                        <Link to="/delete-users" className="item">
                             <BiTrash className="icon"/>
                             Delete Users
-                        </a>
+                        </Link>
                     </>
                 )}
             </div>
