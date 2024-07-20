@@ -105,7 +105,7 @@ const MonitorActivityPage = () => {
   return (
     <div className="dashboard dashboard-red">
       <Sidebar role={userRole} />
-      <div className="dashboard--content">
+      <div className="dashboard--content" style={{ position: 'relative' }}>
         <LanguageSelector /> {/* Add LanguageSelector here */}
         <div className="monitor-activity">
           <h2>{t('monitorActivity')}</h2>
