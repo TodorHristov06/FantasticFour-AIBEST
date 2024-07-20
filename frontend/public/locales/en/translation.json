@@ -36,6 +36,39 @@
   "save": "Save",
   "cancel": "Cancel",
   "addedUser": "Added user:",
-  "savedUser": "Saved user:"
+  "savedUser": "Saved user:",
+
+
+  "January": "January",
+  "February": "February",
+  "March": "March",
+  "April": "April",
+  "May": "May",
+  "June": "June",
+  "July": "July",
+  "August": "August",
+  "September": "September",
+  "October": "October",
+  "November": "November",
+  "December": "December",
+  "Monday": "Monday",
+  "Tuesday": "Tuesday",
+  "Wednesday": "Wednesday",
+  "Thursday": "Thursday",
+  "Friday": "Friday",
+  "Saturday": "Saturday",
+  "Sunday": "Sunday",
+  "monitorActivity": "Monitor Activity",
+  "totalUsers": "Total Users",
+  "activeUsersToday": "Active Users Today",
+  "totalVisits": "Total Visits",
+  "serverUptime": "Server Uptime",
+  "apiResponseTimes": "API Response Times",
+  "totalUsersOverTime": "Total Users Over Time",
+  "activeUsersTodayChart": "Active Users Today Chart",
+  "totalVisitsOverTime": "Total Visits Over Time",
+  "serverUptimeAndDowntime": "Server Uptime and Downtime",
+  "apiResponseTimesOverTime": "API Response Times Over Time"
+
 }
 
