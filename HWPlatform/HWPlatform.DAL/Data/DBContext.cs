@@ -25,6 +25,12 @@ public class DBContext : DbContext
     // Set table relationships
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Make the user Email unique
+        modelBuilder
+            .Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+
         // Create relationship between the UserRoles and Users tables
         modelBuilder
             .Entity<UserRoles>()
