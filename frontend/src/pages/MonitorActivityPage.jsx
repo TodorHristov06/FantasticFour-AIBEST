@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, Title, Tooltip, Legend, PointElement } from 'chart.js';
 import Sidebar from '../components/Sidebar';
@@ -10,7 +10,8 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointEleme
 const MonitorActivityPage = () => {
   const userRole = 'admin';
 
-  const [selectedChart, setSelectedChart] = useState(null);
+  // По подразбиране избран графика е 'totalUsers'
+  const [selectedChart, setSelectedChart] = useState('totalUsers');
 
   const activityData = {
     totalUsers: 1200,
