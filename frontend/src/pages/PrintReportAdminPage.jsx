@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
-import "../styles/printReportPage.css";
+import "../styles/printReportAdminPage.css";
 
-const PrintReportPage = () => {
+const PrintReportAdminPage = () => {
   const userRole = 'admin';
 
   const [selectedStudent, setSelectedStudent] = useState("");
@@ -29,7 +29,7 @@ const PrintReportPage = () => {
     <div className="dashboard dashboard-red">
       <Sidebar role={userRole} />
       <div className="dashboard--content">
-        <div className="print-report">
+        <div className="print-report-admin">
           <h2>Print Report</h2>
 
           <div className="report-form">
@@ -69,4 +69,4 @@ const PrintReportPage = () => {
   );
 };
 
-export default PrintReportPage;
+export default PrintReportAdminPage;

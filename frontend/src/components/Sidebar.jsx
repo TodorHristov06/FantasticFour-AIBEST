@@ -57,7 +57,7 @@ const Sidebar = ({ role }) => {
                             <BiUser className="icon"/>
                             Students
                         </Link>
-                        <Link to="/print-report" className="item">
+                        <Link to="/print-report-teacher" className="item">
                             <BiListUl className="icon"/>
                             Print Report
                         </Link>
@@ -77,7 +77,11 @@ const Sidebar = ({ role }) => {
                             <BiListUl className="icon"/>
                             Assign Classes
                         </Link>
-                        <Link to="/print-report" className="item">
+                        <Link to="/print-report-admin" className="item">
+                            <BiListUl className="icon"/>
+                            Print Report
+                        </Link>
+                        <Link to="/print-report-teacher" className="item">
                             <BiListUl className="icon"/>
                             Print Report
                         </Link>

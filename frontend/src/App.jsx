@@ -8,8 +8,9 @@ import StudentPage from "./pages/StudentPage";
 import ManageUsersPage from "./pages/ManageUsersPage"; // Импортиране на ManageUsersPage
 import MonitorActivityPage from "./pages/MonitorActivityPage"; // Импортиране на MonitorActivityPage
 import AssignClassesPage from "./pages/AssignClassesPage"; // Импортиране на AssignClassesPage
-import PrintReportPage from "./pages/PrintReportPage"; // Импортиране на PrintReportPage
-import CreateAssignment from './pages/CreateAssignmentPage';
+import PrintReportAdminPage from './pages/PrintReportAdminPage'; // Импортиране на PrintReportPage
+import CreateAssignment from './pages/CreateAssignmentPage'; // Импортиране на CreateAssignmentPage
+import PrintReportTeacherPage from './pages/PrintReportTeacherPage';
 
 const ProtectedRoute = ({ element, ...rest }) => {
   const { auth } = useAuth();
@@ -37,8 +38,9 @@ function App() {
           <Route path="/manage-users" element={<ProtectedRoute element={<ManageUsersPage />} />} />
           <Route path="/monitor-activity" element={<ProtectedRoute element={<MonitorActivityPage />} />} />
           <Route path="/assign-classes" element={<ProtectedRoute element={<AssignClassesPage />} />} />
-          <Route path="/print-report" element={<ProtectedRoute element={<PrintReportPage />} />} />
+          <Route path="/print-report-admin" element={<ProtectedRoute element={<PrintReportAdminPage />} />} />
           <Route path="/assignment" element={<ProtectedRoute element={<CreateAssignment />} />} />
+          <Route path="/print-report-teacher" element={<ProtectedRoute element={<PrintReportTeacherPage />} />} />
         </Routes>
       </AuthProvider>
     </Router>
