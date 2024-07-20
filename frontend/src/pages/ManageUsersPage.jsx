@@ -1,18 +1,22 @@
 import React, { useMemo, useState } from 'react';
 import { useTable, useSortBy, useFilters, useGlobalFilter } from 'react-table';
+import { useTranslation } from 'react-i18next';  // Добавено
 import Sidebar from '../components/Sidebar';
 import Modal from '../components/Modal';
+import LanguageSelector from '../components/LanguageSelector'; // Добавено
 import '../styles/manageUsersPage.css';
 
+// Компонент за глобално търсене
 const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
+  const { t } = useTranslation(); // Добавено
   return (
     <div className="global-filter">
       <label>
-        Search:{' '}
+        {t('search')}:{' '}
         <input
           value={globalFilter || ''}
           onChange={e => setGlobalFilter(e.target.value || undefined)}
-          placeholder="Search all columns"
+          placeholder={t('searchAllColumns')}
         />
       </label>
     </div>
@@ -20,6 +24,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
 };
 
 const ManageUsersPage = () => {
+  const { t } = useTranslation(); // Добавено
   const userRole = 'admin';
 
   const [filterRole, setFilterRole] = useState('All');
@@ -44,21 +49,21 @@ const ManageUsersPage = () => {
 
   const columns = useMemo(
     () => [
-      { Header: 'ID', accessor: 'id' },
-      { Header: 'Name', accessor: 'name' },
-      { Header: 'Email', accessor: 'email' },
-      { Header: 'Role', accessor: 'role' },
+      { Header: t('id'), accessor: 'id' },
+      { Header: t('name'), accessor: 'name' },
+      { Header: t('email'), accessor: 'email' },
+      { Header: t('role'), accessor: 'role' },
       {
-        Header: 'Actions',
+        Header: t('actions'),
         Cell: ({ row }) => (
           <div>
-            <button className="edit-button" onClick={() => handleEdit(row.original)}>Edit</button>
-            <button className="delete-button">Delete</button>
+            <button className="edit-button" onClick={() => handleEdit(row.original)}>{t('edit')}</button>
+            <button className="delete-button">{t('delete')}</button>
           </div>
         ),
       },
     ],
-    []
+    [t]
   );
 
   const filteredData = useMemo(() => {
@@ -113,8 +118,7 @@ const ManageUsersPage = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    // Запази промените тук. Например, изпрати данните на сървъра.
-    console.log('Saved user:', currentUser);
+    console.log(t('savedUser'), currentUser);
     handleCloseEditModal();
   };
 
@@ -125,8 +129,7 @@ const ManageUsersPage = () => {
 
   const handleAddSave = (e) => {
     e.preventDefault();
-    // Запази новия потребител тук. Например, изпрати данните на сървъра.
-    console.log('Added user:', newUser);
+    console.log(t('addedUser'), newUser);
     handleCloseAddModal();
   };
 
@@ -134,18 +137,19 @@ const ManageUsersPage = () => {
     <div className="dashboard dashboard-red">
       <Sidebar role={userRole} />
       <div className="dashboard--content">
+        <LanguageSelector /> {/* Добавено */}
         <div className="manage-users">
-          <h2>Manage Users</h2>
-          <button className="add-user-button" onClick={handleAdd}>Add User</button>
+          <h2>{t('manageUsers')}</h2>
+          <button className="add-user-button" onClick={handleAdd}>{t('addUser')}</button>
           <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
           <div className="global-filter">
             <label>
-              Filter by role:
+              {t('filterByRole')}:
               <select onChange={(e) => setFilterRole(e.target.value)} value={filterRole}>
-                <option value="All">All</option>
-                <option value="Student">Student</option>
-                <option value="Teacher">Teacher</option>
-                <option value="Admin">Admin</option>
+                <option value="All">{t('all')}</option>
+                <option value="Student">{t('student')}</option>
+                <option value="Teacher">{t('teacher')}</option>
+                <option value="Admin">{t('admin')}</option>
               </select>
             </label>
           </div>
@@ -186,59 +190,59 @@ const ManageUsersPage = () => {
         </div>
         {isEditModalOpen && (
           <Modal isOpen={isEditModalOpen} onClose={handleCloseEditModal}>
-            <div className="modal-header">Edit User</div>
+            <div className="modal-header">{t('editUser')}</div>
             <form className="modal-form" onSubmit={handleSave}>
               <div>
-                <label>ID:</label>
+                <label>{t('id')}:</label>
                 <input type="text" name="id" value={currentUser?.id} readOnly />
               </div>
               <div>
-                <label>Name:</label>
+                <label>{t('name')}:</label>
                 <input type="text" name="name" value={currentUser?.name} onChange={handleChange} />
               </div>
               <div>
-                <label>Email:</label>
+                <label>{t('email')}:</label>
                 <input type="text" name="email" value={currentUser?.email} onChange={handleChange} />
               </div>
               <div>
-                <label>Role:</label>
+                <label>{t('role')}:</label>
                 <select name="role" value={currentUser?.role} onChange={handleChange}>
-                  <option value="Student">Student</option>
-                  <option value="Teacher">Teacher</option>
-                  <option value="Admin">Admin</option>
+                  <option value="Student">{t('student')}</option>
+                  <option value="Teacher">{t('teacher')}</option>
+                  <option value="Admin">{t('admin')}</option>
                 </select>
               </div>
-              <button type="submit">Save</button>
-              <button type="button" className="cancel" onClick={handleCloseEditModal}>Cancel</button>
+              <button type="submit">{t('save')}</button>
+              <button type="button" className="cancel" onClick={handleCloseEditModal}>{t('cancel')}</button>
             </form>
           </Modal>
         )}
         {isAddModalOpen && (
           <Modal isOpen={isAddModalOpen} onClose={handleCloseAddModal}>
-            <div className="modal-header">Add User</div>
+            <div className="modal-header">{t('addUser')}</div>
             <form className="modal-form" onSubmit={handleAddSave}>
               <div>
-                <label>ID:</label>
+                <label>{t('id')}:</label>
                 <input type="text" name="id" value={newUser.id} onChange={handleAddChange} />
               </div>
               <div>
-                <label>Name:</label>
+                <label>{t('name')}:</label>
                 <input type="text" name="name" value={newUser.name} onChange={handleAddChange} />
               </div>
               <div>
-                <label>Email:</label>
+                <label>{t('email')}:</label>
                 <input type="text" name="email" value={newUser.email} onChange={handleAddChange} />
               </div>
               <div>
-                <label>Role:</label>
+                <label>{t('role')}:</label>
                 <select name="role" value={newUser.role} onChange={handleAddChange}>
-                  <option value="Student">Student</option>
-                  <option value="Teacher">Teacher</option>
-                  <option value="Admin">Admin</option>
+                  <option value="Student">{t('student')}</option>
+                  <option value="Teacher">{t('teacher')}</option>
+                  <option value="Admin">{t('admin')}</option>
                 </select>
               </div>
-              <button type="submit">Add</button>
-              <button type="button" className="cancel" onClick={handleCloseAddModal}>Cancel</button>
+              <button type="submit">{t('addUser')}</button>
+              <button type="button" className="cancel" onClick={handleCloseAddModal}>{t('cancel')}</button>
             </form>
           </Modal>
         )}

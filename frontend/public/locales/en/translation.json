@@ -1,4 +1,5 @@
 {
+
   "welcome": "Welcome to Fantastic Four platform",
   "subtitle": "a school app for homeworks",
   "signIn": "Sign in",
@@ -13,5 +14,28 @@
     "number": "At least one number",
     "specialChar": "At least one special character"
   },
-  "invalidEmailPassword": "Invalid email or password"
+  "invalidEmailPassword": "Invalid email or password",
+
+
+  "search": "Search",
+  "searchAllColumns": "Search all columns",
+  "filterByRole": "Filter by role",
+  "all": "All",
+  "student": "Student",
+  "teacher": "Teacher",
+  "admin": "Admin",
+  "manageUsers": "Manage Users",
+  "addUser": "Add User",
+  "edit": "Edit",
+  "delete": "Delete",
+  "editUser": "Edit User",
+  "id": "ID",
+  "name": "Name",
+  "role": "Role",
+  "actions": "Actions",
+  "save": "Save",
+  "cancel": "Cancel",
+  "addedUser": "Added user:",
+  "savedUser": "Saved user:"
 }
+
