@@ -9,6 +9,7 @@ import ManageUsersPage from "./pages/ManageUsersPage"; // Импортиране
 import MonitorActivityPage from "./pages/MonitorActivityPage"; // Импортиране на MonitorActivityPage
 import AssignClassesPage from "./pages/AssignClassesPage"; // Импортиране на AssignClassesPage
 import PrintReportPage from "./pages/PrintReportPage"; // Импортиране на PrintReportPage
+import CreateAssignment from './pages/CreateAssignmentPage';
 
 const ProtectedRoute = ({ element, ...rest }) => {
   const { auth } = useAuth();
@@ -37,6 +38,7 @@ function App() {
           <Route path="/monitor-activity" element={<ProtectedRoute element={<MonitorActivityPage />} />} />
           <Route path="/assign-classes" element={<ProtectedRoute element={<AssignClassesPage />} />} />
           <Route path="/print-report" element={<ProtectedRoute element={<PrintReportPage />} />} />
+          <Route path="/assignment" element={<ProtectedRoute element={<CreateAssignment />} />} />
         </Routes>
       </AuthProvider>
     </Router>

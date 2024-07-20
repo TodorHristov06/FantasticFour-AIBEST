@@ -1,0 +1,106 @@
+/* createAssignmentPage.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dashboard {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  flex: 0.2;
+  border-right: 1px solid #27374d;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard-teacher {
+  background-color: #b8e6ac; /* Цвет на фона само за учители */
+}
+
+.dashboard--content {
+  flex: 1;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem;
+  box-sizing: border-box;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.create-assignment {
+  width: 100%;
+  max-width: 1500px; /* Увеличете максималната ширина на формата */
+  margin-left: 0; /* Премахнете лявото отстояние, за да бъде отляво */
+}
+
+.assignment-form {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #526d82;
+  box-shadow: 0 0 5px rgba(82, 109, 130, 0.3);
+  outline: none;
+}
+
+button {
+  background: #526d82;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #415a6b;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
