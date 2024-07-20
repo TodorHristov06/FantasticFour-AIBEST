@@ -5,24 +5,48 @@ import "../styles/printReportAdminPage.css";
 const PrintReportAdminPage = () => {
   const userRole = 'admin';
 
-  const [selectedStudent, setSelectedStudent] = useState("");
-  const [selectedPeriod, setSelectedPeriod] = useState("");
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedPeriod, setSelectedPeriod] = useState(null);
+  const [report, setReport] = useState("");
+  const [studentSearch, setStudentSearch] = useState("");
+  const [periodSearch, setPeriodSearch] = useState("");
 
   const students = [
     { id: 1, name: 'Tom Brown' },
     { id: 2, name: 'Lucy White' },
     { id: 3, name: 'Emma Green' },
+    // Добавете много повече студенти тук
   ];
 
   const periods = [
     { id: 1, period: 'Q1 2024' },
     { id: 2, period: 'Q2 2024' },
     { id: 3, period: 'Q3 2024' },
+    // Добавете много повече периоди тук
   ];
 
+  const filteredStudents = students.filter(student =>
+    student.name.toLowerCase().includes(studentSearch.toLowerCase())
+  );
+
+  const filteredPeriods = periods.filter(period =>
+    period.period.toLowerCase().includes(periodSearch.toLowerCase())
+  );
+
   const handlePrintReport = () => {
-    // Логика за принтиране на отчети
-    console.log(`Printing report for ${selectedStudent} for ${selectedPeriod}`);
+    if (!selectedStudent || !selectedPeriod) {
+      alert("Please select both student and period.");
+      return;
+    }
+    
+    // Симулиране на генериране на отчет
+    setReport(`Report for ${selectedStudent.name} for ${selectedPeriod.period}`);
+    
+    // Изчистване на избраните стойности и полета за търсене
+    setSelectedStudent(null);
+    setSelectedPeriod(null);
+    setStudentSearch("");
+    setPeriodSearch("");
   };
 
   return (
@@ -33,35 +57,58 @@ const PrintReportAdminPage = () => {
           <h2>Print Report</h2>
 
           <div className="report-form">
-            <div className="form-group">
-              <label htmlFor="student">Select Student</label>
-              <select
-                id="student"
-                value={selectedStudent}
-                onChange={(e) => setSelectedStudent(e.target.value)}
-              >
-                <option value="">Select Student</option>
-                {students.map(student => (
-                  <option key={student.id} value={student.name}>{student.name}</option>
+            {/* Select Student */}
+            <div className="select-box">
+              <h3>Select Student</h3>
+              <input
+                type="text"
+                placeholder="Search Student..."
+                value={studentSearch}
+                onChange={(e) => setStudentSearch(e.target.value)}
+              />
+              <ul className="dropdown-menu">
+                {filteredStudents.map(student => (
+                  <li
+                    key={student.id}
+                    onClick={() => setSelectedStudent(student)}
+                    className={selectedStudent?.id === student.id ? 'active' : ''}
+                  >
+                    {student.name}
+                  </li>
                 ))}
-              </select>
+              </ul>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="period">Select Period</label>
-              <select
-                id="period"
-                value={selectedPeriod}
-                onChange={(e) => setSelectedPeriod(e.target.value)}
-              >
-                <option value="">Select Period</option>
-                {periods.map(period => (
-                  <option key={period.id} value={period.period}>{period.period}</option>
+            {/* Select Period */}
+            <div className="select-box">
+              <h3>Select Period</h3>
+              <input
+                type="text"
+                placeholder="Search Period..."
+                value={periodSearch}
+                onChange={(e) => setPeriodSearch(e.target.value)}
+              />
+              <ul className="dropdown-menu">
+                {filteredPeriods.map(period => (
+                  <li
+                    key={period.id}
+                    onClick={() => setSelectedPeriod(period)}
+                    className={selectedPeriod?.id === period.id ? 'active' : ''}
+                  >
+                    {period.period}
+                  </li>
                 ))}
-              </select>
+              </ul>
             </div>
 
             <button onClick={handlePrintReport}>Print Report</button>
+
+            {report && (
+              <div className="report-results">
+                <h3>Report Results</h3>
+                <p>{report}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

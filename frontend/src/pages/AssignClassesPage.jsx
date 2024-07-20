@@ -69,8 +69,14 @@ const AssignClassesPage = () => {
 
   const handleAssign = () => {
     if (selectedTeacher && selectedStudent && selectedClass) {
-      console.log(`Assigned ${selectedStudent} to ${selectedClass} with ${selectedTeacher}`);
       setInfoMessage(`Successfully assigned ${selectedStudent} to ${selectedClass} with ${selectedTeacher}`);
+      // Изчистване на избраните стойности и полета за търсене
+      setSelectedTeacher("");
+      setSelectedStudent("");
+      setSelectedClass("");
+      setTeacherSearch("");
+      setStudentSearch("");
+      setClassSearch("");
     } else {
       setInfoMessage("Please select a teacher, student, and class.");
     }
