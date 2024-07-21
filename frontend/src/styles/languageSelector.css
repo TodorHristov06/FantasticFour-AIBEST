@@ -1,17 +1,25 @@
 .language-selector {
-    margin: 10px;
-    /* Positioning the dropdown on the right side */
-    position: absolute; /* Make sure the parent container has relative positioning */
-    top: 45px; /* Adjust as needed */
-    right: 50px; /* Position from the right edge */
+    position: absolute; /* Позициониране на менюто на дясната страна */
+    top: 40px; /* Разстояние от горната част на контейнера */
+    right: 70px; /* Разстояние от дясната страна на контейнера */
 }
 
 .language-selector select {
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    cursor: pointer;
-    /* Add other styles as needed */
+    padding: 8px 12px; /* Подобрена подложка */
+    font-size: 16px; /* По-добър размер на шрифта */
+    border: 1px solid #ccc; /* Лек бордер */
+    border-radius: 5px; /* Заоблени ъгли */
+    background-color: #f9f9f9; /* Светъл фон */
+    cursor: pointer; /* Ръка икона на курсора при минаване на мишката */
+    transition: border-color 0.3s, background-color 0.3s; /* Плавна анимация при смяна на цветове */
+}
+
+.language-selector select:focus {
+    outline: none; /* Премахва бордера при фокусиране */
+    border-color: #007bff; /* Цвят на бордера при фокусиране */
+    background-color: #e9ecef; /* Фон при фокусиране */
+}
+
+.language-selector option {
+    padding: 10px; /* Подобрена подложка за опциите */
 }

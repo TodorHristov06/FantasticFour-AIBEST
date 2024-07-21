@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import "../styles/languageSelector.css"; // Ensure this CSS file includes styles for the dropdown
+import "../styles/languageSelector.css"; // Уверете се, че CSS файлът е включен
 
 const LanguageSelector = () => {
     const { i18n } = useTranslation();
@@ -12,9 +12,9 @@ const LanguageSelector = () => {
     return (
         <div className="language-selector">
             <select onChange={handleChange} value={i18n.language}>
-                <option value="en">English</option>
-                <option value="bg">Bulgarian</option>
-                {/* Add more languages here */}
+                <option value="en">En</option>
+                <option value="bg">Bg</option>
+                {/* Добавете повече езици тук */}
             </select>
         </div>
     );
