@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import { BiTask, BiListUl, BiUser, BiCalendar } from "react-icons/bi";
+import { BiTask, BiListUl, BiUser } from "react-icons/bi";
 import Sidebar from "../components/Sidebar";
 import "../styles/createAssignmentPage.css"; // Вашите стилове
 
@@ -17,14 +17,12 @@ const CreateAssignment = () => {
     { id: 1, name: 'Math 101' },
     { id: 2, name: 'English Literature' },
     { id: 3, name: 'Physics Fundamentals' },
-    // Добавете още класове, ако е необходимо
   ];
 
   const students = [
     { id: 1, name: 'Tom Brown' },
     { id: 2, name: 'Lucy White' },
     { id: 3, name: 'Emma Green' },
-    // Добавете още ученици, ако е необходимо
   ];
 
   const handleCreateAssignment = () => {
@@ -32,7 +30,7 @@ const CreateAssignment = () => {
     console.log(`Created assignment: ${assignmentTitle}`);
     console.log(`Instructions: ${instructions}`);
     console.log(`Deadline: ${deadline}`);
-    console.log(`Assigned to class: ${selectedClass ? selectedClass.name : "None"}`);
+    console.log(`Assigned to class: ${selectedClass ? selectedClass.label : "None"}`);
     console.log(`Assigned to students: ${selectedStudents.map(student => student.label).join(", ")}`);
   };
 
@@ -42,14 +40,13 @@ const CreateAssignment = () => {
       <div className="dashboard--content">
         <div className="create-assignment">
           <h2>Create Assignment</h2>
-
           <div className="assignment-form">
-            <div className="assignment-form__section">
+            {/* Assignment Details */}
+            <div className="assignment-details">
               <div className="assignment-form__header">
                 <BiTask className="icon" />
                 <h3>Assignment Details</h3>
               </div>
-
               <div className="form-group">
                 <label htmlFor="assignment-title">Assignment Title</label>
                 <input
@@ -60,8 +57,7 @@ const CreateAssignment = () => {
                   placeholder="Enter the title of the assignment"
                 />
               </div>
-
-              <div className="form-group assignment-form__instructions">
+              <div className="form-group">
                 <label htmlFor="instructions">Instructions</label>
                 <textarea
                   id="instructions"
@@ -70,7 +66,6 @@ const CreateAssignment = () => {
                   placeholder="Provide instructions for the assignment"
                 />
               </div>
-
               <div className="form-group">
                 <label htmlFor="deadline">Deadline</label>
                 <input
@@ -82,7 +77,8 @@ const CreateAssignment = () => {
               </div>
             </div>
 
-            <div className="assignment-form__section">
+            {/* Assign to Class */}
+            <div className="assign-class">
               <div className="assignment-form__header">
                 <BiListUl className="icon" />
                 <h3>Assign to Class</h3>
@@ -100,7 +96,8 @@ const CreateAssignment = () => {
               </div>
             </div>
 
-            <div className="assignment-form__section">
+            {/* Assign to Students */}
+            <div className="assign-students">
               <div className="assignment-form__header">
                 <BiUser className="icon" />
                 <h3>Assign to Students</h3>
@@ -117,9 +114,9 @@ const CreateAssignment = () => {
                 />
               </div>
             </div>
-
-            <button onClick={handleCreateAssignment}>Create Assignment</button>
           </div>
+
+          <button onClick={handleCreateAssignment}>Create Assignment</button>
         </div>
       </div>
     </div>
