@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import Select from 'react-select'; // Уверете се, че сте инсталирали react-select
 import '../styles/gradeAssignmentsPage.css';
 
 const GradeAssignmentsPage = () => {
   const userRole = 'teacher';
 
-  const [selectedClass, setSelectedClass] = useState("");
-  const [selectedStudent, setSelectedStudent] = useState("");
-  const [selectedSubject, setSelectedSubject] = useState("");
+  const [selectedClass, setSelectedClass] = useState(null);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedSubject, setSelectedSubject] = useState(null);
   const [grade, setGrade] = useState("");
   const [feedback, setFeedback] = useState("");
   const [infoMessage, setInfoMessage] = useState("");
@@ -20,84 +21,42 @@ const GradeAssignmentsPage = () => {
     { id: 1, name: 'Math 101' },
     { id: 2, name: 'English Literature' },
     { id: 3, name: 'Physics Fundamentals' },
-    // Добавете още класове тук
   ];
 
   const students = [
     { id: 1, name: 'Tom Brown' },
     { id: 2, name: 'Lucy White' },
     { id: 3, name: 'Emma Green' },
-    // Добавете още студенти тук
   ];
 
   const subjects = [
     { id: 1, name: 'Algebra' },
     { id: 2, name: 'Shakespeare' },
     { id: 3, name: 'Newtonian Mechanics' },
-    // Добавете още предмети тук
   ];
 
-  const handleSearchChange = (type, e) => {
-    if (type === 'class') setClassSearch(e.target.value);
-    else if (type === 'student') setStudentSearch(e.target.value);
-    else if (type === 'subject') setSubjectSearch(e.target.value);
-  };
-
-  const filteredClasses = classes.filter(cls =>
-    cls.name.toLowerCase().includes(classSearch.toLowerCase())
-  );
-
-  const filteredStudents = students.filter(student =>
-    student.name.toLowerCase().includes(studentSearch.toLowerCase())
-  );
-
-  const filteredSubjects = subjects.filter(subject =>
-    subject.name.toLowerCase().includes(subjectSearch.toLowerCase())
-  );
-
-  const handleSelect = (type, item) => {
-    if (type === 'class') {
-      setSelectedClass(item);
-      setClassSearch('');
-    } else if (type === 'student') {
-      setSelectedStudent(item);
-      setStudentSearch('');
-    } else if (type === 'subject') {
-      setSelectedSubject(item);
-      setSubjectSearch('');
-    }
-
-    setInfoMessage(`Selected ${type}: ${item}`);
-  };
-
   const handleGradeSubmission = () => {
-    // Прост валидатор за входните данни
     if (!selectedClass || !selectedStudent || !selectedSubject || !grade) {
       setInfoMessage("Please select a class, student, subject, and provide a grade.");
       return;
     }
 
-    // Проверка на формата на оценката
     const gradeIsValid = /^([1-6]|[0-9]{1,2}%)$/.test(grade);
     if (!gradeIsValid) {
       setInfoMessage("Grade must be a number from 1 to 6 or a percentage (e.g., 75%).");
       return;
     }
 
-    setInfoMessage(`Successfully graded ${selectedStudent} in ${selectedClass} for ${selectedSubject} with grade: ${grade}`);
-    // Изчистване на избраните стойности и полета за търсене
-    setSelectedClass("");
-    setSelectedStudent("");
-    setSelectedSubject("");
+    setInfoMessage(`Successfully graded ${selectedStudent.label} in ${selectedClass.label} for ${selectedSubject.label} with grade: ${grade}`);
+    setSelectedClass(null);
+    setSelectedStudent(null);
+    setSelectedSubject(null);
     setGrade("");
     setFeedback("");
-    setClassSearch("");
-    setStudentSearch("");
-    setSubjectSearch("");
   };
 
   return (
-    <div className="dashboard dashboard-red">
+    <div className={`dashboard ${userRole === 'teacher' ? 'dashboard-teacher' : ''}`}>
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="grade-assignments">
@@ -106,67 +65,43 @@ const GradeAssignmentsPage = () => {
             {/* Класове */}
             <div className="grade-box">
               <h3>Select Class</h3>
-              <input
-                type="text"
-                placeholder="Search Class..."
-                value={classSearch}
-                onChange={(e) => handleSearchChange('class', e)}
+              <Select
+                options={classes.map(cls => ({ value: cls.id, label: cls.name }))}
+                value={selectedClass}
+                onChange={setSelectedClass}
+                placeholder="Select Class"
+                isClearable
+                onInputChange={(value) => setClassSearch(value)}
+                inputValue={classSearch}
               />
-              <ul className="dropdown-menu">
-                {filteredClasses.map(cls => (
-                  <li
-                    key={cls.id}
-                    onClick={() => handleSelect('class', cls.name)}
-                    className={selectedClass === cls.name ? 'active' : ''}
-                  >
-                    {cls.name}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Студенти */}
             <div className="grade-box">
               <h3>Select Student</h3>
-              <input
-                type="text"
-                placeholder="Search Student..."
-                value={studentSearch}
-                onChange={(e) => handleSearchChange('student', e)}
+              <Select
+                options={students.map(student => ({ value: student.id, label: student.name }))}
+                value={selectedStudent}
+                onChange={setSelectedStudent}
+                placeholder="Select Student"
+                isClearable
+                onInputChange={(value) => setStudentSearch(value)}
+                inputValue={studentSearch}
               />
-              <ul className="dropdown-menu">
-                {filteredStudents.map(student => (
-                  <li
-                    key={student.id}
-                    onClick={() => handleSelect('student', student.name)}
-                    className={selectedStudent === student.name ? 'active' : ''}
-                  >
-                    {student.name}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Предмети */}
             <div className="grade-box">
               <h3>Select Subject</h3>
-              <input
-                type="text"
-                placeholder="Search Subject..."
-                value={subjectSearch}
-                onChange={(e) => handleSearchChange('subject', e)}
+              <Select
+                options={subjects.map(subject => ({ value: subject.id, label: subject.name }))}
+                value={selectedSubject}
+                onChange={setSelectedSubject}
+                placeholder="Select Subject"
+                isClearable
+                onInputChange={(value) => setSubjectSearch(value)}
+                inputValue={subjectSearch}
               />
-              <ul className="dropdown-menu">
-                {filteredSubjects.map(subject => (
-                  <li
-                    key={subject.id}
-                    onClick={() => handleSelect('subject', subject.name)}
-                    className={selectedSubject === subject.name ? 'active' : ''}
-                  >
-                    {subject.name}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
