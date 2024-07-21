@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import Select from 'react-select';
 import Sidebar from '../components/Sidebar';
 import '../styles/assignClassesPage.css';
 
 const AssignClassesPage = () => {
   const userRole = 'admin';
 
-  const [selectedTeacher, setSelectedTeacher] = useState("");
-  const [selectedStudent, setSelectedStudent] = useState("");
-  const [selectedClass, setSelectedClass] = useState("");
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedClass, setSelectedClass] = useState(null);
   const [infoMessage, setInfoMessage] = useState("");
   const [teacherSearch, setTeacherSearch] = useState("");
   const [studentSearch, setStudentSearch] = useState("");
@@ -34,49 +35,25 @@ const AssignClassesPage = () => {
     // Добавете много повече класове тук
   ];
 
-  const handleSearchChange = (type, e) => {
-    if (type === 'teacher') setTeacherSearch(e.target.value);
-    else if (type === 'student') setStudentSearch(e.target.value);
-    else if (type === 'class') setClassSearch(e.target.value);
-  };
-
-  const filteredTeachers = teachers.filter(teacher =>
-    teacher.name.toLowerCase().includes(teacherSearch.toLowerCase())
-  );
-
-  const filteredStudents = students.filter(student =>
-    student.name.toLowerCase().includes(studentSearch.toLowerCase())
-  );
-
-  const filteredClasses = classes.filter(cls =>
-    cls.name.toLowerCase().includes(classSearch.toLowerCase())
-  );
-
-  const handleSelect = (type, item) => {
+  const handleSelect = (type, selectedOption) => {
     if (type === 'teacher') {
-      setSelectedTeacher(item);
-      setTeacherSearch('');
+      setSelectedTeacher(selectedOption);
     } else if (type === 'student') {
-      setSelectedStudent(item);
-      setStudentSearch('');
+      setSelectedStudent(selectedOption);
     } else if (type === 'class') {
-      setSelectedClass(item);
-      setClassSearch('');
+      setSelectedClass(selectedOption);
     }
 
-    setInfoMessage(`Selected ${type}: ${item}`);
+    setInfoMessage(`Selected ${type}: ${selectedOption ? selectedOption.label : 'None'}`);
   };
 
   const handleAssign = () => {
     if (selectedTeacher && selectedStudent && selectedClass) {
-      setInfoMessage(`Successfully assigned ${selectedStudent} to ${selectedClass} with ${selectedTeacher}`);
-      // Изчистване на избраните стойности и полета за търсене
-      setSelectedTeacher("");
-      setSelectedStudent("");
-      setSelectedClass("");
-      setTeacherSearch("");
-      setStudentSearch("");
-      setClassSearch("");
+      setInfoMessage(`Successfully assigned ${selectedStudent.label} to ${selectedClass.label} with ${selectedTeacher.label}`);
+      // Изчистване на избраните стойности
+      setSelectedTeacher(null);
+      setSelectedStudent(null);
+      setSelectedClass(null);
     } else {
       setInfoMessage("Please select a teacher, student, and class.");
     }
@@ -92,67 +69,37 @@ const AssignClassesPage = () => {
             {/* Преподаватели */}
             <div className="assign-box">
               <h3>Select Teacher</h3>
-              <input
-                type="text"
-                placeholder="Search Teacher..."
-                value={teacherSearch}
-                onChange={(e) => handleSearchChange('teacher', e)}
+              <Select
+                options={teachers.map(teacher => ({ value: teacher.id, label: teacher.name }))}
+                value={selectedTeacher}
+                onChange={(option) => handleSelect('teacher', option)}
+                placeholder="Select Teacher"
+                isClearable
               />
-              <ul className="dropdown-menu">
-                {filteredTeachers.map(teacher => (
-                  <li
-                    key={teacher.id}
-                    onClick={() => handleSelect('teacher', teacher.name)}
-                    className={selectedTeacher === teacher.name ? 'active' : ''}
-                  >
-                    {teacher.name}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Студенти */}
             <div className="assign-box">
               <h3>Select Student</h3>
-              <input
-                type="text"
-                placeholder="Search Student..."
-                value={studentSearch}
-                onChange={(e) => handleSearchChange('student', e)}
+              <Select
+                options={students.map(student => ({ value: student.id, label: student.name }))}
+                value={selectedStudent}
+                onChange={(option) => handleSelect('student', option)}
+                placeholder="Select Student"
+                isClearable
               />
-              <ul className="dropdown-menu">
-                {filteredStudents.map(student => (
-                  <li
-                    key={student.id}
-                    onClick={() => handleSelect('student', student.name)}
-                    className={selectedStudent === student.name ? 'active' : ''}
-                  >
-                    {student.name}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Класове */}
             <div className="assign-box">
               <h3>Select Class</h3>
-              <input
-                type="text"
-                placeholder="Search Class..."
-                value={classSearch}
-                onChange={(e) => handleSearchChange('class', e)}
+              <Select
+                options={classes.map(cls => ({ value: cls.id, label: cls.name }))}
+                value={selectedClass}
+                onChange={(option) => handleSelect('class', option)}
+                placeholder="Select Class"
+                isClearable
               />
-              <ul className="dropdown-menu">
-                {filteredClasses.map(cls => (
-                  <li
-                    key={cls.id}
-                    onClick={() => handleSelect('class', cls.name)}
-                    className={selectedClass === cls.name ? 'active' : ''}
-                  >
-                    {cls.name}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Извеждане на информация и действия */}
