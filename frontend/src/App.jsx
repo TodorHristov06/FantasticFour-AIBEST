@@ -1,21 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom'; // Добавен useNavigate
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './components/AuthContext';
-import Login from "./pages/LoginPage";
-import AdminPage from "./pages/AdminPage";
-import TeacherPage from "./pages/TeacherPage";
-import StudentPage from "./pages/StudentPage";
-import ManageUsersPage from "./pages/ManageUsersPage"; // Импортиране на ManageUsersPage
-import MonitorActivityPage from "./pages/MonitorActivityPage"; // Импортиране на MonitorActivityPage
-import AssignClassesPage from "./pages/AssignClassesPage"; // Импортиране на AssignClassesPage
-import PrintReportAdminPage from './pages/PrintReportAdminPage'; // Импортиране на PrintReportPage
-import CreateAssignment from './pages/CreateAssignmentPage'; // Импортиране на CreateAssignmentPage
+import Login from './pages/LoginPage';
+import AdminPage from './pages/AdminPage';
+import TeacherPage from './pages/TeacherPage';
+import StudentPage from './pages/StudentPage';
+import ManageUsersPage from './pages/ManageUsersPage';
+import MonitorActivityPage from './pages/MonitorActivityPage';
+import AssignClassesPage from './pages/AssignClassesPage';
+import PrintReportAdminPage from './pages/PrintReportAdminPage';
+import CreateAssignment from './pages/CreateAssignmentPage';
 import PrintReportTeacherPage from './pages/PrintReportTeacherPage';
 import GradeAssignmentsPage from './pages/GradeAssignmentsPage';
+import StudentTeacherPage from './pages/StudentTeacherPage';
 
 const ProtectedRoute = ({ element, ...rest }) => {
   const { auth } = useAuth();
-  const navigate = useNavigate(); // Добавен useNavigate
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     if (!auth.isAuthenticated) {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/assignment" element={<ProtectedRoute element={<CreateAssignment />} />} />
           <Route path="/print-report-teacher" element={<ProtectedRoute element={<PrintReportTeacherPage />} />} />
           <Route path="/grades" element={<ProtectedRoute element={<GradeAssignmentsPage />} />} />
+          <Route path="/students" element={<ProtectedRoute element={<StudentTeacherPage />} />} />
         </Routes>
       </AuthProvider>
     </Router>
