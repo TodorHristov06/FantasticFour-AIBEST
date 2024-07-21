@@ -1,8 +1,7 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import Content from "../components/Content";
+import AdminContent from "../components/AdminContent"; // Създайте този компонент
 import Profile from "../components/Profile";
-import Card from "../components/Card";
 import "../styles/adminPage.css";
 
 const AdminPage = () => {
@@ -11,7 +10,7 @@ const AdminPage = () => {
     <div className="dashboard dashboard-red">
         <Sidebar role={userRole} />
       <div className="dashboard--content">
-        <Content/>
+        <AdminContent />
         <Profile role={userRole} />
       </div>
     </div>

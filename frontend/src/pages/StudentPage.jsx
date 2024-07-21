@@ -1,17 +1,16 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import Content from "../components/Content";
+import StudentContent from "../components/StudentContent"; // Създайте този компонент
 import Profile from "../components/Profile";
-import Card from "../components/Card";
 import "../styles/studentPage.css";
 
 const StudentPage = () => {
   const userRole = 'student';
   return (
-    <div className="dashboard dashboard-blue">
+    <div className="dashboard dashboard-green">
         <Sidebar role={userRole} />
       <div className="dashboard--content">
-        <Content/>
+        <StudentContent />
         <Profile role={userRole} />
       </div>
     </div>
