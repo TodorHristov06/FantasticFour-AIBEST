@@ -65,6 +65,21 @@
   "activeUsersTodayChart": "Активни потребители днес - диаграма",
   "totalVisitsOverTime": "Общо посещения през времето",
   "serverUptimeAndDowntime": "Надеждност и неработоспособност на сървъра",
-  "apiResponseTimesOverTime": "Време за отговор на API през времето"
+  "apiResponseTimesOverTime": "Време за отговор на API през времето",
+
+  "title": "Назначаване на класове",
+  "selectTeacher": "Изберете преподавател",
+  "selectStudent": "Изберете ученик",
+  "selectClass": "Изберете клас",
+  "selectedInfoTitle": "Избрана информация",
+  "infoMessage": "Моля, изберете преподавател, ученик и клас.",
+  "successMessage": "Успешно назначен {{student}} към {{class}} с {{teacher}}",
+  "assignButton": "Назначи клас",
+  "placeholderTeacher": "Изберете преподавател",
+  "placeholderStudent": "Изберете ученик",
+  "placeholderClass": "Изберете клас"
+  
+  
+  
   }
   

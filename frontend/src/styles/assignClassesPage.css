@@ -10,11 +10,23 @@
   overflow-y: auto;
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .assign-classes h2 {
   color: #1c2a38;
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
+}
+
+.language-dropdown {
+  width: 150px;
+  margin-left: auto;
 }
 
 .assign-forms {

@@ -68,7 +68,19 @@
   "activeUsersTodayChart": "Active Users Today Chart",
   "totalVisitsOverTime": "Total Visits Over Time",
   "serverUptimeAndDowntime": "Server Uptime and Downtime",
-  "apiResponseTimesOverTime": "API Response Times Over Time"
+  "apiResponseTimesOverTime": "API Response Times Over Time",
 
+
+  "title": "Assign Classes",
+  "selectTeacher": "Select Teacher",
+  "selectStudent": "Select Student",
+  "selectClass": "Select Class",
+  "selectedInfoTitle": "Selected Information",
+  "infoMessage": "Please select a teacher, student, and class.",
+  "successMessage": "Successfully assigned {{student}} to {{class}} with {{teacher}}",
+  "assignButton": "Assign Class",
+  "placeholderTeacher": "Select Teacher",
+  "placeholderStudent": "Select Student",
+  "placeholderClass": "Select Class"
 }
 
