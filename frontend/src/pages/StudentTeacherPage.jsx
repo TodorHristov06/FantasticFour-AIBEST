@@ -62,7 +62,6 @@ const StudentTeacherPage = () => {
               value={studentSearch}
               onChange={(e) => setStudentSearch(e.target.value)}
             />
-            <button onClick={() => setStudentSearch('')}>Clear</button>
           </div>
 
           <div className="student-list">
@@ -86,7 +85,6 @@ const StudentTeacherPage = () => {
               value={classSearch}
               onChange={(e) => setClassSearch(e.target.value)}
             />
-            <button onClick={() => setClassSearch('')}>Clear</button>
           </div>
 
           <div className="class-list">
