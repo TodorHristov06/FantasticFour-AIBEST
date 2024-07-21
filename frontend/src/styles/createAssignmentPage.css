@@ -40,8 +40,9 @@ body {
 
 .create-assignment {
   width: 100%;
-  max-width: 1500px; /* Увеличете максималната ширина на формата */
+  max-width: 1200px; /* Увеличете максималната ширина на формата */
   margin-left: 0; /* Премахнете лявото отстояние, за да бъде отляво */
+  height: fit-content;
 }
 
 .assignment-form {
@@ -67,20 +68,19 @@ body {
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 16px;
   color: #333;
   background: #fff;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
   border-color: #526d82;
-  box-shadow: 0 0 5px rgba(82, 109, 130, 0.3);
   outline: none;
 }
 
@@ -103,4 +103,61 @@ button:hover {
 button:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+
+.assignment-form__section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.assignment-form__section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.assignment-form__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.assignment-form__header h3 {
+  margin: 0;
+  color: #526d82;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.assignment-form__header .icon {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #526d82;
+  /* Премахване на всички стилове за курсор и преход */
+  cursor: default;
+  transition: none;
+  /* Премахване на стилизацията на иконата при ховър */
+  background: none;
+  padding: 0;
+}
+
+.assignment-form__instructions label {
+  margin-bottom: 0.5rem;
+}
+
+.assignment-form__instructions textarea {
+  resize: vertical; /* Позволяване само на вертикално разтягане */
+  min-height: 100px;
+  max-height: 300px; /* Задаване на максимална височина */
+}
+
+@media (min-width: 768px) {
+  .assignment-form__instructions {
+    flex-direction: column;
+  }
+
+  .assignment-form__instructions textarea {
+    flex: 1;
+  }
 }
