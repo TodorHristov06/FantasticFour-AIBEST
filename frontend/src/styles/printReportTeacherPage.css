@@ -20,7 +20,7 @@ html, body {
 /* Стилове за страницата за печат на отчети */
 .print-report-teacher {
   padding: 20px;
-  background: #fff;
+  background: #f5f7fa;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: calc(100% - 40px);

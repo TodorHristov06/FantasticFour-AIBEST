@@ -3,7 +3,7 @@
 /* Основни стилове за страницата за оценяване */
 .grade-assignments {
   padding: 20px;
-  background: #fff;
+  background: #f5f7fa;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: calc(100% - 40px);
