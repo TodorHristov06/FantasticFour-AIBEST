@@ -59,12 +59,15 @@ a {
 
 .teacher-view-only .item {
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0;
+}
+
+.teacher-view-only .item:nth-child(3) /* Report */{
+    display: none; 
 }
 
 .teacher-view-only .item:nth-child(1), /* Dashboard */
 .teacher-view-only .item:nth-child(2), /* Assignment */
-.teacher-view-only .item:nth-child(3), /* Report */
 .teacher-view-only .item:nth-child(4), /* Message */
 .teacher-view-only .item:nth-child(5), /* Grades */
 .teacher-view-only .item:nth-child(6), /* Help */
