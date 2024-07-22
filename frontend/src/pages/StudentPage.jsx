@@ -7,7 +7,7 @@ import "../styles/studentPage.css";
 const StudentPage = () => {
   const userRole = 'student';
   return (
-    <div className="dashboard dashboard-green">
+    <div className="dashboard dashboard-blue">
         <Sidebar role={userRole} />
       <div className="dashboard--content">
         <StudentContent />
