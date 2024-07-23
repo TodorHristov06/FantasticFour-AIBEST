@@ -26,6 +26,7 @@ const GradeAssignmentsPage = () => {
   const [selectedAssignment, setSelectedAssignment] = useState(null);
   const [filterSubmitted, setFilterSubmitted] = useState('all');
   const [filterGraded, setFilterGraded] = useState('all');
+  const [sortCriteria, setSortCriteria] = useState('none'); // Дефинираме ново състояние за критериите за сортиране
 
   const handleAssignmentClick = (assignment) => {
     setSelectedAssignment(assignment);
@@ -41,6 +42,10 @@ const GradeAssignmentsPage = () => {
     setAssignments(assignments.map(assignment => 
       assignment.id === selectedAssignment.id ? selectedAssignment : assignment
     ));
+    setSelectedAssignment(null);
+  };
+
+  const handleCloseDetails = () => {
     setSelectedAssignment(null);
   };
 
@@ -62,6 +67,17 @@ const GradeAssignmentsPage = () => {
     return true;
   });
 
+  const sortedAssignments = [...filteredAssignments].sort((a, b) => {
+    switch (sortCriteria) {
+      case 'deadline':
+        return new Date(a.deadline) - new Date(b.deadline);
+      case 'student':
+        return a.student.localeCompare(b.student);
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className={`dashboard ${userRole === 'teacher' ? 'dashboard-teacher' : ''}`}>
       <Sidebar role={userRole} />
@@ -78,6 +94,18 @@ const GradeAssignmentsPage = () => {
             </button>
           </div>
 
+          <div className="sort-buttons">
+            <button onClick={() => setSortCriteria('deadline')}>
+              Sort by Deadline
+            </button>
+            <button onClick={() => setSortCriteria('student')}>
+              Sort by Student
+            </button>
+            <button onClick={() => setSortCriteria('none')}>
+              Clear Sorting
+            </button>
+          </div>
+
           <table>
             <thead>
               <tr>
@@ -90,15 +118,15 @@ const GradeAssignmentsPage = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredAssignments.map(assignment => (
+              {sortedAssignments.map(assignment => (
                 <tr key={assignment.id}>
                   <td>{assignment.student}</td>
                   <td>{assignment.class}</td>
                   <td>{assignment.subject}</td>
                   <td>
-                    <a href="#" onClick={() => handleAssignmentClick(assignment)}>
+                    <button className="assignment-button" onClick={() => handleAssignmentClick(assignment)}>
                       {assignment.assignment}
-                    </a>
+                    </button>
                   </td>
                   <td>{assignment.deadline}</td>
                   <td>{convertGrade(assignment.grade)}</td>
@@ -109,6 +137,7 @@ const GradeAssignmentsPage = () => {
 
           {selectedAssignment && (
             <div className="assignment-details">
+              <button className="close-button" onClick={handleCloseDetails}>X</button>
               <h3>Assignment Details</h3>
               <div className="assignment-details-content">
                 <div>
