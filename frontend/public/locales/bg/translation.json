@@ -84,7 +84,34 @@
   "manage_users": "Контрол на потребителите",
   "system_management": "Управление на системата",
   "manage_classes": "Управление на класовете",
-  "print_report": "Изпрати отчет"
+  "print_report": "Изпрати отчет",
+
+  
+  "assignClasses": "Разпределяне на Класове",
+  "classes": "Класове",
+  "manageTeacherAssignments": "Управлявайте разпределението на учители тук.",
+  "manageStudentAssignments": "Управлявайте разпределението на студенти тук.",
+  "manageClasses": "Управлявайте класовете тук.",
+  "selectSubject": "Изберете предмет",
+  "selectedInformation": "Избрана Информация",
+  "assignClass": "Разпределете клас",
+  "enterNewClassName": "Въведете име на нов клас",
+  "className": "Име на клас",
+  "addClass": "Добавете Клас",
+  "pleaseSelectFields": "Моля, изберете необходимите полета или въведете име на клас.",
+  "successfullyAssignedTeacher": "Успешно разпределен {{subject}} към {{class}} с {{teacher}}",
+  "successfullyAssignedStudent": "Успешно разпределен {{student}} към {{class}}",
+  "successfullyAddedClass": "Успешно добавен нов клас: {{class}}",
+
+  
+  "printReport": "Отпечатайте Отчет",
+  "selectPeriod": "Изберете период",
+  "reportResults": "Резултати от Отчета",
+  "pleaseSelectStudentPeriod": "Моля, изберете както студент, така и период.",
+  "reportFor": "Отчет за {{student}} за {{period}}"
+  
+  
+  
   
   }
   

@@ -3,7 +3,6 @@ import { useTable, useSortBy, useFilters, useGlobalFilter } from 'react-table';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
 import Modal from '../components/Modal';
-import LanguageSelector from '../components/LanguageSelector';
 import '../styles/manageUsersPage.css';
 
 // Компонент за глобално търсене
@@ -145,7 +144,6 @@ const ManageUsersPage = () => {
     <div className="dashboard dashboard-red">
       <Sidebar role={userRole} />
       <div className="dashboard--content">
-        <LanguageSelector />
         <div className="manage-users">
           <h2>{t('manageUsers')}</h2>
           <button className="add-user-button" onClick={handleAdd}>{t('addUser')}</button>

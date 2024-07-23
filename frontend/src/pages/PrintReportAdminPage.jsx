@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import Sidebar from "../components/Sidebar";
 import "../styles/printReportAdminPage.css"; // Вашите стилове
+import { useTranslation } from 'react-i18next';
 
 const PrintReportAdminPage = () => {
   const userRole = 'admin'; // Актуализирайте според нуждите
@@ -9,6 +10,8 @@ const PrintReportAdminPage = () => {
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [selectedPeriod, setSelectedPeriod] = useState(null);
   const [report, setReport] = useState("");
+  
+  const { t } = useTranslation(); // Използване на useTranslation
 
   const students = [
     { id: 1, name: 'Tom Brown' },
@@ -26,12 +29,12 @@ const PrintReportAdminPage = () => {
 
   const handlePrintReport = () => {
     if (!selectedStudent || !selectedPeriod) {
-      alert("Please select both student and period.");
+      alert(t('pleaseSelectStudentPeriod'));
       return;
     }
 
     // Симулиране на генериране на отчет
-    setReport(`Report for ${selectedStudent.label} for ${selectedPeriod.label}`);
+    setReport(t('reportFor', { student: selectedStudent.label, period: selectedPeriod.label }));
 
     // Изчистване на избраните стойности
     setSelectedStudent(null);
@@ -43,40 +46,40 @@ const PrintReportAdminPage = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="print-report-teacher">
-          <h2>Print Report</h2>
+          <h2>{t('printReport')}</h2>
 
           <div className="report-form">
             {/* Select Student */}
             <div className="form-group">
-              <label htmlFor="student">Select Student</label>
+              <label htmlFor="student">{t('selectStudent')}</label>
               <Select
                 id="student"
                 options={students.map(student => ({ value: student.id, label: student.name }))}
                 value={selectedStudent}
                 onChange={setSelectedStudent}
-                placeholder="Select Student"
+                placeholder={t('selectStudent')}
                 isClearable
               />
             </div>
 
             {/* Select Period */}
             <div className="form-group">
-              <label htmlFor="period">Select Period</label>
+              <label htmlFor="period">{t('selectPeriod')}</label>
               <Select
                 id="period"
                 options={periods.map(period => ({ value: period.id, label: period.period }))}
                 value={selectedPeriod}
                 onChange={setSelectedPeriod}
-                placeholder="Select Period"
+                placeholder={t('selectPeriod')}
                 isClearable
               />
             </div>
 
-            <button onClick={handlePrintReport}>Print Report</button>
+            <button onClick={handlePrintReport}>{t('printReport')}</button>
 
             {report && (
               <div className="report-results">
-                <h3>Report Results</h3>
+                <h3>{t('reportResults')}</h3>
                 <p>{report}</p>
               </div>
             )}

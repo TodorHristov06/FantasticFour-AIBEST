@@ -88,6 +88,29 @@
   "manage_users": "Manage Users",
   "system_management": "System Management",
   "manage_classes": "Manage Classes",
-  "print_report": "Print Report"
+  "print_report": "Print Report",
+
+  
+  "assignClasses": "Assign Classes",
+  "classes": "Classes",
+  "manageTeacherAssignments": "Manage teacher assignments here.",
+  "manageStudentAssignments": "Manage student assignments here.",
+  "manageClasses": "Manage classes here.",
+  "selectSubject": "Select Subject",
+  "selectedInformation": "Selected Information",
+  "assignClass": "Assign Class",
+  "enterNewClassName": "Enter New Class Name",
+  "className": "Class Name",
+  "addClass": "Add Class",
+  "pleaseSelectFields": "Please select the required fields or enter a class name.",
+  "successfullyAssignedTeacher": "Successfully assigned {{subject}} to {{class}} with {{teacher}}",
+  "successfullyAssignedStudent": "Successfully assigned {{student}} to {{class}}",
+  "successfullyAddedClass": "Successfully added new class: {{class}}",
+  
+  "printReport": "Print Report",
+  "selectPeriod": "Select Period",
+  "reportResults": "Report Results",
+  "pleaseSelectStudentPeriod": "Please select both student and period.",
+  "reportFor": "Report for {{student}} for {{period}}"
 }
 
