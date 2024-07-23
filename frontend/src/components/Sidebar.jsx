@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/sidebar.css';
 import ProfilePicture from '../assets/ProfilePicture.jpg';
 import { useTranslation } from 'react-i18next';
+import Flag from 'react-world-flags';
 
 const Sidebar = ({ role }) => {
     const { t, i18n } = useTranslation();
@@ -118,8 +119,15 @@ const Sidebar = ({ role }) => {
                     </>
                 )}
                 <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
-                    <BiWorld className="icon"/>
-                    {i18n.language === 'en' ? 'Български' : 'English'}
+                    {i18n.language === 'en' ? (
+                        <>
+                            <Flag code="BG" height="16" className="flag-icon"/>
+                        </>
+                    ) : (
+                        <>
+                            <Flag code="GB" height="16" className="flag-icon"/>
+                        </>
+                    )}
                 </button>
             </div>
 
