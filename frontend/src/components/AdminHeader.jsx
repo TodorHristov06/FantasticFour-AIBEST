@@ -7,16 +7,8 @@ const AdminHeader = () => {
             <h1 className="header--title">Admin Dashboard</h1>
             <div className="header--activity">
                 <div className="search-box">
-                    <input type="text" placeholder="Search users, reports, settings..." />
+                    <input type="text" placeholder="Search users" />
                     <BiSearch className="icon" />
-                </div>
-
-                <div className="notify">
-                    <BiNotification className="icon" />
-                </div>
-
-                <div className="settings">
-                    <BiCog className="icon" />
                 </div>
             </div>
         </div>
