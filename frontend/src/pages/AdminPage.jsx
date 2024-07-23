@@ -11,7 +11,7 @@ const AdminPage = () => {
         <Sidebar role={userRole} />
       <div className="dashboard--content">
         <AdminContent />
-        <Profile role={userRole} />
+        {/* <Profile role={userRole} /> */}
       </div>
     </div>
   );
