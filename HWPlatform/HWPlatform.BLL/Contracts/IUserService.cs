@@ -4,9 +4,6 @@ namespace HWPlatform.BLL.Contracts;
 
 public interface IUserService
 {
-    // Create a user
-    Task CreateUserAsync(UserIM userIM);
-
     // Get user by id
     Task<UserVM> GetUserByIdAsync(int id);
 
@@ -24,7 +21,4 @@ public interface IUserService
 
     // Soft delete user
     Task DeleteUserAsync(string email);
-
-    // Get all users
-    Task<List<UserVM>> GetAllUsersAsync();
 }

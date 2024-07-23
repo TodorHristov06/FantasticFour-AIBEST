@@ -2,7 +2,6 @@
 using HWPlatform.Common.Models.User;
 using HWPlatform.DAL.Data;
 using AutoMapper;
-using HWPlatform.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper.QueryableExtensions;
 
@@ -12,25 +11,13 @@ internal class UserService : IUserService
 {
     private readonly DBContext dbContext;
     private readonly IMapper mapper;
+    private readonly IEmailService emailService;
 
-    public UserService(DBContext dbContext, IMapper mapper)
+    public UserService(DBContext dbContext, IMapper mapper, IEmailService emailService)
     {
         this.dbContext = dbContext;
         this.mapper = mapper;
-    }
-
-    // TODO: Refine method
-    public async Task CreateUserAsync(UserIM userIM)
-    {
-        var user = this.mapper.Map<User>(userIM);
-
-        user.IsActive = true;
-
-        await this.UpdatePasswordAsync(user.Email);
-
-        this.dbContext.Add(user);
-
-        await this.dbContext.SaveChangesAsync();
+        this.emailService = emailService;
     }
 
     public async Task DeleteUserAsync(string email)
@@ -53,14 +40,13 @@ internal class UserService : IUserService
 
         var random = new Random();
 
-        string passwordHash = 
-            BCrypt.Net.BCrypt.HashPassword(
+        string password = 
             new string(Enumerable
             .Repeat(chars, length)
             .Select(s => s[random.Next(s.Length)])
-            .ToArray()));
+            .ToArray());
 
-        return passwordHash;
+        return password;
     }
 
     public async Task UpdatePasswordAsync(string email)
@@ -71,20 +57,13 @@ internal class UserService : IUserService
 
         if (user == null) return;
 
-        user.PasswordHash = this.GenerateRandomPassword();
+        string password = this.GenerateRandomPassword();
+
+        this.emailService.SendEmail(user.FirstName + " " + user.LastName, user.Email, password);
+
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
         await this.dbContext.SaveChangesAsync();
-
-        // TODO: send email
-    }
-
-    // TODO: Create the config provider for models
-    public async Task<List<UserVM>> GetAllUsersAsync()
-    {
-        return await this.dbContext.Users
-            .Where(u => u.IsActive == true)
-            .ProjectTo<UserVM>(this.mapper.ConfigurationProvider)
-            .ToListAsync();
     }
 
     public async Task<UserVM> GetUserByEmailAsync(string email)
@@ -92,7 +71,7 @@ internal class UserService : IUserService
         return await this.dbContext.Users
             .Where(u => u.Email == email)
             .ProjectTo<UserVM>(this.mapper.ConfigurationProvider)
-            .FirstOrDefaultAsync();
+            .FirstAsync();
     }
 
     public async Task<UserVM> GetUserByIdAsync(int id)
@@ -100,7 +79,7 @@ internal class UserService : IUserService
         return await this.dbContext.Users
             .Where(u => u.Id == id)
             .ProjectTo<UserVM>(this.mapper.ConfigurationProvider)
-            .FirstOrDefaultAsync();
+            .FirstAsync();
     }
 
     public async Task<UserVM> UpdateUserAsync(string email, UserUM userUM)
@@ -123,7 +102,7 @@ internal class UserService : IUserService
         }
         if(userUM.Role != null && user != null)
         {
-            // TODO: Implement
+            user.RoleId = Convert.ToInt32(userUM.Role);
         }
 
         await this.dbContext.SaveChangesAsync();
