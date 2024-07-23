@@ -85,6 +85,9 @@
   "placeholderClass": "Select Class",
 
   "dashboard": "Dashboard",
+  "assignment": "Assignment",
+  "grades":"Grades",
+  "students_assignments":"Students Assignments",
   "manage_users": "Manage Users",
   "system_management": "System Management",
   "manage_classes": "Manage Classes",

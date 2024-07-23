@@ -80,6 +80,9 @@
   "placeholderStudent": "Изберете ученик",
   "placeholderClass": "Изберете клас",
   
+  "assignment": "Задание",
+  "grades":"Оценки",
+  "students_assignments":"Задания за ученици",
   "dashboard": "Главна Страница",
   "manage_users": "Контрол на потребителите",
   "system_management": "Управление на системата",
