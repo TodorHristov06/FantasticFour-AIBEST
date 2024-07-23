@@ -1,12 +1,13 @@
 import React from "react";
 import { BiHome, BiBookAlt, BiSolidReport, BiStats, BiTask, BiUser, BiListUl, BiEdit, BiWorld, BiLogOut } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/sidebar.css';
 import ProfilePicture from '../assets/ProfilePicture.jpg';
 import { useTranslation } from 'react-i18next';
 
 const Sidebar = ({ role }) => {
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate(); // Използвайте useNavigate вместо useHistory
 
     const getDashboardLink = () => {
         switch (role) {
@@ -40,6 +41,13 @@ const Sidebar = ({ role }) => {
 
     const handleLanguageChange = (lang) => {
         i18n.changeLanguage(lang);
+    };
+
+    const handleLogout = () => {
+        // Изчистване на сесията на потребителя (може да е различно в зависимост от начина на управление на сесията)
+        localStorage.removeItem('userToken'); // Примерен начин за изчистване на токена
+        // Пренасочване към страницата за вход
+        navigate('/login');
     };
 
     return (
@@ -116,7 +124,7 @@ const Sidebar = ({ role }) => {
             </div>
 
             <div className="bottom-logout">
-                <button className="logout-button">
+                <button className="logout-button" onClick={handleLogout}>
                     <BiLogOut className="icon"/>
                     {t('Logout')}
                 </button>
