@@ -1,5 +1,5 @@
 import React from "react";
-import { BiHome, BiBookAlt, BiSolidReport, BiStats, BiTask, BiUser, BiListUl, BiEdit, BiTrash, BiWorld } from 'react-icons/bi';
+import { BiHome, BiBookAlt, BiSolidReport, BiStats, BiTask, BiUser, BiListUl, BiEdit, BiWorld, BiLogOut } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import '../styles/sidebar.css';
 import ProfilePicture from '../assets/ProfilePicture.jpg';
@@ -112,6 +112,13 @@ const Sidebar = ({ role }) => {
                 <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
                     <BiWorld className="icon"/>
                     {i18n.language === 'en' ? 'Български' : 'English'}
+                </button>
+            </div>
+
+            <div className="bottom-logout">
+                <button className="logout-button">
+                    <BiLogOut className="icon"/>
+                    {t('Logout')}
                 </button>
             </div>
         </div>
