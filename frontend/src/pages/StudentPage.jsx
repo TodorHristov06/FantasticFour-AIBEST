@@ -11,7 +11,7 @@ const StudentPage = () => {
         <Sidebar role={userRole} />
       <div className="dashboard--content">
         <StudentContent />
-        <Profile role={userRole} />
+        {/* <Profile role={userRole} /> */}
       </div>
     </div>
   );

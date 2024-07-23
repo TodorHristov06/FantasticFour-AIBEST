@@ -12,6 +12,7 @@ import {
 } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import '../styles/sidebar.css';
+import ProfilePicture from '../assets/ProfilePicture.jpg';
 
 const Sidebar = ({ role }) => {
     const getDashboardLink = () => {
@@ -27,11 +28,35 @@ const Sidebar = ({ role }) => {
         }
     };
 
+    const roleContent = {
+        student: {
+            username: 'Dimitar Hristov',
+            role: 'Student',
+        },
+        teacher: {
+            username: 'Maria Ivanova',
+            role: 'Teacher',
+        },
+        admin: {
+            username: 'John Smith',
+            role: 'Administrator',
+        },
+    };
+
+    const user = roleContent[role]; // Get user details based on role
+
     return (
         <div className={`menu ${role === 'student' ? 'student-view-only' : role === 'teacher' ? 'teacher-view-only' : role === 'admin' ? 'admin-view-only' : ''}`}>
             <div className="logo">
                 <BiBookAlt className='logo-icon'/>
                 <h2>FantasticFour</h2>
+                <div className="user-info">
+                    <img src={ProfilePicture} alt="Profile" className="profile-picture" />
+                    <div>
+                        <div className="username">{user.username}</div>
+                        <div className="role">{user.role}</div>
+                    </div>
+                </div>
             </div>
 
             <div className="menu--list">

@@ -4,17 +4,31 @@
     gap: 1rem;
     height: 94vh;
 }
+
 .logo {
     text-align: center;
     padding: 20px;
     color: #27374d;
     align-items: center;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
 }
+
 .logo-icon {
     font-size: 1.4rem;
 }
+
+.logo h2 {
+    font-size: 2rem; /* Увеличаване на размера на текста за "FantasticFour" */
+    margin: 0;
+}
+.divider {
+    height: 1px;
+    background-color: #e0e0e0; /* Светла разделителна черта */
+    margin: 10px 0; /* Отстояние отгоре и отдолу */
+}
+
 .menu--list {
     display: flex;
     flex-direction: column;
@@ -27,6 +41,7 @@
     transition: 0.5s ease-in-out;
     color: #27374d;
 }
+
 .menu--list .item:hover {
     background: #27374d;
     color: #dde6ed;
@@ -96,4 +111,29 @@ a {
 .admin-view-only .item:nth-child(8) /* Print Report */ {
     pointer-events: auto;
     opacity: 1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #27374d;
+}
+
+.role {
+    font-size: 0.8rem;
+    color: #526d82;
 }

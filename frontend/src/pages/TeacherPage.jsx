@@ -11,7 +11,7 @@ const TeacherPage = () => {
         <Sidebar role={userRole} />
       <div className="dashboard--content">
         <TeacherContent />
-        <Profile role={userRole} />
+        {/* <Profile role={userRole} /> */}
       </div>
     </div>
   );
