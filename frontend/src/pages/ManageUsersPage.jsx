@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { useTable, useSortBy, useFilters, useGlobalFilter } from 'react-table';
-import { useTranslation } from 'react-i18next';  // Добавено
+import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
 import Modal from '../components/Modal';
-import LanguageSelector from '../components/LanguageSelector'; // Добавено
+import LanguageSelector from '../components/LanguageSelector';
 import '../styles/manageUsersPage.css';
 
 // Компонент за глобално търсене
 const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
-  const { t } = useTranslation(); // Добавено
+  const { t } = useTranslation();
   return (
     <div className="global-filter">
       <label>
@@ -24,7 +24,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
 };
 
 const ManageUsersPage = () => {
-  const { t } = useTranslation(); // Добавено
+  const { t } = useTranslation();
   const userRole = 'admin';
 
   const [filterRole, setFilterRole] = useState('All');
@@ -40,7 +40,7 @@ const ManageUsersPage = () => {
 
   const data = useMemo(
     () => [
-      { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Student' },
+      { id: 1, name: 'John Doe', email: 'todorhristov2006@gmail.com', role: 'Student' },
       { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'Teacher' },
       { id: 3, name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin' },
     ],
@@ -58,6 +58,7 @@ const ManageUsersPage = () => {
         Cell: ({ row }) => (
           <div>
             <button className="edit-button" onClick={() => handleEdit(row.original)}>{t('edit')}</button>
+            <button className="reset-password-button" onClick={() => handleResetPassword(row.original)}>{t('resetPassword')}</button>
             <button className="delete-button">{t('delete')}</button>
           </div>
         ),
@@ -133,11 +134,18 @@ const ManageUsersPage = () => {
     handleCloseAddModal();
   };
 
+  // Функция за изпращане на имейл за възстановяване на парола
+  const handleResetPassword = (user) => {
+    // Заместете с реален API за изпращане на имейл
+    console.log(`Sending password reset email to ${user.email}`);
+    alert(`Password reset email sent to ${user.email}`);
+  };
+
   return (
     <div className="dashboard dashboard-red">
       <Sidebar role={userRole} />
       <div className="dashboard--content">
-        <LanguageSelector /> {/* Добавено */}
+        <LanguageSelector />
         <div className="manage-users">
           <h2>{t('manageUsers')}</h2>
           <button className="add-user-button" onClick={handleAdd}>{t('addUser')}</button>
