@@ -1,21 +1,13 @@
 import React from "react";
-import {
-    BiHome,
-    BiBookAlt,
-    BiSolidReport,
-    BiStats,
-    BiTask,
-    BiUser,
-    BiListUl,
-    BiEdit,
-    BiTrash,
-    BiWorld
-} from 'react-icons/bi';
+import { BiHome, BiBookAlt, BiSolidReport, BiStats, BiTask, BiUser, BiListUl, BiEdit, BiTrash, BiWorld } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import '../styles/sidebar.css';
 import ProfilePicture from '../assets/ProfilePicture.jpg';
+import { useTranslation } from 'react-i18next';
 
 const Sidebar = ({ role }) => {
+    const { t, i18n } = useTranslation();
+
     const getDashboardLink = () => {
         switch (role) {
             case 'admin':
@@ -46,6 +38,10 @@ const Sidebar = ({ role }) => {
 
     const user = roleContent[role]; // Get user details based on role
 
+    const handleLanguageChange = (lang) => {
+        i18n.changeLanguage(lang);
+    };
+
     return (
         <div className={`menu ${role === 'student' ? 'student-view-only' : role === 'teacher' ? 'teacher-view-only' : role === 'admin' ? 'admin-view-only' : ''}`}>
             <div className="logo">
@@ -63,29 +59,29 @@ const Sidebar = ({ role }) => {
             <div className="menu--list">
                 <Link to={getDashboardLink()} className="item">
                     <BiHome className="icon"/>
-                    Dashboard
+                    {t('dashboard')}
                 </Link>
                 <Link to="/assignment" className="item">
                     <BiTask className="icon"/>
-                    Assignment
+                    {t('assignment')}
                 </Link>
                 <Link to="/report" className="item">
                     <BiSolidReport className="icon"/>
-                    Report
+                    {t('report')}
                 </Link>
                 <Link to="/grades" className="item">
                     <BiStats className="icon"/>
-                    Grades
+                    {t('grades')}
                 </Link>
                 {role === 'teacher' && (
                     <>
                         <Link to="/students" className="item">
                             <BiUser className="icon"/>
-                            Students/Assignments
+                            {t('students_assignments')}
                         </Link>
                         <Link to="/print-report-teacher" className="item">
                             <BiListUl className="icon"/>
-                            Print Report
+                            {t('print_report')}
                         </Link>
                     </>
                 )}
@@ -93,29 +89,29 @@ const Sidebar = ({ role }) => {
                     <>
                         <Link to="/manage-users" className="item">
                             <BiUser className="icon"/>
-                            Manage Users
+                            {t('manage_users')}
                         </Link>
                         <Link to="/monitor-activity" className="item">
                             <BiEdit className="icon"/>
-                            System Management
+                            {t('system_management')}
                         </Link>
                         <Link to="/assign-classes" className="item">
                             <BiListUl className="icon"/>
-                            Manage Classes
+                            {t('manage_classes')}
                         </Link>
                         <Link to="/print-report-admin" className="item">
                             <BiListUl className="icon"/>
-                            Print Report
+                            {t('print_report')}
                         </Link>
                         <Link to="/print-report-teacher" className="item">
                             <BiListUl className="icon"/>
-                            Print Report
+                            {t('print_report')}
                         </Link>
                     </>
                 )}
-                <button className="language-button">
+                <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
                     <BiWorld className="icon"/>
-                    Language
+                    {i18n.language === 'en' ? 'Български' : 'English'}
                 </button>
             </div>
         </div>
