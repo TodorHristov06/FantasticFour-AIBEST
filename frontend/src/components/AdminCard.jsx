@@ -18,7 +18,7 @@ const adminFeatures = [
     },
     {
         id: 3,
-        title: 'Reports',
+        title: 'Create User',
         icon: <BiChart />,
     },
 ];
