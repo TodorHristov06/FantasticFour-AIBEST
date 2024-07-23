@@ -8,7 +8,8 @@ import {
     BiUser,
     BiListUl,
     BiEdit,
-    BiTrash
+    BiTrash,
+    BiWorld
 } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import '../styles/sidebar.css';
@@ -80,7 +81,7 @@ const Sidebar = ({ role }) => {
                     <>
                         <Link to="/students" className="item">
                             <BiUser className="icon"/>
-                            Students/Assingments
+                            Students/Assignments
                         </Link>
                         <Link to="/print-report-teacher" className="item">
                             <BiListUl className="icon"/>
@@ -96,7 +97,7 @@ const Sidebar = ({ role }) => {
                         </Link>
                         <Link to="/monitor-activity" className="item">
                             <BiEdit className="icon"/>
-                            System Management 
+                            System Management
                         </Link>
                         <Link to="/assign-classes" className="item">
                             <BiListUl className="icon"/>
@@ -112,6 +113,10 @@ const Sidebar = ({ role }) => {
                         </Link>
                     </>
                 )}
+                <button className="language-button">
+                    <BiWorld className="icon"/>
+                    Language
+                </button>
             </div>
         </div>
     );
