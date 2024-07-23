@@ -82,6 +82,12 @@
   "assignButton": "Assign Class",
   "placeholderTeacher": "Select Teacher",
   "placeholderStudent": "Select Student",
-  "placeholderClass": "Select Class"
+  "placeholderClass": "Select Class",
+
+  "dashboard": "Dashboard",
+  "manage_users": "Manage Users",
+  "system_management": "System Management",
+  "manage_classes": "Manage Classes",
+  "print_report": "Print Report"
 }
 

@@ -78,9 +78,13 @@
   "assignButton": "Назначи клас",
   "placeholderTeacher": "Изберете преподавател",
   "placeholderStudent": "Изберете ученик",
-  "placeholderClass": "Изберете клас"
+  "placeholderClass": "Изберете клас",
   
-  
+  "dashboard": "Главна Страница",
+  "manage_users": "Управление на потребителите",
+  "system_management": "Управление на системата",
+  "manage_classes": "Управление на класовете",
+  "print_report": "Изпрати отчет"
   
   }
   
