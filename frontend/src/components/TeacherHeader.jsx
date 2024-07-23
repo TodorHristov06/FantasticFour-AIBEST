@@ -7,16 +7,8 @@ const TeacherHeader = () => {
             <h1 className="header--title">Teacher Dashboard</h1>
             <div className="header--activity">
                 <div className="search-box">
-                    <input type="text" placeholder="Search students, assignments..." />
+                    <input type="text" placeholder="Search students" />
                     <BiSearch className="icon" />
-                </div>
-
-                <div className="notify">
-                    <BiNotification className="icon" />
-                </div>
-
-                <div className="calendar">
-                    <BiCalendar className="icon" />
                 </div>
             </div>
         </div>
