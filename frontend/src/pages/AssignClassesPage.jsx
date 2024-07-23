@@ -86,6 +86,11 @@ const AssignClassesPage = () => {
     setLanguage(selectedOption.value);
   };
 
+  const handleSectionClick = (section) => {
+    setActiveBox(section);
+    setInfoMessage(''); // Clear the information message
+  };
+
   return (
     <div className="dashboard dashboard-red">
       <Sidebar role={userRole} />
@@ -103,15 +108,15 @@ const AssignClassesPage = () => {
           </div>
 
           <div className="info-boxes">
-            <div className="info-box" onClick={() => setActiveBox('teacher')}>
+            <div className="info-box" onClick={() => handleSectionClick('teacher')}>
               <h3>{language === 'en' ? 'Teacher' : 'Учител'}</h3>
               <p>{language === 'en' ? 'Manage teacher assignments here.' : 'Управлявайте разпределението на учители тук.'}</p>
             </div>
-            <div className="info-box" onClick={() => setActiveBox('student')}>
+            <div className="info-box" onClick={() => handleSectionClick('student')}>
               <h3>{language === 'en' ? 'Student' : 'Студент'}</h3>
               <p>{language === 'en' ? 'Manage student assignments here.' : 'Управлявайте разпределението на студенти тук.'}</p>
             </div>
-            <div className="info-box" onClick={() => setActiveBox('classes')}>
+            <div className="info-box" onClick={() => handleSectionClick('classes')}>
               <h3>{language === 'en' ? 'Classes' : 'Класове'}</h3>
               <p>{language === 'en' ? 'Manage classes here.' : 'Управлявайте класовете тук.'}</p>
             </div>
