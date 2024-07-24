@@ -34,12 +34,12 @@ const AdminList = () => {
             <div className="list--container">
                 {users.map((user) => (
                     <div key={user.id} className="list">
-                        <div className="user--detail">
+                        <div className="admin--detail">
                             <img src={user.image} alt={user.name} />
                             <h2>{user.name}</h2>
                         </div>
-                        <span className='user--role'>{user.role}</span>
-                        <span className='user--status'>{user.status}</span>
+                        <span className='admin--role'>{user.role}</span>
+                        <span className='admin--status'>{user.status}</span>
                     </div>
                 ))}
             </div>
