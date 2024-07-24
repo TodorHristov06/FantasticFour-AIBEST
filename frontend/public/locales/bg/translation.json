@@ -105,6 +105,9 @@
   "successfullyAssignedTeacher": "Успешно разпределен {{subject}} към {{class}} с {{teacher}}",
   "successfullyAssignedStudent": "Успешно разпределен {{student}} към {{class}}",
   "successfullyAddedClass": "Успешно добавен нов клас: {{class}}",
+  "student_assignments": "Задания",
+  "student_grades": "Оценки",
+
 
   
   "printReport": "Отпечатайте Отчет",
@@ -113,6 +116,7 @@
   "pleaseSelectStudentPeriod": "Моля, изберете както студент, така и период.",
   "reportFor": "Отчет за {{student}} за {{period}}",
   "Logout" : "Изход"
+  
   
   
   
