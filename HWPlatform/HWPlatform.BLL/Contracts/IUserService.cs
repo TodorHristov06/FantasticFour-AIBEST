@@ -21,4 +21,7 @@ public interface IUserService
 
     // Soft delete user
     Task DeleteUserAsync(string email);
+
+    // Generate random pass for auth service
+    Task UpdatePasswordForAuthServiceAsync(string email);
 }
