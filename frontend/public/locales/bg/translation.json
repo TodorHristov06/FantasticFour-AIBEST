@@ -163,6 +163,14 @@
   "enter_grade": "Въведете оценка",
   "teacher_comment": "Коментар на учителя",
   "add_comment": "Добавете вашия коментар тук",
-  "not_graded": "Не е оценено"
+  "not_graded": "Не е оценено",
+
+  "search_students": "Търсене на студенти...",
+  "search_classes": "Търсене на класове...",
+  "students": "Студенти",
+  "no_students": "Не са намерени студенти.",
+  "no_classes": "Не са намерени класове.",
+  "no_assignments": "Няма налични задания.",
+  "description": "Описание"
   }
   

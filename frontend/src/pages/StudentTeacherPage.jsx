@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
 import '../styles/studentTeacherPage.css';
 
 const StudentTeacherPage = () => {
+  const { t } = useTranslation();
   const userRole = 'teacher';
 
   const [teacher, setTeacher] = useState(null);
@@ -52,20 +54,20 @@ const StudentTeacherPage = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="student-teacher-page">
-          <h2>Welcome, {teacher?.name}</h2>
+          <h2>{t('welcome', { name: teacher?.name })}</h2>
           
           {/* Поле за търсене на студенти */}
           <div className="search-bar">
             <input
               type="text"
-              placeholder="Search students..."
+              placeholder={t('search_students')}
               value={studentSearch}
               onChange={(e) => setStudentSearch(e.target.value)}
             />
           </div>
 
           <div className="student-list">
-            <h3>Students</h3>
+            <h3>{t('students')}</h3>
             {filteredStudents.length > 0 ? (
               filteredStudents.map(student => (
                 <div key={student.id} className="student-item">
@@ -73,7 +75,7 @@ const StudentTeacherPage = () => {
                 </div>
               ))
             ) : (
-              <p>No students found.</p>
+              <p>{t('no_students')}</p>
             )}
           </div>
 
@@ -81,14 +83,14 @@ const StudentTeacherPage = () => {
           <div className="search-bar">
             <input
               type="text"
-              placeholder="Search classes..."
+              placeholder={t('search_classes')}
               value={classSearch}
               onChange={(e) => setClassSearch(e.target.value)}
             />
           </div>
 
           <div className="class-list">
-            <h3>Classes</h3>
+            <h3>{t('classes')}</h3>
             {filteredClasses.length > 0 ? (
               filteredClasses.map(cls => (
                 <div key={cls.id} className="class-item">
@@ -96,7 +98,7 @@ const StudentTeacherPage = () => {
                 </div>
               ))
             ) : (
-              <p>No classes found.</p>
+              <p>{t('no_classes')}</p>
             )}
           </div>
 
@@ -113,13 +115,13 @@ const StudentTeacherPage = () => {
                         </li>
                       ))
                     ) : (
-                      <li>No assignments available.</li>
+                      <li>{t('no_assignments')}</li>
                     )}
                   </ul>
                 </div>
               ))
             ) : (
-              <p>No assignments available.</p>
+              <p>{t('no_assignments')}</p>
             )}
           </div>
         </div>

@@ -163,6 +163,14 @@
   "enter_grade": "Enter grade",
   "teacher_comment": "Teacher Comment",
   "add_comment": "Add your comment here",
-  "not_graded": "Not Graded"
+  "not_graded": "Not Graded",
+
+  "search_students": "Search students...",
+  "search_classes": "Search classes...",
+  "students": "Students",
+  "no_students": "No students found.",
+  "no_classes": "No classes found.",
+  "no_assignments": "No assignments available.",
+  "description": "Description"
 }
 
