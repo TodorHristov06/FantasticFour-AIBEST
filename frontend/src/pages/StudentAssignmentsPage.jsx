@@ -1,7 +1,7 @@
 // src/pages/StudentAssignmentsPage.jsx
 
 import React from "react";
-import { BiTask, BiTime, BiUser, BiBook } from "react-icons/bi";
+import { BiTask, BiTime, BiUser, BiBook, BiCheck, BiX } from "react-icons/bi";
 import Sidebar from "../components/Sidebar";
 import "../styles/studentAssignmentsPage.css"; // Вашите стилове
 
@@ -9,9 +9,9 @@ const StudentAssignmentsPage = () => {
   const userRole = 'student'; // Ролята на потребителя
 
   const assignments = [
-    { id: 1, title: "Homework 1", description: "Solve the equations and submit your solutions.", subject: "Math 101", deadline: "2024-07-31", teacher: "Mr. John Doe" },
-    { id: 2, title: "Essay", description: "Write an essay on the given topic.", subject: "English Literature", deadline: "2024-08-10", teacher: "Ms. Jane Smith" },
-    { id: 3, title: "Lab Report", description: "Submit your lab report for the experiment conducted.", subject: "Physics Fundamentals", deadline: "2024-08-05", teacher: "Dr. Emily Brown" },
+    { id: 1, title: "Homework 1", description: "Solve the equations and submit your solutions.", subject: "Math 101", deadline: "2024-07-31", teacher: "Mr. John Doe", graded: true },
+    { id: 2, title: "Essay", description: "Write an essay on the given topic.", subject: "English Literature", deadline: "2024-08-10", teacher: "Ms. Jane Smith", graded: true },
+    { id: 3, title: "Lab Report", description: "Submit your lab report for the experiment conducted.", subject: "Physics Fundamentals", deadline: "2024-08-05", teacher: "Dr. Emily Brown", graded: false },
   ];
 
   return (
@@ -42,6 +42,19 @@ const StudentAssignmentsPage = () => {
                   </div>
                   <div className="assignment-detail">
                     <p>{assignment.description}</p>
+                  </div>
+                  <div className="assignment-detail graded">
+                    {assignment.graded ? (
+                      <>
+                        <BiCheck className="icon graded" />
+                        <span><strong>Status:</strong> Graded</span>
+                      </>
+                    ) : (
+                      <>
+                        <BiX className="icon not-graded" />
+                        <span><strong>Status:</strong> Not Graded</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
