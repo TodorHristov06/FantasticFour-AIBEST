@@ -54,6 +54,12 @@ public class UsersController : ControllerBase
             });
     }
 
-    // TODO: Update pass for auth service
+    [HttpGet("/getpassword/{email}")]
+    public async Task<ActionResult<string>> GetPasswordAsync(string email)
+    {
+        if (!await this.userService.CheckIfUserExistsByEmailAsync(email))
+            return NotFound();
 
+        return await this.userService.UpdatePasswordForAuthServiceAsync(email);
+    }
 }

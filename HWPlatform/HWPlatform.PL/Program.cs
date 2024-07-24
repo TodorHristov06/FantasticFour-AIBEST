@@ -36,7 +36,10 @@ namespace HWPlatform.PL
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "AIBEST HWPlatform API V1");
+                });
             }
 
             app.UseHttpsRedirection();

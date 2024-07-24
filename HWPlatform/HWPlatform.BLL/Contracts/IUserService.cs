@@ -24,7 +24,7 @@ public interface IUserService
     Task DeleteUserAsync(string email);
 
     // Generate random pass for auth service
-    Task UpdatePasswordForAuthServiceAsync(string email);
+    Task<string> UpdatePasswordForAuthServiceAsync(string email);
 
     // Check if user exists by email
     Task<bool> CheckIfUserExistsByEmailAsync(string email);

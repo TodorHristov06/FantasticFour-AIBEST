@@ -68,17 +68,17 @@ internal class UserService : IUserService
         await this.dbContext.SaveChangesAsync();
     }
 
-    public async Task UpdatePasswordForAuthServiceAsync(string email)
+    public async Task<string> UpdatePasswordForAuthServiceAsync(string email)
     {
         var user = await dbContext.Users
             .Where(u => u.Email == email)
-            .FirstOrDefaultAsync();
-
-        if (user == null) return;
+            .FirstAsync();
 
         string password = this.GenerateRandomPassword();
 
         this.emailService.SendEmail(user.FirstName + " " + user.LastName, user.Email, password);
+
+        return password;
     }
 
     public async Task<UserVM> GetUserByEmailAsync(string email)
