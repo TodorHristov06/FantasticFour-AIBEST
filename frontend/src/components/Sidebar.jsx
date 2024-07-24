@@ -119,6 +119,20 @@ const Sidebar = ({ role }) => {
                             <BiListUl className="icon"/>
                             {t('print_report')}
                         </Link>
+                        
+                    </>
+                )}
+                {role === 'student' && (
+                    <>
+                        <Link to="/student_assignments" className="item">
+                            <BiTask className="icon"/>
+                            {t('student_assignments')}
+                        </Link>
+                        <Link to="/student-grades" className="item">
+                            <BiStats className="icon"/>
+                            {t('student_grades')}
+                        </Link>
+                        
                     </>
                 )}
                 

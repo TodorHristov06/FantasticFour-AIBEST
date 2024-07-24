@@ -61,13 +61,18 @@ a {
 /* Additional styling for role-based permissions */
 .student-view-only .item {
     pointer-events: none;
-    opacity: 0;
+    opacity: 0.6;
+}
+
+.student-view-only .item:nth-child(2),
+.student-view-only .item:nth-child(3),
+.student-view-only .item:nth-child(4) {
+display: none; 
 }
 
 .student-view-only .item:nth-child(1), /* Dashboard */
-.student-view-only .item:nth-child(2), /* Assignment */
-.student-view-only .item:nth-child(3), /* Grades */
-.student-view-only .item:nth-child(4)  /* Help */ {
+.student-view-only .item:nth-child(5), /* Assignment */
+.student-view-only .item:nth-child(6)  /* Help */ {
     pointer-events: auto;
     opacity: 1;
 }
