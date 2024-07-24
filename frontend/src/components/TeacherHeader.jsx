@@ -6,10 +6,6 @@ const TeacherHeader = () => {
         <div className='content--header'>
             <h1 className="header--title">Teacher Dashboard</h1>
             <div className="header--activity">
-                <div className="search-box">
-                    <input type="text" placeholder="Search students" />
-                    <BiSearch className="icon" />
-                </div>
             </div>
         </div>
     );
