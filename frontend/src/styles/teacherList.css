@@ -4,7 +4,6 @@
   background: #f5f7fa;
   border-radius: 10px;
   width: 100%;
-  height: calc(100vh - 200px); /* Заема височината на екрана минус разстоянията отгоре и отдолу */
   margin: 40px auto;
 }
 
