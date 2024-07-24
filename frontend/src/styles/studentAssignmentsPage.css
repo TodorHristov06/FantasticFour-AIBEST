@@ -90,3 +90,19 @@
     color: #27374d;
   }
   
+  .graded {
+    color: green;
+  }
+  
+  .not-graded {
+    color: red;
+  }
+  
+  .icon.graded {
+    color: green;
+  }
+  
+  .icon.not-graded {
+    color: red;
+  }
+  
