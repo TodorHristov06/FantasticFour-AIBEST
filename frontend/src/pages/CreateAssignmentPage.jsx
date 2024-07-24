@@ -34,7 +34,7 @@ const CreateAssignment = () => {
     const deadlineDate = new Date(deadline);
     
     if (deadlineDate < today) {
-      setError("Deadline cannot be in the past.");
+      setError("Deadline cannot be in the past!");
       return;
     }
 
