@@ -11,7 +11,7 @@ import {
 const studentFeatures = [
     {
         id: 1,
-        title: 'assignments', // Използвайте ключове за превод
+        title: 'student_assignments', // Използвайте ключове за превод
         icon: <BiTask />,
         path: '/student_assignments', // Път към страницата с задания
     },
