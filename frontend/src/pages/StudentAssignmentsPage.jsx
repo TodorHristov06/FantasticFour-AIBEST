@@ -10,8 +10,8 @@ const StudentAssignmentsPage = () => {
 
   const assignments = [
     { id: 1, title: "Homework 1", description: "Solve the equations and submit your solutions.", subject: "Math 101", deadline: "2024-07-31", teacher: "Mr. John Doe", graded: true },
-    { id: 2, title: "Essay", description: "Write an essay on the given topic.", subject: "English Literature", deadline: "2024-08-10", teacher: "Ms. Jane Smith", graded: false },
-    { id: 3, title: "Lab Report", description: "Submit your lab report for the experiment conducted.", subject: "Physics Fundamentals", deadline: "2024-08-05", teacher: "Dr. Emily Brown", graded: true },
+    { id: 2, title: "Essay", description: "Write an essay on the given topic.", subject: "English Literature", deadline: "2024-08-10", teacher: "Ms. Jane Smith", graded: true },
+    { id: 3, title: "Lab Report", description: "Submit your lab report for the experiment conducted.", subject: "Physics Fundamentals", deadline: "2024-08-05", teacher: "Dr. Emily Brown", graded: false },
   ];
 
   return (

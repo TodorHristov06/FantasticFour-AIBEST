@@ -15,6 +15,7 @@ import GradeAssignmentsPage from './pages/GradeAssignmentsPage';
 import StudentTeacherPage from './pages/StudentTeacherPage';
 import StudentSubmitPage from './pages/StudentSubmitPage';
 import StudentAssignmentsPage from './pages/StudentAssignmentsPage';
+import StudentGradesPage from './pages/StudentGradesPage';
 
 const ProtectedRoute = ({ element, ...rest }) => {
   const { auth } = useAuth();
@@ -49,6 +50,7 @@ function App() {
           <Route path="/students" element={<ProtectedRoute element={<StudentTeacherPage />} />} />
           <Route path="/submit" element={<ProtectedRoute element={<StudentSubmitPage />} />} />
           <Route path="/student_assignments" element={<ProtectedRoute element={<StudentAssignmentsPage />} />} />
+          <Route path="/student-grades" element={<ProtectedRoute element={<StudentGradesPage />} />} />
         </Routes>
       </AuthProvider>
     </Router>
