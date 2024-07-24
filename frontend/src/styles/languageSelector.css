@@ -1,11 +1,11 @@
 .language-selector {
-    position: absolute; /* Позициониране на менюто на дясната страна */
-    top: 40px; /* Разстояние от горната част на контейнера */
-    right: 70px; /* Разстояние от дясната страна на контейнера */
+    position: absolute; 
+    top: 40px; 
+    right: 70px; 
 }
 
 .language-dropdown {
-    width: 170px; /* Ширина на дропдауна */
+    width: 170px; 
     margin-left: auto;
 }
 
