@@ -1,3 +1,5 @@
+// src/pages/AssignClassesPage.jsx
+
 import React, { useState } from 'react';
 import Select from 'react-select';
 import Sidebar from '../components/Sidebar';
@@ -13,34 +15,30 @@ const AssignClassesPage = () => {
   const [newClassName, setNewClassName] = useState('');
   const [activeBox, setActiveBox] = useState(null);
   const [infoMessage, setInfoMessage] = useState("");
-  const { t } = useTranslation(); // Използване на useTranslation
+  const { t } = useTranslation();
 
   const teachers = [
     { id: 1, name: 'Jane Smith' },
     { id: 2, name: 'John Doe' },
     { id: 3, name: 'Alice Johnson' },
-    // Add more teachers here
   ];
 
   const subjects = [
     { id: 1, name: 'Mathematics' },
     { id: 2, name: 'English' },
     { id: 3, name: 'Science' },
-    // Add more subjects here
   ];
 
   const classes = [
     { id: 1, name: 'Math 101' },
     { id: 2, name: 'English Literature' },
     { id: 3, name: 'Physics Fundamentals' },
-    // Add more classes here
   ];
 
   const students = [
     { id: 1, name: 'Tom Brown' },
     { id: 2, name: 'Lucy White' },
     { id: 3, name: 'Emma Green' },
-    // Add more students here
   ];
 
   const handleSelect = (type, selectedOption) => {
@@ -64,7 +62,6 @@ const AssignClassesPage = () => {
         class: selectedClass.label,
         teacher: selectedTeacher.label
       }));
-      // Clear selected values
       setSelectedTeacher(null);
       setSelectedSubject(null);
       setSelectedClass(null);
@@ -73,12 +70,10 @@ const AssignClassesPage = () => {
         student: selectedStudent.label,
         class: selectedClass.label
       }));
-      // Clear selected values
       setSelectedStudent(null);
       setSelectedClass(null);
     } else if (activeBox === 'classes' && newClassName) {
       setInfoMessage(t('successfullyAddedClass', { class: newClassName }));
-      // Clear the new class name
       setNewClassName('');
     } else {
       setInfoMessage(t('pleaseSelectFields'));
@@ -87,7 +82,7 @@ const AssignClassesPage = () => {
 
   const handleSectionClick = (section) => {
     setActiveBox(section);
-    setInfoMessage(''); // Clear the information message
+    setInfoMessage('');
   };
 
   return (
@@ -100,15 +95,24 @@ const AssignClassesPage = () => {
           </div>
 
           <div className="info-boxes">
-            <div className="info-box" onClick={() => handleSectionClick('teacher')}>
+            <div
+              className={`info-box ${activeBox === 'teacher' ? 'active' : ''}`}
+              onClick={() => handleSectionClick('teacher')}
+            >
               <h3>{t('teacher')}</h3>
               <p>{t('manageTeacherAssignments')}</p>
             </div>
-            <div className="info-box" onClick={() => handleSectionClick('student')}>
+            <div
+              className={`info-box ${activeBox === 'student' ? 'active' : ''}`}
+              onClick={() => handleSectionClick('student')}
+            >
               <h3>{t('student')}</h3>
               <p>{t('manageStudentAssignments')}</p>
             </div>
-            <div className="info-box" onClick={() => handleSectionClick('classes')}>
+            <div
+              className={`info-box ${activeBox === 'classes' ? 'active' : ''}`}
+              onClick={() => handleSectionClick('classes')}
+            >
               <h3>{t('classes')}</h3>
               <p>{t('manageClasses')}</p>
             </div>

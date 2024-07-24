@@ -49,6 +49,12 @@
   text-align: center;
 }
 
+.info-box.active {
+  background: #1c2a38;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .info-box:hover {
   background: #eaeaea;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -60,9 +66,17 @@
   margin-bottom: 10px;
 }
 
+.info-box.active h3 {
+  color: #fff;
+}
+
 .info-box p {
   font-size: 16px;
   color: #495057;
+}
+
+.info-box.active p {
+  color: #fff;
 }
 
 /* Стил за формите в долната част */
@@ -144,15 +158,29 @@
   transition: background 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
+
+.info-box.active {
+  background: #1c2a38;
+  color: #fff;
+}
+
 .info-box h3 {
   margin-bottom: 10px;
   font-size: 18px;
   color: #1c2a38;
 }
 
+.info-box.active h3 {
+  color: #fff;
+}
+
 .info-box p {
   margin-bottom: 20px;
   font-size: 16px;
+}
+
+.info-box.active p {
+  color: #fff;
 }
 
 /* Стилове за бутоните */
