@@ -186,6 +186,31 @@
   "class_time": "Време на клас",
   "logout": "Изход",
 
-  "teacher_dashboard": "Табло за управление на учителя"
+  "teacher_dashboard": "Табло за управление на учителя",
+  "your_assignments": "Вашите задания",
+  "status": "Статус",
+  "graded": "Оценен",
+  "your_grades": "Вашите оценки",
+  "max_points": "Максимален брой точки",
+  "feedback": "Обратна връзка",
+  "no_feedback": "Няма обратна връзка",
+  "not_graded_yet": "Тази задача все още не е оценена",
+
+  "submit_homework": "Подаване на домашно",
+  "google_drive_link": "Линк към Google Drive",
+  "comment": "Коментар",
+  "submit_assignment": "Подайте задачата",
+  "placeholder_select_assignment": "Изберете задача",
+  "placeholder_google_drive_link": "Въведете линк към Google Drive",
+  "placeholder_comment": "Добавете коментар",
+
+  "student_dashboard": "Студентски панел",
+  "teachers": "Учители",
+  "completed": "Завършени",
+  "in_progress": "В процес",
+  "not_started": "Не започнати",
+  "completed_status": "Завършен",
+  "in_progress_status": "В процес",
+  "not_started_status": "Не започнат"
   }
   

@@ -185,6 +185,33 @@
   "class_time": "Class Time",
   "logout": "Logout",
 
-  "teacher_dashboard": "Teacher Dashboard"
+  "teacher_dashboard": "Teacher Dashboard",
+
+  "your_assignments": "Your Assignments",
+  "status": "Status",
+  "graded": "Graded",
+  "your_grades": "Your Grades",
+  "max_points": "Max Points",
+  "feedback": "Feedback",
+  "no_feedback": "No feedback",
+  "not_graded_yet": "This assignment has not been graded yet",
+
+  "submit_homework": "Submit Homework",
+  "google_drive_link": "Google Drive Link",
+  "comment": "Comment",
+  "submit_assignment": "Submit Assignment",
+  "placeholder_select_assignment": "Select Assignment",
+  "placeholder_google_drive_link": "Enter Google Drive link",
+  "placeholder_comment": "Add a comment",
+
+  "student_dashboard": "Student Dashboard",
+  "teachers": "Teachers",
+  "completed": "Completed",
+  "in_progress": "In Progress",
+  "not_started": "Not Started",
+  "completed_status": "Completed",
+  "in_progress_status": "In Progress",
+  "not_started_status": "Not Started"
+  
 }
 

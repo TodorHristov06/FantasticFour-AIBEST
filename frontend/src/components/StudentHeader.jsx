@@ -1,15 +1,14 @@
 import React from 'react';
-import { BiNotification, BiSearch, BiStar } from 'react-icons/bi';
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 
 const StudentHeader = () => {
+    const { t } = useTranslation(); // Използвайте useTranslation за локализация
+
     return (
         <div className='content--header'>
-            <h1 className="header--title">Student Dashboard</h1>
+            <h1 className="header--title">{t('student_dashboard')}</h1> {/* Локализиране на заглавието */}
             <div className="header--activity">
-                <div className="search-box">
-                    <input type="text" placeholder="Search courses" />
-                    <BiSearch className="icon" />
-                </div>
+                {/* Можете да добавите икони или друга активност тук */}
             </div>
         </div>
     );

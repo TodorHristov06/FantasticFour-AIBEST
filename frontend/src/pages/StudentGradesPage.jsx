@@ -1,11 +1,11 @@
-// src/pages/StudentGradesPage.jsx
-
 import React from "react";
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 import { BiTask, BiBook, BiUser, BiCheckCircle, BiTimeFive, BiCommentDetail } from "react-icons/bi";
 import Sidebar from "../components/Sidebar";
 import "../styles/studentGradesPage.css"; // Вашите стилове
 
 const StudentGradesPage = () => {
+  const { t } = useTranslation(); // Използвайте useTranslation за локализация
   const userRole = 'student'; // Ролята на потребителя
 
   const grades = [
@@ -19,7 +19,7 @@ const StudentGradesPage = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="grades-list">
-          <h2>Your Grades</h2>
+          <h2>{t('your_grades')}</h2> {/* Локализиране на заглавието */}
           <div className="grades">
             {grades.map((grade) => (
               <div key={grade.id} className="grade-card">
@@ -30,33 +30,33 @@ const StudentGradesPage = () => {
                 <div className="grade-details">
                   <div className="grade-detail">
                     <BiBook className="icon" />
-                    <span><strong>Subject:</strong> {grade.subject}</span>
+                    <span><strong>{t('subject')}:</strong> {grade.subject}</span> {/* Локализиране на заглавия */}
                   </div>
                   <div className="grade-detail">
                     <BiUser className="icon" />
-                    <span><strong>Teacher:</strong> {grade.teacher}</span>
+                    <span><strong>{t('teacher')}:</strong> {grade.teacher}</span> {/* Локализиране на заглавия */}
                   </div>
                   <div className="grade-detail">
                     <BiCheckCircle className="icon" />
                     <span>
-                      <strong>Grade:</strong> {grade.grade ? grade.grade : <span className="not-graded">Not graded</span>}
-                    </span>
+                      <strong>{t('grade')}:</strong> {grade.grade ? grade.grade : <span className="not-graded">{t('not_graded')}</span>}
+                    </span> {/* Локализиране на оценките */}
                   </div>
                   <div className="grade-detail">
-                    <span><strong>Max Points:</strong> {grade.maxPoints}</span>
-                  </div>
-                  <div className="grade-detail">
-                    <BiCommentDetail className="icon" />
-                    <span><strong>Student Comment:</strong> {grade.studentComment ? grade.studentComment : <span className="not-graded">No comment</span>}</span>
+                    <span><strong>{t('max_points')}:</strong> {grade.maxPoints}</span> {/* Локализиране на заглавия */}
                   </div>
                   <div className="grade-detail">
                     <BiCommentDetail className="icon" />
-                    <span><strong>Feedback:</strong> {grade.feedback ? grade.feedback : <span className="not-graded">No feedback</span>}</span>
+                    <span><strong>{t('student_comment')}:</strong> {grade.studentComment ? grade.studentComment : <span className="not-graded">{t('no_comment')}</span>}</span> {/* Локализиране на коментари */}
+                  </div>
+                  <div className="grade-detail">
+                    <BiCommentDetail className="icon" />
+                    <span><strong>{t('feedback')}:</strong> {grade.feedback ? grade.feedback : <span className="not-graded">{t('no_feedback')}</span>}</span> {/* Локализиране на обратна връзка */}
                   </div>
                   {!grade.grade && (
                     <div className="not-graded-alert">
                       <BiTimeFive className="icon" />
-                      <span>This assignment has not been graded yet</span>
+                      <span>{t('not_graded_yet')}</span> {/* Локализиране на съобщението за неоценени задачи */}
                     </div>
                   )}
                 </div>

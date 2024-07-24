@@ -1,11 +1,11 @@
-// src/pages/StudentAssignmentsPage.jsx
-
 import React from "react";
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 import { BiTask, BiTime, BiUser, BiBook, BiCheck, BiX } from "react-icons/bi";
 import Sidebar from "../components/Sidebar";
 import "../styles/studentAssignmentsPage.css"; // Вашите стилове
 
 const StudentAssignmentsPage = () => {
+  const { t } = useTranslation(); // Използвайте useTranslation за локализация
   const userRole = 'student'; // Ролята на потребителя
 
   const assignments = [
@@ -19,7 +19,7 @@ const StudentAssignmentsPage = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="assignments-list">
-          <h2>Your Assignments</h2>
+          <h2>{t('your_assignments')}</h2> {/* Локализиране на заглавието */}
           <div className="assignments">
             {assignments.map((assignment) => (
               <div key={assignment.id} className="assignment-card">
@@ -30,15 +30,15 @@ const StudentAssignmentsPage = () => {
                 <div className="assignment-details">
                   <div className="assignment-detail">
                     <BiBook className="icon" />
-                    <span><strong>Subject:</strong> {assignment.subject}</span>
+                    <span><strong>{t('subject')}:</strong> {assignment.subject}</span> {/* Локализиране на заглавия */}
                   </div>
                   <div className="assignment-detail">
                     <BiTime className="icon" />
-                    <span><strong>Deadline:</strong> {assignment.deadline}</span>
+                    <span><strong>{t('deadline')}:</strong> {assignment.deadline}</span> {/* Локализиране на заглавия */}
                   </div>
                   <div className="assignment-detail">
                     <BiUser className="icon" />
-                    <span><strong>Teacher:</strong> {assignment.teacher}</span>
+                    <span><strong>{t('teacher')}:</strong> {assignment.teacher}</span> {/* Локализиране на заглавия */}
                   </div>
                   <div className="assignment-detail">
                     <p>{assignment.description}</p>
@@ -47,12 +47,12 @@ const StudentAssignmentsPage = () => {
                     {assignment.graded ? (
                       <>
                         <BiCheck className="icon graded" />
-                        <span><strong>Status:</strong> Graded</span>
+                        <span><strong>{t('status')}:</strong> {t('graded')}</span> {/* Локализиране на статуса */}
                       </>
                     ) : (
                       <>
                         <BiX className="icon not-graded" />
-                        <span><strong>Status:</strong> Not Graded</span>
+                        <span><strong>{t('status')}:</strong> {t('not_graded')}</span> {/* Локализиране на статуса */}
                       </>
                     )}
                   </div>

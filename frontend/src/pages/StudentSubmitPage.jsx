@@ -1,12 +1,12 @@
-// src/pages/StudentSubmitPage.jsx
-
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 import Select from "react-select";
 import { BiTask, BiUpload } from "react-icons/bi";
 import Sidebar from "../components/Sidebar";
 import "../styles/studentSubmitPage.css"; // Вашите стилове
 
 const StudentSubmitPage = () => {
+  const { t } = useTranslation(); // Използвайте useTranslation за локализация
   const userRole = 'student'; // Ролята на потребителя
 
   const [googleDriveLink, setGoogleDriveLink] = useState("");
@@ -31,22 +31,22 @@ const StudentSubmitPage = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="submit-assignment">
-          <h2>Submit Homework</h2>
+          <h2>{t('submit_homework')}</h2> {/* Локализиране на заглавието */}
           <div className="assignment-form">
             {/* Select Assignment */}
             <div className="select-assignment">
               <div className="assignment-form__header">
                 <BiTask className="icon" />
-                <h3>Select Assignment</h3>
+                <h3>{t('select_assignment')}</h3> {/* Локализиране на заглавието */}
               </div>
               <div className="form-group">
-                <label htmlFor="assignment">Assignment</label>
+                <label htmlFor="assignment">{t('select_assignment')}</label>
                 <Select
                   id="assignment"
                   options={assignments.map(assignment => ({ value: assignment.id, label: assignment.title, details: assignment }))}
                   value={selectedAssignment}
                   onChange={(selectedOption) => setSelectedAssignment(selectedOption)}
-                  placeholder="Select Assignment"
+                  placeholder={t('placeholder_select_assignment')}
                   isClearable
                 />
               </div>
@@ -57,10 +57,10 @@ const StudentSubmitPage = () => {
               <div className="assignment-details">
                 <div className="assignment-form__header">
                   <BiTask className="icon" />
-                  <h3>Assignment Details</h3>
+                  <h3>{t('select_assignment')} {t('details')}</h3> {/* Локализиране на заглавието */}
                 </div>
                 <div className="form-group">
-                  <label>Assignment Title</label>
+                  <label>{t('assignment_title')}</label>
                   <input
                     type="text"
                     value={selectedAssignment.details.title}
@@ -68,14 +68,14 @@ const StudentSubmitPage = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Description</label>
+                  <label>{t('description')}</label>
                   <textarea
                     value={selectedAssignment.details.description}
                     readOnly
                   />
                 </div>
                 <div className="form-group">
-                  <label>Subject</label>
+                  <label>{t('subject')}</label>
                   <input
                     type="text"
                     value={selectedAssignment.details.subject}
@@ -83,7 +83,7 @@ const StudentSubmitPage = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Deadline</label>
+                  <label>{t('deadline')}</label>
                   <input
                     type="date"
                     value={selectedAssignment.details.deadline}
@@ -91,7 +91,7 @@ const StudentSubmitPage = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Max Points</label>
+                  <label>{t('max_points')}</label>
                   <input
                     type="number"
                     value={selectedAssignment.details.maxPoints}
@@ -105,31 +105,31 @@ const StudentSubmitPage = () => {
             <div className="submit-assignment-details">
               <div className="assignment-form__header">
                 <BiUpload className="icon" />
-                <h3>Submit Assignment</h3>
+                <h3>{t('submit_assignment')}</h3> {/* Локализиране на заглавието */}
               </div>
               <div className="form-group">
-                <label htmlFor="google-drive-link">Google Drive Link</label>
+                <label htmlFor="google-drive-link">{t('google_drive_link')}</label>
                 <input
                   type="text"
                   id="google-drive-link"
                   value={googleDriveLink}
                   onChange={(e) => setGoogleDriveLink(e.target.value)}
-                  placeholder="Enter Google Drive link"
+                  placeholder={t('placeholder_google_drive_link')}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="comment">Comment</label>
+                <label htmlFor="comment">{t('comment')}</label>
                 <textarea
                   id="comment"
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
-                  placeholder="Add a comment"
+                  placeholder={t('placeholder_comment')}
                 />
               </div>
             </div>
           </div>
 
-          <button onClick={handleSubmitAssignment}>Submit Assignment</button>
+          <button className="submit-assignment-button" onClick={handleSubmitAssignment}>{t('submit_assignment')}</button> {/* Локализиране на текста на бутона */}
         </div>
       </div>
     </div>

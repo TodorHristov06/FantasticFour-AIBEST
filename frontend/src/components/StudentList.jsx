@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 import "../styles/studentList.css";
 import ProfilePicture from '../assets/ProfilePicture.jpg';
 
@@ -50,6 +51,7 @@ const teachers = [
 ];
 
 const StudentList = () => {
+    const { t } = useTranslation(); // Използвайте useTranslation за локализация
     const [selectedFilter, setSelectedFilter] = useState('all');
 
     // Филтриране на заданията въз основа на избрания филтър
@@ -63,12 +65,12 @@ const StudentList = () => {
     return (
         <div className="student--list">
             <div className="list--header">
-                <h2>Teachers</h2>
+                <h2>{t('teachers')}</h2> {/* Локализиране на заглавието */}
                 <select onChange={(e) => setSelectedFilter(e.target.value)} value={selectedFilter}>
-                    <option value="all">All</option>
-                    <option value="completed">Completed</option>
-                    <option value="in-progress">In Progress</option>
-                    <option value="not-started">Not Started</option>
+                    <option value="all">{t('all')}</option> {/* Локализиране на опции */}
+                    <option value="completed">{t('completed')}</option>
+                    <option value="in-progress">{t('in_progress')}</option>
+                    <option value="not-started">{t('not_started')}</option>
                 </select>
             </div>
             <div className="list--container">
@@ -95,7 +97,9 @@ const StudentList = () => {
                                     <div key={assignment.id} className={`assignment ${assignment.status}`}>
                                         <span className="assignment--title">{assignment.title}</span>
                                         <span className="assignment--status">
-                                            {assignment.status === 'completed' ? 'Completed' : assignment.status === 'in-progress' ? 'In Progress' : 'Not Started'}
+                                            {assignment.status === 'completed' ? t('completed_status') : 
+                                             assignment.status === 'in-progress' ? t('in_progress_status') : 
+                                             t('not_started_status')}
                                         </span>
                                     </div>
                                 ))}
