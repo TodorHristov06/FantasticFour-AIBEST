@@ -25,8 +25,10 @@
 }
 .divider {
     height: 1px;
+    width: auto;
     background-color: #27374d; /* Светла разделителна черта */
-    margin: 1px 10; /* Отстояние отгоре и отдолу */
+    margin: 3px 10; /* Отстояние отгоре и отдолу */
+    margin-left: 20px;
 }
 
 .menu--list {
