@@ -1,59 +1,80 @@
-.list--header {
-  display: flex;
-  margin: 2rem 0;
-  justify-content: space-between;
-  align-items: center;
-}
-.list--header h2 {
-  color: #526d82;
-}
-.list--header select {
+/* Основен стил за страницата */
+.teacher--list {
+  padding: 20px;
+  background: #f5f7fa;
   border-radius: 10px;
-  border: none;
-  padding: 8px 12px;
-  border: 1px solid #dde6ed;
-  color: #526d82;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Разширяване на ширината на компонента */
+  margin: 40px auto; /* Разстояние от горната част и центрирано хоризонтално */
 }
+
+/* Контейнер за заглавие */
+.list--header {
+  margin-bottom: 20px;
+}
+
+.list--header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1c2a38;
+}
+
+/* Контейнер за списък от учители */
 .list--container {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
+/* Индивидуален класов график */
 .list {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   display: flex;
-  padding-right: 10px;
-  align-items: center;
-  justify-content: space-between;
-  transition: 0.3s ease-in-out;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.teacher--duration {
-  text-align: right;
-  flex: 1;
-  padding-right: 450px;
-}
-
-.teacher--cost {
-  padding-right: 50px;
-}
-
-.teacher--todo {
-  padding-right: 50px;
-}
-
+/* Детайли за учителя */
 .teacher--detail {
   display: flex;
   align-items: center;
-  gap: 20px;
-  color: #526d82;
+  gap: 15px;
 }
+
 .teacher--detail img {
-  width: 50px;
-  background: #dde6ed;
   border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
-.list:hover {
-  background: #dde6ed;
+
+/* Контейнер за класовете и часовете */
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Индивидуален класов график */
+.class-schedule {
+  background: #fff;
   border-radius: 10px;
-  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+/* Заглавие на класов график */
+.class-schedule h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1c2a38;
+}
+
+/* Информация за времето на класовия график */
+.class-schedule span {
+  font-size: 16px;
+  color: #495057;
 }
