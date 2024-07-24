@@ -26,15 +26,15 @@ const Sidebar = ({ role }) => {
     const roleContent = {
         student: {
             username: 'Dimitar Hristov',
-            role: 'Student',
+            role: t('student'),
         },
         teacher: {
             username: 'Maria Ivanova',
-            role: 'Teacher',
+            role: t('teacher'),
         },
         admin: {
             username: 'John Smith',
-            role: 'Administrator',
+            role: t('admin'),
         },
     };
 
@@ -65,9 +65,6 @@ const Sidebar = ({ role }) => {
                 </div>
             </div>
             <div className="divider"></div>
-
-            
-
             <div className="menu--list">
                 <Link to={getDashboardLink()} className="item">
                     <BiHome className="icon"/>
@@ -156,7 +153,7 @@ const Sidebar = ({ role }) => {
             <div className="bottom-logout">
                 <button className="logout-button" onClick={handleLogout}>
                     <BiLogOut className="icon"/>
-                    {t('Logout')}
+                    {t('logout')}
                 </button>
             </div>
         </div>

@@ -126,6 +126,23 @@
   "report": "Report",
   "users": "Users",
   "active": "Active",
-  "inactive": "Inactive"
+  "inactive": "Inactive",
+
+  "create_assignment": "Create Assignment",
+  "assignment_details": "Assignment Details",
+  "assignment_title": "Assignment Title",
+  "enter_assignment_title": "Enter the title of the assignment",
+  "instructions": "Instructions",
+  "provide_instructions": "Provide instructions for the assignment",
+  "deadline": "Deadline",
+  "points": "Points",
+  "enter_points": "Enter the points for the assignment",
+  "select_assignment": "Select Assignment",
+  "select_class": "Select Class",
+  "select_students": "Select Students",
+  "assign_assignment": "Assign Assignment",
+  "create": "Create Assignment",
+  "assign": "Assign Assignment",
+  "deadline_error": "Deadline cannot be in the past!"
 }
 

@@ -125,9 +125,24 @@
 
   "users": "Потребители",
   "active": "Активен",
-  "inactive": "Неактивен"
+  "inactive": "Неактивен",
 
-
+  "create_assignment": "Създаване на задание",
+  "assignment_details": "Детайли за заданието",
+  "assignment_title": "Заглавие на заданието",
+  "enter_assignment_title": "Въведете заглавието на заданието",
+  "instructions": "Инструкции",
+  "provide_instructions": "Предоставете инструкции за заданието",
+  "deadline": "Краен срок",
+  "points": "Точки",
+  "enter_points": "Въведете точките за заданието",
+  "select_assignment": "Изберете задание",
+  "select_class": "Изберете клас",
+  "select_students": "Изберете студенти",
+  "assign_assignment": "Възложете задание",
+  "create": "Създайте задание",
+  "assign": "Възложете задание",
+  "deadline_error": "Крайният срок не може да е в миналото!"
   
   
   }
