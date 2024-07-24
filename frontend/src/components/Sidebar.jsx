@@ -55,7 +55,7 @@ const Sidebar = ({ role }) => {
         <div className={`menu ${role === 'student' ? 'student-view-only' : role === 'teacher' ? 'teacher-view-only' : role === 'admin' ? 'admin-view-only' : ''}`}>
             <div className="logo">
                 <BiBookAlt className='logo-icon'/>
-                <h2>FantasticFour</h2>
+                <h2>Fantastic Four</h2>
                 <div className="user-info">
                     <img src={ProfilePicture} alt="Profile" className="profile-picture" />
                     <div>
@@ -64,6 +64,18 @@ const Sidebar = ({ role }) => {
                     </div>
                 </div>
             </div>
+
+            <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
+                    {i18n.language === 'en' ? (
+                        <>
+                            <Flag code="BG" height="16" className="flag-icon"/> Български
+                        </>
+                    ) : (
+                        <>
+                            <Flag code="GB" height="16" className="flag-icon"/> English
+                        </>
+                    )}
+                </button>
 
             <div className="menu--list">
                 <Link to={getDashboardLink()} className="item">
@@ -118,17 +130,7 @@ const Sidebar = ({ role }) => {
                         </Link>
                     </>
                 )}
-                <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
-                    {i18n.language === 'en' ? (
-                        <>
-                            <Flag code="BG" height="16" className="flag-icon"/>
-                        </>
-                    ) : (
-                        <>
-                            <Flag code="GB" height="16" className="flag-icon"/>
-                        </>
-                    )}
-                </button>
+                
             </div>
 
             <div className="bottom-logout">
