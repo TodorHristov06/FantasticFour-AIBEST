@@ -165,12 +165,27 @@
   "add_comment": "Добавете вашия коментар тук",
   "not_graded": "Не е оценено",
 
-  "search_students": "Търсене на студенти...",
+  "search_students": "Търсене на ученици...",
   "search_classes": "Търсене на класове...",
   "students": "Студенти",
-  "no_students": "Не са намерени студенти.",
+  "no_students": "Не са намерени ученици.",
   "no_classes": "Не са намерени класове.",
   "no_assignments": "Няма налични задания.",
-  "description": "Описание"
+  "description": "Описание",
+
+  "select_student": "Изберете ученик",
+  "select_period": "Изберете период",
+  "print_report_button": "Изпращане на отчет",
+  "report_results": "Резултати от отчета",
+  "please_select": "Моля, изберете и ученик, и период.",
+
+
+  "assignments": "Създай задания",
+  "your_classes": "Вашите класове",
+  "class_name": "Име на клас",
+  "class_time": "Време на клас",
+  "logout": "Изход",
+
+  "teacher_dashboard": "Табло за управление на учителя"
   }
   

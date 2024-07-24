@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 import "../styles/teacherList.css";
 import ProfilePicture from '../assets/ProfilePicture.jpg';
 
@@ -14,10 +15,12 @@ const currentTeacher = {
 };
 
 const TeacherList = () => {
+    const { t } = useTranslation(); // Използвайте useTranslation за локализация
+
     return (
         <div className="teacher--list">
             <div className="list--header">
-                <h2>Your Classes</h2>
+                <h2>{t('your_classes')}</h2> {/* Локализиране на заглавието */}
             </div>
             <div className="list--container">
                 <div className="teacher--list">
@@ -30,8 +33,8 @@ const TeacherList = () => {
                     <div className="schedule-container">
                         {currentTeacher.classes.map((item, index) => (
                             <div key={index} className="class-schedule">
-                                <h3>{item.className}</h3>
-                                <span>{item.time}</span>
+                                <h3>{item.className}</h3> {/* Локализиране на името на класа */}
+                                <span>{item.time}</span> {/* Локализиране на времето на класа */}
                             </div>
                         ))}
                     </div>

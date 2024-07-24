@@ -1,10 +1,12 @@
 import React from 'react';
-import { BiNotification, BiSearch, BiCalendar } from 'react-icons/bi';
+import { useTranslation } from 'react-i18next'; // Импортирайте useTranslation
 
 const TeacherHeader = () => {
+    const { t } = useTranslation(); // Използвайте useTranslation за локализация
+
     return (
         <div className='content--header'>
-            <h1 className="header--title">Teacher Dashboard</h1>
+            <h1 className="header--title">{t('teacher_dashboard')}</h1> {/* Локализиране на заглавието */}
             <div className="header--activity">
             </div>
         </div>

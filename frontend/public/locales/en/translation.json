@@ -171,6 +171,20 @@
   "no_students": "No students found.",
   "no_classes": "No classes found.",
   "no_assignments": "No assignments available.",
-  "description": "Description"
+  "description": "Description",
+
+  "select_student": "Select Student",
+  "select_period": "Select Period",
+  "print_report_button": "Print Report",
+  "report_results": "Report Results",
+  "please_select": "Please select both student and period.",
+
+  "assignments": "Assignments",
+  "your_classes": "Your Classes",
+  "class_name": "Class Name",
+  "class_time": "Class Time",
+  "logout": "Logout",
+
+  "teacher_dashboard": "Teacher Dashboard"
 }
 
