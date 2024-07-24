@@ -9,8 +9,8 @@ import "../styles/studentSubmitPage.css"; // Вашите стилове
 const StudentSubmitPage = () => {
   const userRole = 'student'; // Ролята на потребителя
 
-  const [assignmentFile, setAssignmentFile] = useState(null);
-  const [description, setDescription] = useState("");
+  const [googleDriveLink, setGoogleDriveLink] = useState("");
+  const [comment, setComment] = useState("");
   const [selectedClass, setSelectedClass] = useState(null);
 
   const classes = [
@@ -19,14 +19,18 @@ const StudentSubmitPage = () => {
     { id: 3, name: 'Physics Fundamentals' },
   ];
 
-  const handleFileChange = (event) => {
-    setAssignmentFile(event.target.files[0]);
+  const assignmentDetails = {
+    title: "Homework 1",
+    description: "Solve the equations and submit your solutions.",
+    subject: "Math 101",
+    deadline: "2024-07-31",
+    maxPoints: 100
   };
 
   const handleSubmitAssignment = () => {
     // Логика за подаване на домашното
-    console.log(`Submitted file: ${assignmentFile ? assignmentFile.name : "None"}`);
-    console.log(`Description: ${description}`);
+    console.log(`Submitted Google Drive link: ${googleDriveLink}`);
+    console.log(`Comment: ${comment}`);
     console.log(`Submitted for class: ${selectedClass ? selectedClass.label : "None"}`);
   };
 
@@ -44,40 +48,69 @@ const StudentSubmitPage = () => {
                 <h3>Assignment Details</h3>
               </div>
               <div className="form-group">
-                <label htmlFor="assignment-file">Upload Assignment</label>
+                <label>Assignment Title</label>
                 <input
-                  type="file"
-                  id="assignment-file"
-                  onChange={handleFileChange}
-                  placeholder="Choose file to upload"
+                  type="text"
+                  value={assignmentDetails.title}
+                  readOnly
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description</label>
+                <label>Description</label>
                 <textarea
-                  id="description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Provide a description for the assignment"
+                  value={assignmentDetails.description}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label>Subject</label>
+                <input
+                  type="text"
+                  value={assignmentDetails.subject}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label>Deadline</label>
+                <input
+                  type="date"
+                  value={assignmentDetails.deadline}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label>Max Points</label>
+                <input
+                  type="number"
+                  value={assignmentDetails.maxPoints}
+                  readOnly
                 />
               </div>
             </div>
 
-            {/* Assign to Class */}
-            <div className="assign-class">
+            {/* Submit Assignment */}
+            <div className="submit-assignment-details">
               <div className="assignment-form__header">
-                <BiListUl className="icon" />
-                <h3>Select Class</h3>
+                <BiUpload className="icon" />
+                <h3>Submit Assignment</h3>
               </div>
               <div className="form-group">
-                <label htmlFor="class">Select Class</label>
-                <Select
-                  id="class"
-                  options={classes.map(cls => ({ value: cls.id, label: cls.name }))}
-                  value={selectedClass}
-                  onChange={(selectedOption) => setSelectedClass(selectedOption)}
-                  placeholder="Select Class"
-                  isClearable
+                <label htmlFor="google-drive-link">Google Drive Link</label>
+                <input
+                  type="text"
+                  id="google-drive-link"
+                  value={googleDriveLink}
+                  onChange={(e) => setGoogleDriveLink(e.target.value)}
+                  placeholder="Enter Google Drive link"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="comment">Comment</label>
+                <textarea
+                  id="comment"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  placeholder="Add a comment"
                 />
               </div>
             </div>
