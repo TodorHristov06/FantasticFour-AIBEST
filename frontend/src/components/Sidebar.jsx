@@ -1,5 +1,5 @@
 import React from "react";
-import { BiHome, BiBookAlt, BiSolidReport, BiStats, BiTask, BiUser, BiListUl, BiEdit, BiWorld, BiLogOut } from 'react-icons/bi';
+import { BiHome, BiBookAlt, BiSolidReport, BiStats, BiTask, BiUser, BiListUl, BiEdit, BiWorld, BiLogOut, BiListPlus } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/sidebar.css';
 import ProfilePicture from '../assets/ProfilePicture.jpg';
@@ -132,7 +132,10 @@ const Sidebar = ({ role }) => {
                             <BiStats className="icon"/>
                             {t('student_grades')}
                         </Link>
-                        
+                        <Link to="/submit" className="item">
+                            <BiListPlus className="icon"/>
+                            {t('submit')}
+                        </Link>
                     </>
                 )}
                 
