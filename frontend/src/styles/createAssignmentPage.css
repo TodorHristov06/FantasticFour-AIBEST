@@ -111,7 +111,8 @@ body {
 
 .assignment-details,
 .assign-class,
-.assign-students {
+.assign-students,
+.assign-assignment {
   background: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -123,7 +124,8 @@ body {
 
 .assignment-details h3,
 .assign-class h3,
-.assign-students h3 {
+.assign-students h3,
+.assign-assignment h3 {
   margin-bottom: 10px;
   font-size: 18px;
   color: #1c2a38;
@@ -132,7 +134,8 @@ body {
 .assignment-details textarea,
 .assignment-details input,
 .assign-class .react-select__control,
-.assign-students .react-select__control {
+.assign-students .react-select__control,
+.assign-assignment .react-select__control {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;

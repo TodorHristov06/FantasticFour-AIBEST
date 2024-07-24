@@ -12,6 +12,9 @@ const CreateAssignment = () => {
   const [deadline, setDeadline] = useState("");
   const [selectedClass, setSelectedClass] = useState(null);
   const [selectedStudents, setSelectedStudents] = useState([]);
+  const [assignments, setAssignments] = useState([]);
+  const [selectedAssignment, setSelectedAssignment] = useState(null);
+  const [error, setError] = useState("");
 
   const classes = [
     { id: 1, name: 'Math 101' },
@@ -26,12 +29,37 @@ const CreateAssignment = () => {
   ];
 
   const handleCreateAssignment = () => {
-    // Логика за създаване на задание
+    // Проверка за задна дата на deadline
+    const today = new Date();
+    const deadlineDate = new Date(deadline);
+    
+    if (deadlineDate < today) {
+      setError("Deadline cannot be in the past.");
+      return;
+    }
+
+    const newAssignment = {
+      id: assignments.length + 1,
+      title: assignmentTitle,
+      instructions: instructions,
+      deadline: deadline,
+    };
+    setAssignments([...assignments, newAssignment]);
     console.log(`Created assignment: ${assignmentTitle}`);
     console.log(`Instructions: ${instructions}`);
     console.log(`Deadline: ${deadline}`);
-    console.log(`Assigned to class: ${selectedClass ? selectedClass.label : "None"}`);
-    console.log(`Assigned to students: ${selectedStudents.map(student => student.label).join(", ")}`);
+    setAssignmentTitle("");
+    setInstructions("");
+    setDeadline("");
+    setError("");
+  };
+
+  const handleAssignAssignment = () => {
+    if (selectedAssignment) {
+      console.log(`Assigned assignment: ${selectedAssignment.label}`);
+      console.log(`Assigned to class: ${selectedClass ? selectedClass.label : "None"}`);
+      console.log(`Assigned to students: ${selectedStudents.map(student => student.label).join(", ")}`);
+    }
   };
 
   return (
@@ -75,13 +103,26 @@ const CreateAssignment = () => {
                   onChange={(e) => setDeadline(e.target.value)}
                 />
               </div>
+              {error && <p className="error">{error}</p>}
+              <button onClick={handleCreateAssignment}>Create Assignment</button>
             </div>
 
-            {/* Assign to Class */}
-            <div className="assign-class">
+            {/* Assign Assignment */}
+            <div className="assign-assignment">
               <div className="assignment-form__header">
                 <BiListUl className="icon" />
-                <h3>Assign to Class</h3>
+                <h3>Assign Assignment</h3>
+              </div>
+              <div className="form-group">
+                <label htmlFor="assignments">Select Assignment</label>
+                <Select
+                  id="assignments"
+                  options={assignments.map(assignment => ({ value: assignment.id, label: assignment.title }))}
+                  value={selectedAssignment}
+                  onChange={(selectedOption) => setSelectedAssignment(selectedOption)}
+                  placeholder="Select Assignment"
+                  isClearable
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="class">Select Class</label>
@@ -94,14 +135,6 @@ const CreateAssignment = () => {
                   isClearable
                 />
               </div>
-            </div>
-
-            {/* Assign to Students */}
-            <div className="assign-students">
-              <div className="assignment-form__header">
-                <BiUser className="icon" />
-                <h3>Assign to Students</h3>
-              </div>
               <div className="form-group">
                 <label htmlFor="students">Select Students</label>
                 <Select
@@ -113,10 +146,9 @@ const CreateAssignment = () => {
                   isMulti
                 />
               </div>
+              <button onClick={handleAssignAssignment}>Assign Assignment</button>
             </div>
           </div>
-
-          <button onClick={handleCreateAssignment}>Create Assignment</button>
         </div>
       </div>
     </div>
