@@ -27,7 +27,7 @@
     height: 1px;
     width: auto;
     background-color: #27374d; /* Светла разделителна черта */
-    margin: 3px 10; /* Отстояние отгоре и отдолу */
+    margin: 3px 15; /* Отстояние отгоре и отдолу */
     margin-left: 20px;
 }
 
@@ -176,8 +176,9 @@ display: none;
 }
 
 .language-button {
-    align-items: center;
+    align-items: start;
     padding: 10px;
+    margin-left: 15px;
     background:none ;
     border: none;
     border-radius: 10px;
@@ -198,4 +199,7 @@ display: none;
 .profile-picture {
     width: 55px;
     height: 55px;
+}
+.admin-view-only{
+    width: 328.5px;
 }
