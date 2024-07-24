@@ -7,16 +7,8 @@ const StudentHeader = () => {
             <h1 className="header--title">Student Dashboard</h1>
             <div className="header--activity">
                 <div className="search-box">
-                    <input type="text" placeholder="Search courses, assignments..." />
+                    <input type="text" placeholder="Search courses" />
                     <BiSearch className="icon" />
-                </div>
-
-                <div className="notify">
-                    <BiNotification className="icon" />
-                </div>
-
-                <div className="achievements">
-                    <BiStar className="icon" />
                 </div>
             </div>
         </div>
