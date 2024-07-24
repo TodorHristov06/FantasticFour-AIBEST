@@ -1,4 +1,5 @@
 ﻿using HWPlatform.BLL.Contracts;
+using HWPlatform.Common.Models.Class;
 using HWPlatform.Common.Utilities;
 using HWPlatform.DAL.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +9,7 @@ namespace HWPlatform.PL.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize(Roles = "Admin")]
+//[Authorize(Roles = "Admin")]
 
 public class ClassesController : ControllerBase
 {
@@ -66,5 +67,52 @@ public class ClassesController : ControllerBase
                 Status = "Class removed from teacher",
                 Message = "The class has been removed from the teacher"
             });
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<Response>> CreateClassAsync(string name, int year, [FromBody] ClassIM classIM)
+    {
+        await this.classService.CreateClassAsync(name, year, classIM);
+
+        return this.Ok(
+            new Response
+            {
+                Status = "Class created",
+                Message = "The class has been created successfully"
+            });
+    }
+
+    [HttpPatch("{year}/{name}")]
+    public async Task<ActionResult<ClassVM>> UpdateClassInfoAsync([FromBody] ClassUM classUM, int year, string name)
+    {
+        if (!await this.classService.CheckIfClassExists(name, year))
+            return NotFound();
+
+        return await this.classService.UpdateClassAsync(name, year, classUM);
+    }
+
+    [HttpDelete]
+    public async Task<ActionResult<Response>> DeleteClassAsync(string name, int year)
+    {
+        if (!await this.classService.CheckIfClassExists(name, year))
+            return NotFound();
+
+        await this.classService.DeleteClassAsync(name, year);
+
+        return this.Ok(
+            new Response
+            {
+                Status = "Class deleted",
+                Message = "The class has deleted successfully"
+            });
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<ClassVM>> GetClassByCPKAsync(string name, int year)
+    {
+        if (!await this.classService.CheckIfClassExists(name, year))
+            return NotFound();
+
+        return await this.classService.GetClassByCompositePKAsync(name, year);
     }
 }

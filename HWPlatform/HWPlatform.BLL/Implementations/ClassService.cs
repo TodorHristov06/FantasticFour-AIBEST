@@ -1,5 +1,9 @@
-﻿using HWPlatform.BLL.Contracts;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using HWPlatform.BLL.Contracts;
+using HWPlatform.Common.Models.Class;
 using HWPlatform.DAL.Data;
+using HWPlatform.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace HWPlatform.BLL.Implementations;
@@ -7,10 +11,12 @@ namespace HWPlatform.BLL.Implementations;
 internal class ClassService : IClassService
 {
     private readonly DBContext dbContext;
+    private readonly IMapper mapper;
 
-    public ClassService(DBContext dbContext)
+    public ClassService(DBContext dbContext, IMapper mapper)
     {
         this.dbContext = dbContext;
+        this.mapper = mapper;
     }
 
     public async Task AddClassToTeacherAsync(string email, string className, int classYear)
@@ -60,5 +66,50 @@ internal class ClassService : IClassService
     public async Task<bool> CheckIfClassExists(string className, int classYear)
     {
         return await this.dbContext.Classes.SingleOrDefaultAsync(c => c.ClassName == className && c.Year == classYear) is not null;
+    }
+
+    public async Task CreateClassAsync(string name, int year, ClassIM classIM)
+    {
+        var classObj = this.mapper.Map<Class>(classIM);
+
+        classObj.ClassName = name;
+        classObj.Year = year;
+
+        this.dbContext.Classes.Add(classObj);
+
+        await this.dbContext.SaveChangesAsync();
+    }
+
+    public async Task<ClassVM> UpdateClassAsync(string oldName, int oldYear, ClassUM classUM)
+    {
+        var classObj = await this.dbContext.Classes.FindAsync(new { oldName, oldYear });
+
+        if (classObj != null && classUM.Name != null)
+            classObj.ClassName = classUM.Name;
+        if (classObj != null && classUM.Year != null)
+            classObj.Year = Convert.ToInt32(classUM.Year);
+
+        this.dbContext.Classes.Update(classObj);
+        await this.dbContext.SaveChangesAsync();
+
+        return await this.GetClassByCompositePKAsync(classObj.ClassName, classObj.Year);
+    }
+
+    public async Task DeleteClassAsync(string name, int year)
+    {
+        var classObj = await this.dbContext.Classes.FindAsync(new { name, year });
+
+        if (classObj != null)
+            this.dbContext.Remove(classObj);
+
+        await this.dbContext.SaveChangesAsync();
+    }
+
+    public async Task<ClassVM> GetClassByCompositePKAsync(string name, int year)
+    {
+        return await this.dbContext.Classes
+            .Where(c => c.ClassName == name && c.Year == year)
+            .ProjectTo<ClassVM>(this.mapper.ConfigurationProvider)
+            .FirstAsync();
     }
 }

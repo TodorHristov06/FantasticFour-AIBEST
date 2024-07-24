@@ -1,4 +1,6 @@
-﻿namespace HWPlatform.BLL.Contracts;
+﻿using HWPlatform.Common.Models.Class;
+
+namespace HWPlatform.BLL.Contracts;
 
 public interface IClassService
 {
@@ -13,4 +15,16 @@ public interface IClassService
 
     // Remove class from teacher
     Task RemoveClassFromTeacherAsync(string email, string className, int classYear);
+
+    // Create class
+    Task CreateClassAsync(string name, int year, ClassIM classIM);
+
+    // Update class
+    Task<ClassVM> UpdateClassAsync(string oldName, int oldYear, ClassUM classUM);
+
+    // Delete class
+    Task DeleteClassAsync(string name, int year);
+
+    // Get class
+    Task<ClassVM> GetClassByCompositePKAsync(string name, int year);
 }
