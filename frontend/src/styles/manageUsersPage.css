@@ -1,0 +1,164 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Скриване на вертикалния скрол */
+}
+
+.sidebar {
+  flex: 0.2;
+  border-right: 1px solid #27374d;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.manage-users {
+  width: 100%;
+}
+
+.manage-users h2 {
+  margin-bottom: 1rem;
+  color: #1c2a38;
+}
+
+.add-user-button {
+  background-color: #27374d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-user-button:hover {
+  background-color: #1c2a38;
+}
+
+.global-filter {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.global-filter input,
+.global-filter select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.global-filter input {
+  width: 200px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.users-table th,
+.users-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #27374d; /* Фон на заглавките на колоните */
+  color: white; /* Цвят на текста в заглавките на колоните */
+  cursor: pointer;
+  position: relative;
+}
+
+.users-table th.sortable {
+  /* Стилизация на заглавките, които са sortable */
+  background-color: #27374d;
+  color: white;
+}
+
+.users-table th.sortable::after {
+  content: ''; /* Премахваме стрелките */
+}
+
+.edit-button,
+.delete-button {
+  background-color: #27374d;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #1c2a38;
+}
+
+.delete-button {
+  background-color: #d9534f;
+}
+
+.delete-button:hover {
+  background-color: #c9302c;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.users-table th {
+  background-color: #27374d; /* Фон на заглавките на колоните */
+  color: white; /* Цвят на текста в заглавките на колоните */
+  cursor: pointer; /* Стил на курсора за интерактивност */
+  position: relative; /* Позволява позициониране на стрелките */
+}
+
+.users-table th::after {
+  content: ''; /* Използвайте съдържание по подразбиране */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: white; /* Цветът на стрелките */
+}
+
+.users-table th.asc::after {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left-color: white; /* Стрелка надолу */
+}
+
+.users-table th.desc::after {
+  border-top: 6px solid white; /* Стрелка нагоре */
+  border-bottom: 6px solid transparent;
+  border-left: 0;
+}
+
+.users-table th.sortable {
+  background-color: #27374d; /* Деклариране на фон за sortable колони */
+}
+.reset-password-button {
+  background-color: #f0ad4e;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.reset-password-button:hover {
+  background-color: #ec971f;
+}

@@ -1,0 +1,205 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 94vh;
+}
+
+.logo {
+    text-align: center;
+    padding: 20px;
+    color: #27374d;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 1.4rem;
+}
+
+.logo h2 {
+    font-size: 2rem; /* Увеличаване на размера на текста за "FantasticFour" */
+    margin: 0;
+}
+.divider {
+    height: 1px;
+    width: auto;
+    background-color: #27374d; /* Светла разделителна черта */
+    margin: 3px 15; /* Отстояние отгоре и отдолу */
+    margin-left: 20px;
+}
+
+.menu--list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+    color: #27374d;
+}
+
+.menu--list .item:hover {
+    background: #27374d;
+    color: #dde6ed;
+}
+
+a { 
+    text-decoration: none;
+    color: #27374d;
+    padding: 8px;
+    border-radius: 10px;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+/* Additional styling for role-based permissions */
+.student-view-only .item {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.student-view-only .item:nth-child(2),
+.student-view-only .item:nth-child(3),
+.student-view-only .item:nth-child(4) {
+display: none; 
+}
+
+.student-view-only .item:nth-child(1), /* Dashboard */
+.student-view-only .item:nth-child(5), /* Assignment */
+.student-view-only .item:nth-child(6),  /* Grades */ 
+.student-view-only .item:nth-child(7) /*Submit*/ {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.teacher-view-only .item {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.teacher-view-only .item:nth-child(3) /* Report */{
+    display: none; 
+}
+
+.teacher-view-only .item:nth-child(1), /* Dashboard */
+.teacher-view-only .item:nth-child(2), /* Assignment */
+.teacher-view-only .item:nth-child(4), /* Message */
+.teacher-view-only .item:nth-child(5), /* Grades */
+.teacher-view-only .item:nth-child(6), /* Help */
+.teacher-view-only .item:nth-child(7), /* Students */
+.teacher-view-only .item:nth-child(8)  /* Print Report */ {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.admin-view-only .item {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.admin-view-only .item:nth-child(2), /* Assignment */
+.admin-view-only .item:nth-child(3), /* Report */
+.admin-view-only .item:nth-child(4), /* Grades */
+.admin-view-only .item:nth-child(9) {
+    display: none; 
+}
+
+.admin-view-only .item:nth-child(1), /* Dashboard */
+.admin-view-only .item:nth-child(5), /* Manage Users */
+.admin-view-only .item:nth-child(6), /* Monitor Activity */
+.admin-view-only .item:nth-child(7), /* Assign Classes */
+.admin-view-only .item:nth-child(8) /* Print Report */ {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #27374d;
+}
+
+.role {
+    font-size: 0.8rem;
+    color: #526d82;
+}
+
+.bottom-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background:none ;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #27374d;
+    
+}
+.logout-button:hover{
+    background: #27374d;
+    color: #dde6ed;
+}
+
+.logout-button .icon {
+    margin-right: 5px;
+}
+
+.language-button {
+    align-items: start;
+    padding: 10px;
+    margin-left: 15px;
+    background:none ;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #27374d;
+}
+
+.language-button:hover {
+    background: #27374d;
+    color: #dde6ed;
+}
+.flag-icon{ 
+    font-size: 1.4rem;
+    padding-right: 10px;
+}
+.profile-picture {
+    width: 55px;
+    height: 55px;
+}
+.admin-view-only{
+    width: 328.5px;
+}
