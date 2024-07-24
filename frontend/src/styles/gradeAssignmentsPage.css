@@ -272,3 +272,12 @@ button:disabled {
 .assignment-button:hover {
   background: #0061c3;
 }
+.close-button{
+  height: 50px;
+  width: 50px;
+  align-items: end;
+}
+.save-button{
+  height: 50px;
+  width: 200px;
+}

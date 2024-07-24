@@ -167,7 +167,7 @@ const GradeAssignmentsPage = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={handleSave}>Save</button>
+              <button className= "save-button" onClick={handleSave}>Save</button>
             </div>
           )}
         </div>
