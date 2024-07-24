@@ -80,7 +80,7 @@
   "placeholderStudent": "Изберете ученик",
   "placeholderClass": "Изберете клас",
   
-  "assignment": "Задание",
+  "assignment": "Създай задание",
   "grades":"Оценки",
   "students_assignments":"Задания за ученици",
   "dashboard": "Главна Страница",
@@ -142,8 +142,27 @@
   "assign_assignment": "Възложете задание",
   "create": "Създайте задание",
   "assign": "Възложете задание",
-  "deadline_error": "Крайният срок не може да е в миналото!"
+  "deadline_error": "Крайният срок не може да е в миналото!",
   
   
+
+  "grade_assignments": "Оценяване на заданията",
+  "show_submitted": "Покажи подадените",
+  "show_all": "Покажи всички",
+  "show_graded": "Покажи оценените",
+  "sort_by_deadline": "Сортиране по крайна дата",
+  "sort_by_student": "Сортиране по ученик",
+  "clear_sorting": "Изчисти сортирането",
+  "class": "Клас",
+  "subject": "Предмет",
+  "grade": "Оценка",
+  "student_comment": "Коментар на ученика",
+  "no_comment": "Не е предоставен коментар",
+  "file_uploaded": "Файл не е качен",
+  "grade_entry": "Оценка (0% до 100%)",
+  "enter_grade": "Въведете оценка",
+  "teacher_comment": "Коментар на учителя",
+  "add_comment": "Добавете вашия коментар тук",
+  "not_graded": "Не е оценено"
   }
   

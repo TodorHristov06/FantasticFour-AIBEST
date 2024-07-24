@@ -85,7 +85,7 @@
   "placeholderClass": "Select Class",
 
   "dashboard": "Dashboard",
-  "assignment": "Assignment",
+  "assignment": "Create Assignment",
   "grades":"Grades",
   "students_assignments":"Students Assignments",
   "manage_users": "Manage Users",
@@ -143,6 +143,26 @@
   "assign_assignment": "Assign Assignment",
   "create": "Create Assignment",
   "assign": "Assign Assignment",
-  "deadline_error": "Deadline cannot be in the past!"
+  "deadline_error": "Deadline cannot be in the past!",
+
+
+  "grade_assignments": "Grade Assignments",
+  "show_submitted": "Show Submitted",
+  "show_all": "Show All",
+  "show_graded": "Show Graded",
+  "sort_by_deadline": "Sort by Deadline",
+  "sort_by_student": "Sort by Student",
+  "clear_sorting": "Clear Sorting",
+  "grade": "Grade",
+  "student_comment": "Student Comment",
+  "no_comment": "No comment provided",
+  "class": "Class",
+  "subject": "Subject",
+  "file_uploaded": "No file uploaded",
+  "grade_entry": "Grade (0% to 100%)",
+  "enter_grade": "Enter grade",
+  "teacher_comment": "Teacher Comment",
+  "add_comment": "Add your comment here",
+  "not_graded": "Not Graded"
 }
 
