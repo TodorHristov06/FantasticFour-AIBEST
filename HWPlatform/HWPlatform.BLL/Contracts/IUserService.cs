@@ -1,4 +1,5 @@
 ﻿using HWPlatform.Common.Models.User;
+using System.Transactions;
 
 namespace HWPlatform.BLL.Contracts;
 
@@ -24,4 +25,22 @@ public interface IUserService
 
     // Generate random pass for auth service
     Task UpdatePasswordForAuthServiceAsync(string email);
+
+    // Check if user exists by email
+    Task<bool> CheckIfUserExistsByEmailAsync(string email);
+
+    // Change student class
+    Task ChangeStudentClassAsync(string email, string className, int classYear);
+
+    // Add subject to teacher
+    Task AddSubjectToTeacherAsync(string email, int subjectId);
+
+    // Remove subject from teacher
+    Task RemoveSubjectFromTeacherAsync(string email, int subjectId);
+
+    // Add class to teacher
+    Task AddClassToTeacherAsync(string email, string className, int classYear);
+
+    // Remove class from teacher
+    Task RemoveClassFromTeacherAsync(string email, string className, int classYear);
 }
