@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
 import FileDownloadButton from '../components/FileDownloadButton'; // Импорт на новия компонент
 import '../styles/gradeAssignmentsPage.css';
 
 const GradeAssignmentsPage = () => {
+  const { t } = useTranslation();
   const userRole = 'teacher';
 
   const [assignments, setAssignments] = useState([
@@ -26,7 +28,7 @@ const GradeAssignmentsPage = () => {
   const [selectedAssignment, setSelectedAssignment] = useState(null);
   const [filterSubmitted, setFilterSubmitted] = useState('all');
   const [filterGraded, setFilterGraded] = useState('all');
-  const [sortCriteria, setSortCriteria] = useState('none'); // Дефинираме ново състояние за критериите за сортиране
+  const [sortCriteria, setSortCriteria] = useState('none');
 
   const handleAssignmentClick = (assignment) => {
     setSelectedAssignment(assignment);
@@ -38,8 +40,14 @@ const GradeAssignmentsPage = () => {
     setSelectedAssignment(updatedAssignment);
   };
 
+  const handleTeacherCommentChange = (event) => {
+    const comment = event.target.value;
+    const updatedAssignment = { ...selectedAssignment, teacherComment: comment };
+    setSelectedAssignment(updatedAssignment);
+  };
+
   const handleSave = () => {
-    setAssignments(assignments.map(assignment => 
+    setAssignments(assignments.map(assignment =>
       assignment.id === selectedAssignment.id ? selectedAssignment : assignment
     ));
     setSelectedAssignment(null);
@@ -50,7 +58,7 @@ const GradeAssignmentsPage = () => {
   };
 
   const convertGrade = (grade) => {
-    if (!grade) return 'Not Graded';
+    if (!grade) return t('not_graded');
     const percent = parseInt(grade.replace('%', ''), 10);
     if (percent >= 90) return 6;
     if (percent >= 75) return 5;
@@ -83,38 +91,38 @@ const GradeAssignmentsPage = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="grade-assignments">
-          <h2>Grade Assignments</h2>
+          <h2>{t('grade_assignments')}</h2>
           
           <div className="filter-buttons">
             <button onClick={() => setFilterSubmitted(filterSubmitted === 'all' ? 'submitted' : 'all')}>
-              {filterSubmitted === 'all' ? 'Show Submitted' : 'Show All'}
+              {filterSubmitted === 'all' ? t('show_submitted') : t('show_all')}
             </button>
             <button onClick={() => setFilterGraded(filterGraded === 'all' ? 'graded' : 'all')}>
-              {filterGraded === 'all' ? 'Show Graded' : 'Show All'}
+              {filterGraded === 'all' ? t('show_graded') : t('show_all')}
             </button>
           </div>
 
           <div className="sort-buttons">
             <button onClick={() => setSortCriteria('deadline')}>
-              Sort by Deadline
+              {t('sort_by_deadline')}
             </button>
             <button onClick={() => setSortCriteria('student')}>
-              Sort by Student
+              {t('sort_by_student')}
             </button>
             <button onClick={() => setSortCriteria('none')}>
-              Clear Sorting
+              {t('clear_sorting')}
             </button>
           </div>
 
           <table>
             <thead>
               <tr>
-                <th>Student</th>
-                <th>Class</th>
-                <th>Subject</th>
-                <th>Assignment</th>
-                <th>Deadline</th>
-                <th>Grade</th>
+                <th>{t('student')}</th>
+                <th>{t('class')}</th>
+                <th>{t('subject')}</th>
+                <th>{t('assignment')}</th>
+                <th>{t('deadline')}</th>
+                <th>{t('grade')}</th>
               </tr>
             </thead>
             <tbody>
@@ -138,36 +146,48 @@ const GradeAssignmentsPage = () => {
           {selectedAssignment && (
             <div className="assignment-details">
               <button className="close-button" onClick={handleCloseDetails}>X</button>
-              <h3>Assignment Details</h3>
+              <h3>{t('assignment_details')}</h3>
               <div className="assignment-details-content">
-                <div>
-                  <h4>Student: {selectedAssignment.student}</h4>
-                  <h4>Assignment: {selectedAssignment.assignment}</h4>
-                  <p>Description: {selectedAssignment.description}</p>
+                <div className="left-section">
+                  <h4>{t('student')}: {selectedAssignment.student}</h4>
+                  <h4>{t('assignment')}: {selectedAssignment.assignment}</h4>
+                  <p>{t('description')}: {selectedAssignment.description}</p>
+                  <h4>{t('student_comment')}</h4>
+                  <p>{selectedAssignment.studentComment || t('no_comment')}</p>
                 </div>
-                <div>
-                  <h4>Class: {selectedAssignment.class}</h4>
-                  <h4>Subject: {selectedAssignment.subject}</h4>
+                <div className="right-section">
+                  <h4>{t('class')}: {selectedAssignment.class}</h4>
+                  <h4>{t('subject')}: {selectedAssignment.subject}</h4>
                   {selectedAssignment.file ? (
                     <FileDownloadButton 
                       fileName={selectedAssignment.file}
                       fileUrl={`/path/to/files/${selectedAssignment.file}`}
                     />
                   ) : (
-                    <p>No file uploaded</p>
+                    <p>{t('file_uploaded')}</p>
                   )}
                   <div className="grade-entry">
-                    <h4>Grade (0% to 100%)</h4>
+                    <h4>{t('grade_entry')}</h4>
                     <input
                       type="text"
-                      placeholder="Enter grade"
+                      placeholder={t('enter_grade')}
                       value={selectedAssignment.grade}
                       onChange={handleGradeChange}
                     />
                   </div>
+                  {userRole === 'teacher' && (
+                    <div className="comment-section">
+                      <h4>{t('teacher_comment')}</h4>
+                      <textarea
+                        placeholder={t('add_comment')}
+                        value={selectedAssignment.teacherComment || ''}
+                        onChange={handleTeacherCommentChange}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
-              <button className= "save-button" onClick={handleSave}>Save</button>
+              <button className="save-button" onClick={handleSave}>{t('save')}</button>
             </div>
           )}
         </div>

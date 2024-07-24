@@ -281,3 +281,29 @@ button:disabled {
   height: 50px;
   width: 200px;
 }
+
+/* Добавени стилове за коментари */
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment-section h4 {
+  margin-bottom: 10px;
+}
+
+.comment-section p {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.comment-section textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  background: #f9f9f9;
+  resize: vertical;
+}
