@@ -20,7 +20,7 @@ const TeacherList = () => {
                 <h2>Your Classes</h2>
             </div>
             <div className="list--container">
-                <div className="list">
+                <div className="teacher--list">
                     <div className="teacher--detail">
                         <img src={currentTeacher.image} alt={currentTeacher.name} />
                         <div>
