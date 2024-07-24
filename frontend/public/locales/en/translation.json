@@ -119,6 +119,13 @@
   "pleaseSelectStudentPeriod": "Please select both student and period.",
   "reportFor": "Report for {{student}} for {{period}}",
 
-  "Logout" : "Logout"
+  "Logout" : "Logout",
+
+  "user_management": "User Management",
+  "system_analytics": "System Analytics",
+  "report": "Report",
+  "users": "Users",
+  "active": "Active",
+  "inactive": "Inactive"
 }
 

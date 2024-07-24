@@ -116,10 +116,18 @@
   "reportResults": "Резултати от Отчета",
   "pleaseSelectStudentPeriod": "Моля, изберете както студент, така и период.",
   "reportFor": "Отчет за {{student}} за {{period}}",
-  "Logout" : "Изход"
+  "Logout" : "Изход",
   
   
-  
+  "user_management": "Управление на потребители",
+  "system_analytics": "Системна аналитика",
+  "report": "Отчет",
+
+  "users": "Потребители",
+  "active": "Активен",
+  "inactive": "Неактивен"
+
+
   
   
   }

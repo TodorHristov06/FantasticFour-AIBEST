@@ -2,30 +2,32 @@
 import React from 'react';
 import { BiUser, BiCog, BiChart } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
-
-const adminFeatures = [
-    {
-        id: 1,
-        title: 'User Management',
-        icon: <BiUser />,
-        path: '/manage-users'
-    },
-    {
-        id: 2,
-        title: 'System Analytics',
-        icon: <BiCog />,
-        path: '/monitor-activity'
-    },
-    {
-        id: 3,
-        title: 'Report',
-        icon: <BiChart />,
-        path: '/print-report-admin'
-    },
-];
+import { useTranslation } from 'react-i18next';
 
 const AdminCard = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
+
+    const adminFeatures = [
+        {
+            id: 1,
+            title: t('user_management'),
+            icon: <BiUser />,
+            path: '/manage-users'
+        },
+        {
+            id: 2,
+            title: t('system_analytics'),
+            icon: <BiCog />,
+            path: '/monitor-activity'
+        },
+        {
+            id: 3,
+            title: t('report'),
+            icon: <BiChart />,
+            path: '/print-report-admin'
+        },
+    ];
 
     return (
         <div className='card--container'>

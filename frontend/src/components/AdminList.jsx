@@ -1,4 +1,6 @@
+// AdminList.jsx
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import "../styles/adminList.css"; // Използвайте вашия стилов файл
 import ProfilePicture from '../assets/ProfilePicture.jpg'; // Примерна картинка
 
@@ -21,14 +23,16 @@ const users = [
 ];
 
 const AdminList = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="admin--list">
             <div className="list--header">
-                <h2>Users</h2>
+                <h2>{t('users')}</h2>
                 <select>
-                    <option value="all">All</option>
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
+                    <option value="all">{t('all')}</option>
+                    <option value="active">{t('active')}</option>
+                    <option value="inactive">{t('inactive')}</option>
                 </select>
             </div>
             <div className="list--container">
