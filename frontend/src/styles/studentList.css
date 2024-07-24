@@ -1,68 +1,104 @@
 .student--list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.list--header {
+  display: flex;
+  margin: 2rem 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list--header h2 {
+  color: #526d82;
+}
+
+.list--header select {
+  border-radius: 10px;
+  border: none;
+  padding: 8px 12px;
+  border: 1px solid #dde6ed;
+  color: #526d82;
+}
+
+.list--container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 60px; 
+}
+
+.list {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
   
-  .list--header {
-    display: flex;
-    margin: 2rem 0;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .list--header h2 {
-    color: #526d82;
-  }
-  
-  .list--header select {
-    border-radius: 10px;
-    border: none;
-    padding: 8px 12px;
-    border: 1px solid #dde6ed;
-    color: #526d82;
-  }
-  
-  .list--container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .list {
-    display: flex;
-    padding-right: 10px;
-    align-items: center;
-    justify-content: space-between;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .student--class {
-    text-align: right;
-    flex: 1;
-    padding-right: 450px;
-  }
-  
-  .student--progress {
-    padding-right: 50px;
-  }
-  
-  .student--detail {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: #526d82;
-  }
-  
-  .student--detail img {
-    width: 50px;
-    background: #dde6ed;
-    border-radius: 50%;
-  }
-  
-  .list:hover {
-    background: #dde6ed;
-    border-radius: 10px;
-    align-items: center;
-  }
-  
+}
+
+.teacher--detail {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #526d82;
+}
+
+.teacher--image {
+  width: 50px;
+  background: #dde6ed;
+  border-radius: 50%;
+}
+
+.teacher--name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.teacher--subject {
+  color: #8a9a5b;
+}
+
+.teacher--assignments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assignment {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #dde6ed;
+}
+
+.assignment.completed {
+  background: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.assignment.in-progress {
+  background: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.assignment.not-started {
+  background: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.assignment--title {
+  font-size: 16px;
+  color: #526d82;
+}
+
+.assignment--status {
+  font-size: 14px;
+  color: #8a9a5b;
+}
