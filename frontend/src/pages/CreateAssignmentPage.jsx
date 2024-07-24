@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { BiTask, BiListUl, BiUser } from "react-icons/bi";
 import Sidebar from "../components/Sidebar";
+import { useTranslation } from "react-i18next"; // Импортиране на useTranslation
 import "../styles/createAssignmentPage.css"; // Вашите стилове
 
 const CreateAssignment = () => {
+  const { t } = useTranslation(); // Използване на useTranslation
   const userRole = 'teacher'; // Актуализирайте според нуждите
 
   const [assignmentTitle, setAssignmentTitle] = useState("");
   const [instructions, setInstructions] = useState("");
   const [deadline, setDeadline] = useState("");
+  const [points, setPoints] = useState(""); // Ново състояние за точките
   const [selectedClass, setSelectedClass] = useState(null);
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [assignments, setAssignments] = useState([]);
@@ -34,7 +37,7 @@ const CreateAssignment = () => {
     const deadlineDate = new Date(deadline);
     
     if (deadlineDate < today) {
-      setError("Deadline cannot be in the past!");
+      setError(t("deadline_error"));
       return;
     }
 
@@ -43,14 +46,17 @@ const CreateAssignment = () => {
       title: assignmentTitle,
       instructions: instructions,
       deadline: deadline,
+      points: points, // Добавяне на точките към новото задание
     };
     setAssignments([...assignments, newAssignment]);
     console.log(`Created assignment: ${assignmentTitle}`);
     console.log(`Instructions: ${instructions}`);
     console.log(`Deadline: ${deadline}`);
+    console.log(`Points: ${points}`);
     setAssignmentTitle("");
     setInstructions("");
     setDeadline("");
+    setPoints(""); // Нулиране на полето за точки
     setError("");
   };
 
@@ -67,35 +73,35 @@ const CreateAssignment = () => {
       <Sidebar role={userRole} />
       <div className="dashboard--content">
         <div className="create-assignment">
-          <h2>Create Assignment</h2>
+          <h2>{t("create_assignment")}</h2>
           <div className="assignment-form">
             {/* Assignment Details */}
             <div className="assignment-details">
               <div className="assignment-form__header">
                 <BiTask className="icon" />
-                <h3>Assignment Details</h3>
+                <h3>{t("assignment_details")}</h3>
               </div>
               <div className="form-group">
-                <label htmlFor="assignment-title">Assignment Title</label>
+                <label htmlFor="assignment-title">{t("assignment_title")}</label>
                 <input
                   type="text"
                   id="assignment-title"
                   value={assignmentTitle}
                   onChange={(e) => setAssignmentTitle(e.target.value)}
-                  placeholder="Enter the title of the assignment"
+                  placeholder={t("enter_assignment_title")}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="instructions">Instructions</label>
+                <label htmlFor="instructions">{t("instructions")}</label>
                 <textarea
                   id="instructions"
                   value={instructions}
                   onChange={(e) => setInstructions(e.target.value)}
-                  placeholder="Provide instructions for the assignment"
+                  placeholder={t("provide_instructions")}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="deadline">Deadline</label>
+                <label htmlFor="deadline">{t("deadline")}</label>
                 <input
                   type="date"
                   id="deadline"
@@ -103,50 +109,60 @@ const CreateAssignment = () => {
                   onChange={(e) => setDeadline(e.target.value)}
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="points">{t("points")}</label>
+                <input
+                  type="number"
+                  id="points"
+                  value={points}
+                  onChange={(e) => setPoints(e.target.value)}
+                  placeholder={t("enter_points")}
+                />
+              </div>
               {error && <p className="error">{error}</p>}
-              <button onClick={handleCreateAssignment}>Create Assignment</button>
+              <button className="create-assignment-button" onClick={handleCreateAssignment}>{t("create")}</button>
             </div>
 
             {/* Assign Assignment */}
             <div className="assign-assignment">
               <div className="assignment-form__header">
                 <BiListUl className="icon" />
-                <h3>Assign Assignment</h3>
+                <h3>{t("assign_assignment")}</h3>
               </div>
               <div className="form-group">
-                <label htmlFor="assignments">Select Assignment</label>
+                <label htmlFor="assignments">{t("select_assignment")}</label>
                 <Select
                   id="assignments"
                   options={assignments.map(assignment => ({ value: assignment.id, label: assignment.title }))}
                   value={selectedAssignment}
                   onChange={(selectedOption) => setSelectedAssignment(selectedOption)}
-                  placeholder="Select Assignment"
+                  placeholder={t("select_assignment")}
                   isClearable
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="class">Select Class</label>
+                <label htmlFor="class">{t("select_class")}</label>
                 <Select
                   id="class"
                   options={classes.map(cls => ({ value: cls.id, label: cls.name }))}
                   value={selectedClass}
                   onChange={(selectedOption) => setSelectedClass(selectedOption)}
-                  placeholder="Select Class"
+                  placeholder={t("select_class")}
                   isClearable
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="students">Select Students</label>
+                <label htmlFor="students">{t("select_students")}</label>
                 <Select
                   id="students"
                   options={students.map(student => ({ value: student.id, label: student.name }))}
                   value={selectedStudents}
                   onChange={(selectedOptions) => setSelectedStudents(selectedOptions)}
-                  placeholder="Select Students"
+                  placeholder={t("select_students")}
                   isMulti
                 />
               </div>
-              <button onClick={handleAssignAssignment}>Assign Assignment</button>
+              <button className="assign-button" onClick={handleAssignAssignment}>{t("assign")}</button>
             </div>
           </div>
         </div>

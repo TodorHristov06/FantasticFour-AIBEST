@@ -154,11 +154,11 @@ body {
 button {
   background: #27374d;
   color: #fff;
-  padding: 12px 20px;
+  padding: 8px 16px; /* Намаляване на padding-а */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px; /* Намаляване на размера на шрифта */
   transition: background 0.3s ease;
   margin-top: 20px;
 }
@@ -171,3 +171,17 @@ button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.create-assignment-button {
+ height: 45px;
+ width: 200px;
+}
+.assign-button {
+  height: 45px;
+  width: 200px;
+ }
