@@ -111,7 +111,8 @@
   "selectPeriod": "Изберете период",
   "reportResults": "Резултати от Отчета",
   "pleaseSelectStudentPeriod": "Моля, изберете както студент, така и период.",
-  "reportFor": "Отчет за {{student}} за {{period}}"
+  "reportFor": "Отчет за {{student}} за {{period}}",
+  "Logout" : "Изход"
   
   
   

@@ -57,25 +57,16 @@ const Sidebar = ({ role }) => {
                 <BiBookAlt className='logo-icon'/>
                 <h2>Fantastic Four</h2>
                 <div className="user-info">
-                    <img src={ProfilePicture} alt="Profile" className="profile-picture" />
                     <div>
+                        <img src={ProfilePicture} alt="Profile" className="profile-picture" />
                         <div className="username">{user.username}</div>
                         <div className="role">{user.role}</div>
                     </div>
                 </div>
             </div>
+            <div className="divider"></div>
 
-            <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
-                    {i18n.language === 'en' ? (
-                        <>
-                            <Flag code="BG" height="16" className="flag-icon"/> Български
-                        </>
-                    ) : (
-                        <>
-                            <Flag code="GB" height="16" className="flag-icon"/> English
-                        </>
-                    )}
-                </button>
+            
 
             <div className="menu--list">
                 <Link to={getDashboardLink()} className="item">
@@ -132,6 +123,18 @@ const Sidebar = ({ role }) => {
                 )}
                 
             </div>
+
+            <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
+                    {i18n.language === 'en' ? (
+                        <>
+                            <Flag code="BG" height="16" className="flag-icon"/> Български
+                        </>
+                    ) : (
+                        <>
+                            <Flag code="GB" height="16" className="flag-icon"/> English
+                        </>
+                    )}
+            </button>
 
             <div className="bottom-logout">
                 <button className="logout-button" onClick={handleLogout}>

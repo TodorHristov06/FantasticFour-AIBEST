@@ -114,6 +114,8 @@
   "selectPeriod": "Select Period",
   "reportResults": "Report Results",
   "pleaseSelectStudentPeriod": "Please select both student and period.",
-  "reportFor": "Report for {{student}} for {{period}}"
+  "reportFor": "Report for {{student}} for {{period}}",
+
+  "Logout" : "Logout"
 }
 
