@@ -4,6 +4,8 @@ using HWPlatform.DAL.Data;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper.QueryableExtensions;
+using AutoMapper.Configuration.Annotations;
+using HWPlatform.DAL.Models;
 
 namespace HWPlatform.BLL.Implementations;
 
@@ -121,5 +123,10 @@ internal class UserService : IUserService
         await this.dbContext.SaveChangesAsync();
 
         return await this.GetUserByEmailAsync(email);
+    }
+
+    public async Task<bool> CheckIfUserExistsByEmailAsync(string email)
+    {
+        return await this.dbContext.Users.SingleOrDefaultAsync(u => u.Email == email) is not null;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HWPlatform.Common.Models.User;
+using System.Transactions;
 
 namespace HWPlatform.BLL.Contracts;
 
@@ -24,4 +25,7 @@ public interface IUserService
 
     // Generate random pass for auth service
     Task UpdatePasswordForAuthServiceAsync(string email);
+
+    // Check if user exists by email
+    Task<bool> CheckIfUserExistsByEmailAsync(string email);
 }
