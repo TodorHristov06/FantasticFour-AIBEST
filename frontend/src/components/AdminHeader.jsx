@@ -1,10 +1,12 @@
 import React from 'react';
-import { BiNotification, BiSearch, BiCog } from 'react-icons/bi';
+import { useTranslation } from 'react-i18next';
 
 const AdminHeader = () => {
+    const { t } = useTranslation(); // Използвайте useTranslation за локализация
+
     return (
         <div className='content--header'>
-            <h1 className="header--title">Admin Dashboard</h1>
+            <h1 className="header--title">{t('admin_dashboard')}</h1>
             <div className="header--activity">
             </div>
         </div>

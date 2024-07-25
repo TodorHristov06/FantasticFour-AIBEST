@@ -141,11 +141,11 @@ const Sidebar = ({ role }) => {
             <button className="language-button" onClick={() => handleLanguageChange(i18n.language === 'en' ? 'bg' : 'en')}>
                     {i18n.language === 'en' ? (
                         <>
-                            <Flag code="BG" height="16" className="flag-icon"/> Български
+                            <Flag code="GB" height="16" className="flag-icon"/> English
                         </>
                     ) : (
                         <>
-                            <Flag code="GB" height="16" className="flag-icon"/> English
+                            <Flag code="BG" height="16" className="flag-icon"/> Български
                         </>
                     )}
             </button>
