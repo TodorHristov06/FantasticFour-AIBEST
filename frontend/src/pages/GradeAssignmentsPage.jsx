@@ -9,18 +9,18 @@ const GradeAssignmentsPage = () => {
   const userRole = 'teacher';
 
   const [assignments, setAssignments] = useState([
-    { id: 1, student: 'Tom Brown', class: 'Math 101', subject: 'Algebra', assignment: 'Homework 1', deadline: '2023-12-20', grade: '', status: 'Not Submitted', description: 'Solve problems 1 to 5', file: '' },
-    { id: 2, student: 'Lucy White', class: 'English Literature', subject: 'Shakespeare', assignment: 'Essay 1', deadline: '2023-12-21', grade: '', status: 'Submitted', description: 'Write an essay on Hamlet', file: 'essay1.pdf' },
-    { id: 3, student: 'Emma Green', class: 'Physics Fundamentals', subject: 'Newtonian Mechanics', assignment: 'Lab Report 1', deadline: '2023-12-22', grade: '', status: 'Not Submitted', description: 'Complete the lab report', file: '' },
-    { id: 4, student: 'John Doe', class: 'Biology 102', subject: 'Genetics', assignment: 'Homework 2', deadline: '2023-12-23', grade: '', status: 'Submitted', description: 'Answer questions 1 to 10', file: 'homework2.pdf' },
-    { id: 5, student: 'Jane Smith', class: 'Chemistry 101', subject: 'Organic Chemistry', assignment: 'Project 1', deadline: '2023-12-24', grade: '', status: 'Not Submitted', description: 'Prepare a presentation on hydrocarbons', file: '' },
-    { id: 6, student: 'Mark Johnson', class: 'History 101', subject: 'Ancient Civilizations', assignment: 'Essay 2', deadline: '2023-12-25', grade: '', status: 'Submitted', description: 'Write an essay on Ancient Egypt', file: 'essay2.pdf' },
-    { id: 7, student: 'Emily Davis', class: 'Math 101', subject: 'Geometry', assignment: 'Homework 3', deadline: '2023-12-26', grade: '', status: 'Not Submitted', description: 'Solve problems 6 to 10', file: '' },
-    { id: 8, student: 'Michael Brown', class: 'English Literature', subject: 'Modern Poetry', assignment: 'Essay 3', deadline: '2023-12-27', grade: '', status: 'Submitted', description: 'Analyze a poem by T.S. Eliot', file: 'essay3.pdf' },
-    { id: 9, student: 'Sarah Wilson', class: 'Physics Fundamentals', subject: 'Thermodynamics', assignment: 'Lab Report 2', deadline: '2023-12-28', grade: '', status: 'Not Submitted', description: 'Complete the thermodynamics lab', file: '' },
-    { id: 10, student: 'Chris Taylor', class: 'Biology 102', subject: 'Evolution', assignment: 'Homework 4', deadline: '2023-12-29', grade: '', status: 'Submitted', description: 'Discuss the theory of evolution', file: 'homework4.pdf' },
-    { id: 11, student: 'Anna Lee', class: 'Chemistry 101', subject: 'Inorganic Chemistry', assignment: 'Project 2', deadline: '2023-12-30', grade: '', status: 'Not Submitted', description: 'Research on metal complexes', file: '' },
-    { id: 12, student: 'David Clark', class: 'History 101', subject: 'Medieval Europe', assignment: 'Essay 4', deadline: '2023-12-31', grade: '', status: 'Submitted', description: 'Write an essay on the feudal system', file: 'essay4.pdf' },
+    { id: 1, student: 'Tom Brown', class: 'Math 101', subject: 'Algebra', assignment: 'Homework 1', deadline: '2024-12-20', grade: '', status: 'Not Submitted', description: 'Solve problems 1 to 5', file: '' },
+    { id: 2, student: 'Lucy White', class: 'English Literature', subject: 'Shakespeare', assignment: 'Essay 1', deadline: '2024-12-21', grade: '', status: 'Submitted', description: 'Write an essay on Hamlet', file: 'essay1.pdf' },
+    { id: 3, student: 'Emma Green', class: 'Physics Fundamentals', subject: 'Newtonian Mechanics', assignment: 'Lab Report 1', deadline: '2024-12-22', grade: '', status: 'Not Submitted', description: 'Complete the lab report', file: '' },
+    { id: 4, student: 'John Doe', class: 'Biology 102', subject: 'Genetics', assignment: 'Homework 2', deadline: '2024-12-23', grade: '', status: 'Submitted', description: 'Answer questions 1 to 10', file: 'homework2.pdf' },
+    { id: 5, student: 'Jane Smith', class: 'Chemistry 101', subject: 'Organic Chemistry', assignment: 'Project 1', deadline: '2024-12-24', grade: '', status: 'Not Submitted', description: 'Prepare a presentation on hydrocarbons', file: '' },
+    { id: 6, student: 'Mark Johnson', class: 'History 101', subject: 'Ancient Civilizations', assignment: 'Essay 2', deadline: '2024-12-25', grade: '', status: 'Submitted', description: 'Write an essay on Ancient Egypt', file: 'essay2.pdf' },
+    { id: 7, student: 'Emily Davis', class: 'Math 101', subject: 'Geometry', assignment: 'Homework 3', deadline: '2024-12-26', grade: '', status: 'Not Submitted', description: 'Solve problems 6 to 10', file: '' },
+    { id: 8, student: 'Michael Brown', class: 'English Literature', subject: 'Modern Poetry', assignment: 'Essay 3', deadline: '2024-12-27', grade: '', status: 'Submitted', description: 'Analyze a poem by T.S. Eliot', file: 'essay3.pdf' },
+    { id: 9, student: 'Sarah Wilson', class: 'Physics Fundamentals', subject: 'Thermodynamics', assignment: 'Lab Report 2', deadline: '2024-12-28', grade: '', status: 'Not Submitted', description: 'Complete the thermodynamics lab', file: '' },
+    { id: 10, student: 'Chris Taylor', class: 'Biology 102', subject: 'Evolution', assignment: 'Homework 4', deadline: '2024-12-29', grade: '', status: 'Submitted', description: 'Discuss the theory of evolution', file: 'homework4.pdf' },
+    { id: 11, student: 'Anna Lee', class: 'Chemistry 101', subject: 'Inorganic Chemistry', assignment: 'Project 2', deadline: '2024-12-30', grade: '', status: 'Not Submitted', description: 'Research on metal complexes', file: '' },
+    { id: 12, student: 'David Clark', class: 'History 101', subject: 'Medieval Europe', assignment: 'Essay 4', deadline: '2024-12-31', grade: '', status: 'Submitted', description: 'Write an essay on the feudal system', file: 'essay4.pdf' },
     { id: 13, student: 'Sophia Martinez', class: 'Math 101', subject: 'Calculus', assignment: 'Homework 5', deadline: '2024-01-01', grade: '', status: 'Not Submitted', description: 'Solve integrals from the worksheet', file: '' },
     { id: 14, student: 'James Anderson', class: 'English Literature', subject: 'Renaissance Literature', assignment: 'Essay 5', deadline: '2024-01-02', grade: '', status: 'Submitted', description: 'Compare works by Dante and Chaucer', file: 'essay5.pdf' },
   ]);
@@ -150,7 +150,7 @@ const GradeAssignmentsPage = () => {
               <div className="assignment-details-content">
                 <div className="left-section">
                   <h4>{t('student')}: {selectedAssignment.student}</h4>
-                  <h4>{t('assignment')}: {selectedAssignment.assignment}</h4>
+                  <h4>{t('assignment_type')}: {selectedAssignment.assignment}</h4>
                   <p>{t('description')}: {selectedAssignment.description}</p>
                   <h4>{t('student_comment')}</h4>
                   <p>{selectedAssignment.studentComment || t('no_comment')}</p>
