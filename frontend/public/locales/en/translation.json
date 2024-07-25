@@ -89,7 +89,7 @@
   "grades":"Grades",
   "students_assignments":"Students Assignments",
   "manage_users": "Manage Users",
-  "system_management": "System Management",
+  "system_management": "System Analytics",
   "manage_classes": "Manage Classes",
   "print_report": "Print Report",
   "student_assignments": "Assignments",
@@ -124,9 +124,15 @@
   "user_management": "User Management",
   "system_analytics": "System Analytics",
   "report": "Report",
+
+  "admin_dashboard":"Admin Dashboard",
   "users": "Users",
   "active": "Active",
   "inactive": "Inactive",
+  "role_teacher": "Teacher",
+  "role_student": "Student",
+  "status_active": "Active",
+  "status_inactive": "Inactive",
 
   "create_assignment": "Create Assignment",
   "assignment_details": "Assignment Details",
@@ -211,7 +217,8 @@
   "not_started": "Not Started",
   "completed_status": "Completed",
   "in_progress_status": "In Progress",
-  "not_started_status": "Not Started"
+  "not_started_status": "Not Started",
+  "assignment_type": "Аssignment"
   
 }
 

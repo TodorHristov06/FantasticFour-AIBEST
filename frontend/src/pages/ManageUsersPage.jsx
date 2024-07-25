@@ -39,9 +39,10 @@ const ManageUsersPage = () => {
 
   const data = useMemo(
     () => [
-      { id: 1, name: 'John Doe', email: 'todorhristov2006@gmail.com', role: 'Student' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'Teacher' },
-      { id: 3, name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin' },
+      { id: 1, name: 'Dimitar Hristov', email: 'dimitarhristov2006@gmail.com', role: 'Student' },
+      { id: 2, name: 'Petar Petrov', email: 'p.petrov96@gmail.com', role: 'Teacher' },
+      { id: 3, name: 'John Smith', email: 'johnes1970@abv.com', role: 'Admin' },
+      { id: 4, name: 'Evgeni Ganchev', email: 'ev_ganchev06@gmail.com', role: 'Student' },
     ],
     []
   );
