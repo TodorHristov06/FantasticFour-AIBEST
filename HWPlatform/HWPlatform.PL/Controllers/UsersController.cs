@@ -9,7 +9,7 @@ namespace HWPlatform.PL.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize(Roles = "Admin")]
+//[Authorize(Roles = "Admin")]
 
 public class UsersController : ControllerBase
 {

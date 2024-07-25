@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace HWPlatform.Common.Models.Subject;
 
-namespace HWPlatform.Common.Models.Subject
+public class SubjectVM
 {
-    internal class SubjectVM
-    {
-    }
+    public string Name { get; set; } = string.Empty;
 }

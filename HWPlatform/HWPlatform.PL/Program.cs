@@ -30,6 +30,8 @@ namespace HWPlatform.PL
             // Add Automapper
             builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+            builder.Services.AddAuthentication().AddBearerToken();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -42,7 +44,7 @@ namespace HWPlatform.PL
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-            // Add authentication
+            
 
             app.MapControllers();
 

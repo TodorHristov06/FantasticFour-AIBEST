@@ -1,4 +1,6 @@
-﻿namespace HWPlatform.BLL.Contracts;
+﻿using HWPlatform.Common.Models.Subject;
+
+namespace HWPlatform.BLL.Contracts;
 
 public interface ISubjectService
 {
@@ -9,5 +11,14 @@ public interface ISubjectService
     Task RemoveSubjectFromTeacherAsync(string email, int subjectId);
 
     // Check if subject exists
-    Task<bool> CheckIfSubjectExists(int subjectId);
+    Task<bool> CheckIfSubjectExistsAsync(int subjectId);
+
+    // Create subject
+    Task CreateSubjectAsync(string name, SubjectIM subjectIM);
+    
+    // Delete subject
+    Task DeleteSubjectByIdAsync(int subjectId);
+
+    // Get subject by id
+    Task<SubjectVM> GetSubjectByIdAsync(int subjectId);
 }
