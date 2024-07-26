@@ -1,0 +1,206 @@
+/* Основен стил за страницата */
+.assign-classes {
+  padding: 20px;
+  background: #f5f7fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  box-sizing: border-box;
+}
+
+/* Контейнер за заглавие и падащо меню за език */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header-container h2 {
+  color: #1c2a38;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Стил за падащото меню за език */
+.language-dropdown {
+  width: 150px;
+  margin-left: auto;
+}
+
+/* Контейнер за горните боксове */
+.info-boxes {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Индивидуален бокс за горната част */
+.info-box {
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 30%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.info-box.active {
+  background: #1c2a38;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-box:hover {
+  background: #eaeaea;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-box h3 {
+  font-size: 20px;
+  color: #1c2a38;
+  margin-bottom: 10px;
+}
+
+.info-box.active h3 {
+  color: #fff;
+}
+
+.info-box p {
+  font-size: 16px;
+  color: #495057;
+}
+
+.info-box.active p {
+  color: #fff;
+}
+
+/* Стил за формите в долната част */
+.assign-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Индивидуален бокс за форма */
+.assign-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заглавие на формата */
+.assign-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1c2a38;
+}
+
+/* Стилове за react-select компонента */
+.assign-box .react-select__control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assign-box .react-select__control--is-focused {
+  border-color: #1c2a38;
+  box-shadow: 0 0 0 2px rgba(28, 42, 56, 0.1);
+}
+
+.assign-box .react-select__placeholder {
+  color: #999;
+}
+
+.assign-box .react-select__menu {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.assign-box .react-select__option {
+  padding: 10px;
+}
+
+.assign-box .react-select__option--is-focused {
+  background: #f0f0f0;
+}
+
+.assign-box .react-select__option--is-selected {
+  background: #1c2a38;
+  color: #fff;
+}
+
+/* Стилове за полета за въвеждане */
+.assign-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Стилове за информационния бокс */
+.info-box {
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 100%; /* Увеличена ширина на info-box */
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.info-box.active {
+  background: #1c2a38;
+  color: #fff;
+}
+
+.info-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1c2a38;
+}
+
+.info-box.active h3 {
+  color: #fff;
+}
+
+.info-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.info-box.active p {
+  color: #fff;
+}
+
+/* Стилове за бутоните */
+button {
+  background: #27374d;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: #1c2a38;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,55 @@
+.language-selector {
+    position: absolute; 
+    top: 40px; 
+    right: 70px; 
+}
+
+.language-dropdown {
+    width: 170px; 
+    margin-left: auto;
+}
+
+.language-dropdown .react-select__control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    width: 170px;
+}
+
+.language-dropdown .react-select__control--is-focused {
+    border-color: #1c2a38;
+}
+
+.language-dropdown .react-select__placeholder {
+    color: #999;
+}
+
+.language-dropdown .react-select__menu {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.language-dropdown .react-select__option {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.language-dropdown .react-select__option--is-focused {
+    background: #f0f0f0;
+}
+
+.language-dropdown .react-select__option--is-selected {
+    background: #1c2a38;
+    color: #fff;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+}
+
+.option-flag {
+    font-size: 15px;
+    margin-right: 10px;
+}

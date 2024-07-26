@@ -1,0 +1,104 @@
+/* src/styles/studentGradesPage.css */
+
+.dashboard {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  .sidebar {
+    flex: 0.2;
+    border-right: 1px solid #27374d;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .dashboard--content {
+    flex: 1;
+    background: #fff;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .dashboard-student {
+    background-color: #acd6e6;
+  }
+  
+  .grades-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: #f5f7fa;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+  }
+  
+  .grades-list h2 {
+    color: #27374d;
+    text-align: center;
+  }
+  
+  .grades {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .grade-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .grade-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #526d82;
+  }
+  
+  .grade-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .grade-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #526d82;
+  }
+  
+  .grade-detail strong {
+    color: #27374d;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: #526d82;
+  }
+  
+  .not-graded {
+    color: #ff6347; /* Червен цвят за неоценените домашни */
+  }
+  
+  .not-graded-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ff6347;
+    margin-top: 1rem;
+  }
+  

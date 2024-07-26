@@ -1,0 +1,41 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Скриване на вертикалния скрол */
+}
+
+.dashboard {
+  display: flex;
+  align-items: stretch; /* Разтегля съдържанието да заема цялата височина */
+  width: 100vw;
+  height: 100vh;
+  padding: 0; /* Премахване на padding, ако не е необходим */
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0.2; /* Определете ширината на sidebar-а */
+  border-right: 1px solid #27374d;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard--content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* Добавете това, ако искате съдържанието да бъде подредено вертикално */
+  gap: 1.5rem;
+  flex: 1; /* Разширете това, за да запълните останалото пространство */
+  height: 100%; /* Пълна височина */
+  box-sizing: border-box;
+}
+
+.dashboard-green {
+  background-color: #b8e6ac;
+}
