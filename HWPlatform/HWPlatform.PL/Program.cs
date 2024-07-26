@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using HWPlatform.DAL.Data;
 using HWPlatform.DAL.Models;
+using HWPlatform.PL.Mapping;
 
 namespace HWPlatform.PL
 {
@@ -26,19 +27,24 @@ namespace HWPlatform.PL
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Add Automapper
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+            builder.Services.AddAuthentication().AddBearerToken();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AIBEST HWPlatform API V1");
+            });
 
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            
 
             app.MapControllers();
 
